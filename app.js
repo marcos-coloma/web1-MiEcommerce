@@ -2,17 +2,24 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 
-// configurar EJS
+// configuracion de EJS
 app.set("view engine", "ejs");
 
 app.use(express.static("assets"));
 
-// ruta home
+
+//--------------Rutas-----------------//
+
 app.get("/", (req, res) => {
     res.render("pages/home");
 });
 
-// levantar servidor
+app.get("/cart", (req, res) => {
+    res.render("pages/cart");
+});
+//-------------------------------//
+
+// levantar el servidor
 app.listen(PORT, () => {
     console.log("Servidor corriendo en http://localhost:3000");
 });
