@@ -1,0 +1,1572 @@
+:root {
+    --color-primario: rgb(136, 91, 182);
+}
+            html, body {
+                height: 100%;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+            }
+            main {
+                flex: 1;
+            }
+            body {
+                background-color: white;
+                margin: 0;
+                padding: 0;
+                font-family: 'Montserrat', sans-serif;
+            }
+            a, a:visited, a:hover, a:focus {
+                text-decoration: none;
+                color: inherit;
+            }
+            .menu {
+                margin: 2rem;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                width: 250px;
+            }
+            .menu-linea {
+                border: none;
+                height: 3px;
+                background-color: var(--color-primario);
+                width: 100%;
+                margin: 8px 0;
+            }
+            .perfil-img {
+                background-color:  var(--color-primario);
+                width: 65px;
+                height: auto;
+                border-radius: 50%;
+            }
+            .menu a {
+                text-decoration: none;
+                color: black;
+                padding: 6px 10px;
+                display: block;
+                border-radius: 4px;
+            }
+            .menu a:hover {
+                background-color: var(--color-primario);
+                color: white;
+            }
+            .perfil {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+                margin-bottom: 10px;
+            }
+            .perfil p {
+                font-size: 1.7rem;
+                margin: 0;
+                font-weight: 600;
+                color: rgb(50, 50, 50);
+            }
+
+@media (min-width: 1100px) {
+    /*INDEX.HTML*/
+        /*Encabezado*/
+            .encabezado {
+                background-color: rgb(238, 238, 238);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+                border-bottom: 1px solid rgb(111, 111, 111);
+                margin-bottom: 50px;
+            }
+            .Logo{
+                display: flex;
+                color: var(--color-primario); /* Usando la variable */
+                font-size: 24px;
+            }
+            .buscador {
+                flex-grow: 1;
+                max-width: 700px;
+                margin: 0 20px;
+            }
+            .buscador form {
+                display: flex;
+                align-items: center;
+                background: white;
+                border-radius: 30px;
+                padding: 5px 15px;
+                border: 1px solid gray;
+                height: 24px;
+            }
+            .buscador input {
+                flex-grow: 1;
+                border: none;
+                outline: 0;
+                padding: 5px;
+                font-size: 16.8px;
+                border-radius: 30px;
+            }
+            .buscador button {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+            .buscador button img {
+                height: 24px;
+            }
+            .carrito img {
+                height: 32px;
+                display: flex;
+                background-color: rgb(111, 111, 111);
+                border-radius: 30%;
+
+            }
+            .cuenta img {
+                height: 24px;
+                border-radius: 50%;
+            }
+            .cuenta-completo {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 5px 10px;
+                background-color: rgb(111, 111, 111);;
+                border: 1px solid rgb(111, 111, 111);;
+                border-radius: 20px;
+                text-decoration: none;
+            }
+            .acciones {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            }
+
+        /*botones del contenedor negro*/
+            .recuadro,
+            .recuadro-2 {
+                background-color: rgb(40, 40, 40);
+                border-radius: 30px;
+                width: 90%;
+                max-width: 900px;
+                overflow: hidden;
+            }
+            .recuadro {
+                margin: 0 auto;
+                margin-top: 50px;
+            }
+            .recuadro-2 {
+                margin: 7rem auto;
+            }
+            .desordenada {
+                padding: 0;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+            }
+            .lista-imagen,
+            .solitaria-imagen {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                width: 100px;
+                padding: 0.5rem;
+                padding-bottom: 0;
+            }
+            .lista-imagen:hover,
+            .solitaria-imagen:hover {
+            background-color: var(--color-primario); /* Usando la variable */
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            }
+            .imagen {
+                width: 40px;
+                height: 40px;
+                object-fit: contain;
+                margin-top: 4px;
+            }
+            .texto {
+                color: white;
+            }
+
+        /*Las dos imagenes principales*/
+            .recuadro-principal {
+                background-color: var(--color-primario); /* Usando la variable */
+                margin: 125px 0 75px 0;
+                position: relative;
+            }
+            .desordenada-principal {
+                display: flex;
+                margin: 0 auto;
+                padding: 0;
+                justify-content: center;
+                gap: 60px;
+            }
+            .lista-imagen-principal {
+                list-style: none;
+                padding: 0.3rem 0.7rem;
+            }
+            .imagen-principal-izquierda {
+                height: 300px;
+                position: relative;
+                top: -50px;
+                right: 28px;
+                border-radius: 40px;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+
+            }
+            .imagen-principal-derecha {
+                height: 300px;
+                width: 458px;
+                position: relative;
+                top: -50px;
+                right: 28px;
+                border-radius: 40px;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            }
+
+        /*Los dos contenedores superpuestos en las imagenes principales*/
+            .contenedor-imagen {
+                position: relative;
+                display: inline-block;
+                width: 400px;
+            }
+            .info-superpuesta {
+                position: absolute;
+                bottom: 65px;
+                background-color: rgba(97, 97, 97, 0.6);
+                padding: 6px;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            }
+            .icono {
+                height: 80px;
+                width: 120px;
+                border-radius: 20px;
+                object-fit: cover;
+            }
+            .descripcion {
+                font-size: 18px;
+                color: #ffffff;
+                font-weight: bold;
+                flex-direction: column;
+                list-style: none;
+            }
+            .descripcion-2 {
+                font-size: 14px;
+                color: #ffffff;
+                flex-direction: column;
+                list-style: none;
+            }
+
+        /*ambos subtitulos del cuerpo de la pagina*/
+            .subtitulo {
+                text-align: center;
+                margin-right: 45%;
+                margin-bottom: 2rem;
+            }
+
+        /*Imagenes de la fila del whisky y las 2 filas de coca cola*/
+            .cuerpo {
+                display: flex;
+                justify-content: center;
+                gap: 25px;
+                margin-bottom: 5rem;
+            }
+            .cuerpo-2 {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 25px;
+                justify-content: center;
+                max-width: 70rem;
+                margin: 3rem auto;
+            }
+            .contenedor-cuerpo {
+            background: #ededed;
+                padding: 0.45rem;
+                width: 13rem;
+                border-radius: 15px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.5);
+                display: flex;
+                flex-direction: column;
+            }
+            .imagen-cuerpo {
+                width: 100%;
+                height: 12rem;
+                object-fit: contain;
+                border-radius: 25px;
+            }
+
+            .info-wrapper {
+                flex-grow: 1;
+                display: flex;
+                align-items: flex-end;
+            }
+            .info-imagen {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                margin-top: 8px;
+            }
+            .texto-izq,
+            .texto-der {
+                font-size: 14px;
+                word-break: break-word;
+                width: 45%;
+                text-align: center;
+                align-items: start;
+                font-weight: bold;
+            }
+            .linea-vertical {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                width: 1px;
+                background-color: gray;
+                transform: translateX(-50%);
+            }
+
+            /*Pie de Pagina*/
+            footer {
+                background-color: rgb(238, 238, 238);
+                padding: 10px 100px;
+                border-top: 1px solid rgb(111, 111, 111);
+            }
+            .pie-de-pagina {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+            .grupo-1,
+            .grupo-3 {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+            }
+            .grupo-2 p {
+                color: gray;
+                margin: 0;
+            }
+            .imagen-pie {
+                height: 40px;
+            }
+            .descripcion-pie {
+                color: gray;
+                font-size: 14px;
+                margin-left: 5px;
+            }
+            .boton-app {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+
+
+        /* LOGIN.HTML y REGISTER.HTML*/
+
+        /* encabezado */
+            .encabezado-login {
+                padding: 2rem;
+            }
+
+        /* inicio de sesión - y registro */
+            .main-login {
+                padding: 5rem 0rem;
+                background-color: var(--color-primario); /* Usando la variable */
+                margin-bottom: 8rem;
+                display: flex;
+                justify-content: center;
+            }
+            .formulario {
+                padding: 3.5rem 2rem;
+                background-color: white;
+                display: inline-block;
+                width: 100%;
+                max-width: 400px;
+                border-radius: 2rem;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+                min-width: 300px;
+                margin-bottom: -12rem;
+            }
+            .Hola {
+                font-size: 2.5rem;
+                display: block;
+                margin-bottom: 2rem;
+                text-align: start;
+            }
+            .input {
+                font-size: .6rem;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                border-radius: 2rem;
+                border: 0.1rem solid gray;
+                padding: 0.8rem 1.2rem;
+                margin-bottom: 1rem;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .input::placeholder {
+                font-size: 13px;
+            }
+            .sesion {
+                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+                background-color: rgb(66, 66, 66);
+                color: white;
+                border-radius: 2rem;
+                display: flex;
+                justify-content: center;
+                margin-top: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            .sesion:hover {
+                background-color: var(--color-primario); /* Usando la variable */
+            }
+            .register {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 12rem;
+                font-size: 15px;
+            }
+            .sesion a {
+                color: white !important;
+            }
+            .register-link {
+                color: gray !important;
+                text-decoration: underline !important;
+            }
+
+    /*PRODUCT 1 y 2.HTML*/
+        /*contenido principal*/
+            .producto-whiskey {
+                width: 55rem;
+                padding: 0.4rem;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.35);
+                border-radius: 1rem;
+                display: flex;
+                margin: 0 auto;
+                min-height: 300px;
+                margin-bottom: 5rem;
+            }
+            .producto-whiskey-contenido {
+                display: flex;
+                height: 100%;
+                width: 100%;
+            }
+            .producto-img {
+                width: 500px;
+                height: auto;
+                object-fit: cover;
+                border-radius: 1rem;
+            }
+            .producto-whiskey-contenido-descripcion {
+                background-color: rgb(246, 246, 246);
+                border: 0.1rem solid rgb(199, 199, 199);
+                border-radius: 1rem;
+                padding: 0.2rem 1rem 1rem 1rem;
+                margin-left: 1rem;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                min-width: 0;
+            }
+            .volver-listado {
+                display: inline-block;
+                text-decoration: none;
+                color: inherit;
+                margin-left: 21.6%;
+                margin-bottom: 1.1rem;
+                }
+            .subtitulo-2 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                font-weight: 500;
+                font-size: 1.1rem;
+                cursor: pointer;
+                color: rgb(75, 75, 75);
+                }
+            .subtitulo-2 img {
+                width: 20px;
+                height: auto;
+                }
+
+    /*CARRITO*/
+        /*contenido principal*/
+            .subtitulo-3 {
+                margin-left: 21.6%;
+                margin-bottom: 1.1rem;
+            }
+            .carrito-caja {
+                height: 5rem;
+                width: 55rem;
+                margin: auto;
+                margin-bottom: 1.2rem;
+                padding: 1rem 3rem;
+                display:flex;
+                background-color: rgb(235, 235, 235);
+                justify-content: space-between;
+                border-radius: 2rem;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            }
+            .cantidad {
+                display: flex;
+                width: 4rem;
+                border: 2px solid rgb(84, 84, 84);
+                border-radius: 2rem;
+                margin: auto;
+                padding: .5rem .8rem;
+                justify-content: space-between;
+            }
+            .caja-1 {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            .caja-2 {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            .sesion-margen {
+                margin: auto;
+            }
+            .tamaño-p {
+                font-size: 1.2rem;
+            }
+            .imagen-carrito {
+                height: 100%;
+                border-radius: 1rem;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            }
+            .puntos {
+                font-size: 25px;
+            }
+            .Total {
+                margin-left: 60%;
+            }
+            .sesion-3 {
+                width: 5rem;
+                margin-left: 66%;
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+
+            .bg {
+                background-color: rgb(244, 244, 244);
+            }
+
+
+}
+@media (min-width: 320px ) and (max-width: 760px) {
+    /*INDEX.HTML*/
+        /*Encabezado*/
+            .encabezado {
+                background-color: rgb(238, 238, 238);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+                border-bottom: 1px solid rgb(111, 111, 111);
+                margin-bottom: 50px;
+            }
+            .Logo{
+                color: var(--color-primario); /* Usando la variable */
+                font-size: 20px;
+            }
+            .buscador {
+                flex-grow: 1;
+                max-width: 700px;
+                margin: 0 5px;
+            }
+            .buscador form {
+                display: flex;
+                align-items: center;
+                background: white;
+                border-radius: 30px;
+                padding: 5px 15px;
+                border: 1px solid gray;
+                height: 24px;
+            }
+            .buscador input {
+                flex-grow: 1;
+                border: none;
+                outline: 0;
+                padding: 5px;
+                font-size: 16.8px;
+                border-radius: 30px;
+                width: 50%;
+                min-width: 70px;
+            }
+            .buscador button {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+            .buscador button img {
+                height: 24px;
+            }
+            .carrito img {
+                height: 32px;
+                display: flex;
+                background-color: rgb(111, 111, 111);
+                border-radius: 30%;
+
+            }
+            .cuenta img {
+                height: 24px;
+                border-radius: 50%;
+            }
+            .cuenta-completo {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 5px 10px;
+                background-color: rgb(111, 111, 111);;
+                border: 1px solid rgb(111, 111, 111);;
+                border-radius: 20px;
+                text-decoration: none;
+            }
+            .acciones {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            }
+            .ocultar {
+                display: none;
+            }
+
+        /*botones del contenedor negro*/
+            .recuadro,
+            .recuadro-2 {
+                background-color: rgb(40, 40, 40);
+                border-radius: 30px;
+                width: 90%;
+                max-width: 900px;
+                overflow: hidden;
+                display: flex;
+                justify-content: start;
+                margin: 0 auto;
+            }
+            .recuadro {
+                margin-top: 50px;
+                width: 90%;
+            }
+            .recuadro-2 {
+                margin: 7rem auto;
+            }
+            .desordenada {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding-left: 0;
+                margin: 0;
+            }
+            .lista-imagen,
+            .solitaria-imagen {
+                display: flex;
+                list-style: none;
+            }
+            .lista-imagen a,
+            .solitaria-imagen a {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                width: 100%;
+                padding: 12px;
+                padding-right: 100rem;
+                border-radius: 10px;
+                transition: background-color 0.3s;
+            }
+            .lista-imagen:hover,
+            .solitaria-imagen:hover {
+            background-color: var(--color-primario); /* Usando la variable */
+            cursor: pointer;
+            }
+            .imagen {
+                width: 40px;
+                height: 40px;
+                object-fit: contain;
+                margin-top: 0;
+            }
+            .texto {
+                color: white;
+                font-size: 16px;
+                text-align: left;
+            }
+
+
+
+            
+        /*Las dos imagenes principales*/
+            .recuadro-principal {
+                background-color: var(--color-primario); /* Usando la variable */
+                margin: 125px 0 75px 0;
+                position: relative;
+                display: flex;
+            }
+            .desordenada-principal {
+                flex-direction: column;
+                align-items: center;
+            }
+            .lista-imagen-principal {
+                list-style: none;
+                padding: 0.3rem 0.1rem;
+            }
+            .imagen-principal-izquierda,
+            .imagen-principal-derecha {
+                width: 100%;
+                position: relative;
+                top: -50px;
+                right: 28px;
+                border-radius: 40px;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            }
+
+
+        /*Los dos contenedores superpuestos en las imagenes principales*/
+            .contenedor-imagen {
+                position: relative;
+            }
+            .info-superpuesta {
+                width: 80%;
+                position: absolute;
+                bottom: 65px;
+                background-color: rgba(97, 97, 97, 0.6);
+                padding: 6px;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            }
+            .icono {
+                height: auto;
+                width: 30%;
+                border-radius: 20px;
+                object-fit: cover;
+            }
+            .descripcion {
+                font-size: 18px;
+                color: #ffffff;
+                font-weight: bold;
+                flex-direction: column;
+                list-style: none;
+            }
+            .descripcion-2 {
+                font-size: 14px;
+                color: #ffffff;
+                flex-direction: column;
+                list-style: none;
+            }
+
+        /*ambos subtitulos del cuerpo de la pagina*/
+            .subtitulo {
+                text-align: center;
+                margin-right: 45%;
+                margin-bottom: 2rem;
+            }
+
+        /*Imagenes de la fila del whisky y las 2 filas de coca cola*/
+            .cuerpo {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-bottom: 5rem;
+            }
+            .cuerpo-2 {
+                display: flex;
+                flex-wrap: wrap;
+                gap: px;
+                justify-content: center;
+                margin: 3rem auto;
+            }
+            .contenedor-cuerpo {
+            background: #ededed;
+                padding: 0.45rem;
+                width: 43%;
+                height: auto;
+                border-radius: 15px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.5);
+                display: flex;
+                flex-direction: column;
+            }
+            .imagen-cuerpo {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                border-radius: 25px;
+            }
+
+            .info-wrapper {
+                flex-grow: 1;
+                display: flex;
+            }
+            .info-imagen {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                margin-top: 8px;
+            }
+            .texto-izq,
+            .texto-der {
+                font-size: 20px;
+                word-break: break-word;
+                width: 45%;
+                text-align: center;
+                align-items: start;
+                font-weight: bold;
+            }
+            .linea-vertical {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                width: 1px;
+                background-color: gray;
+                transform: translateX(-50%);
+            }
+
+        /*Pie de Pagina*/
+            footer {
+            background-color: rgb(238, 238, 238);
+            padding: 5px 50px;
+            border-top: 1px solid rgb(111, 111, 111);
+            }
+            .pie-de-pagina {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+            }
+            .grupo-1,
+            .grupo-3 {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .grupo-2 p {
+                color: gray;
+                margin: 0;
+            }
+            .boton-app .descripcion-pie {
+                display: none;
+            }
+
+
+        /* LOGIN.HTML y REGISTER.HTML*/
+
+        /* encabezado */
+            .encabezado-login {
+                padding: 2rem;
+            }
+
+        /* inicio de sesión - y registro */
+            .main-login {
+                padding: 5rem 0rem;
+                background-color: var(--color-primario); /* Usando la variable */
+                margin-bottom: 8rem;
+                display: flex;
+                justify-content: center;
+            }
+            .formulario {
+                padding: 3.5rem 2rem;
+                background-color: white;
+                display: inline-block;
+                width: 100%;
+                max-width: 400px;
+                border-radius: 2rem;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+                min-width: 300px;
+                margin-bottom: -12rem;
+            }
+            .Hola {
+                font-size: 2.5rem;
+                display: block;
+                margin-bottom: 2rem;
+                text-align: start;
+            }
+            .input {
+                font-size: .6rem;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                border-radius: 2rem;
+                border: 0.1rem solid gray;
+                padding: 0.8rem 1.2rem;
+                margin-bottom: 1rem;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .input::placeholder {
+                font-size: 13px;
+            }
+            .sesion {
+                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+                background-color: rgb(66, 66, 66);
+                color: white;
+                border-radius: 2rem;
+                display: flex;
+                justify-content: center;
+                margin-top: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            .sesion:hover {
+                background-color: var(--color-primario); /* Usando la variable */
+            }
+            .register {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 12rem;
+                font-size: 15px;
+            }
+            .sesion a {
+                color: white !important;
+            }
+            .register-link {
+                color: gray !important;
+                text-decoration: underline !important;
+            }
+
+    /*PRODUCT 1 y 2.HTML*/
+        /*contenido principal*/
+            .producto-whiskey {
+                width: 90%;
+                padding: 0.4rem;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.35);
+                border-radius: 1rem;
+
+                margin: 0 auto;
+                margin-bottom: 5rem;
+            }
+            .producto-whiskey-contenido {
+                display: flex;
+                height: auto;
+                width: 100%;
+                flex-direction: column;
+            }
+            .producto-img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                border-radius: 1rem;
+            }
+            .producto-whiskey-contenido-descripcion {
+                background-color: rgb(246, 246, 246);
+                border: 0.1rem solid rgb(199, 199, 199);
+                border-radius: 1rem;
+                padding: 0.2rem 1rem 1rem 1rem;
+                margin-left: 1rem;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                min-width: 0;
+            }
+            .volver-listado {
+                display: inline-block;
+                text-decoration: none;
+                color: inherit;
+                margin-left: 21.6%;
+                margin-bottom: 1.1rem;
+                }
+            .subtitulo-2 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                font-weight: 500;
+                font-size: 1.1rem;
+                cursor: pointer;
+                color: rgb(75, 75, 75);
+                }
+            .subtitulo-2 img {
+                width: 20px;
+                height: auto;
+                }
+
+
+
+
+            .carrito-caja {
+                display: flex;
+                flex-direction: column;
+                height: auto;
+                width: 80%;
+                margin: 0 auto;
+                margin-bottom: 2rem;
+                padding: 1rem;
+                gap: 1rem;
+                border-radius: 2rem;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            }
+
+            .caja-1 {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .imagen-carrito {
+                width: 40%;
+                height: auto;
+                border-radius: 1rem;
+            }
+
+            .tamaño-p {
+                font-size: 1.3rem;
+            }
+
+            .caja-2 {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                gap: 10%;
+                
+            }
+            .sesion-margen {
+                margin: 0;
+            }
+            .cantidad {
+                display: flex;
+                width: 14%;
+                justify-content: center;
+                padding: 0.5rem;
+                border: 1px solid rgb(158, 158, 158);
+                border-radius: 15px;
+            }
+
+            .puntos {
+                font-size: 20px;
+            }
+
+            .Total {
+                text-align: center;
+            }
+
+            .sesion-3 {
+                margin: 0 auto;
+                margin-bottom: 4rem;
+                width: 50%;
+                font-size: 1.3rem;
+            }
+
+
+            .menu {
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .perfil {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .perfil-img {
+                width: 50px;
+            }
+
+            .perfil p {
+                font-size: 1.1rem;
+            }
+}
+@media (min-width: 761px) and (max-width: 1099px) {
+
+
+
+    /*INDEX.HTML*/
+        /*Encabezado*/
+            .encabezado {
+                background-color: rgb(238, 238, 238);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+                border-bottom: 1px solid rgb(111, 111, 111);
+                margin-bottom: 50px;
+            }
+            .Logo{
+                display: flex;
+                color: var(--color-primario); /* Usando la variable */
+                font-size: 24px;
+            }
+            .buscador {
+                flex-grow: 1;
+                max-width: 700px;
+                margin: 0 20px;
+            }
+            .buscador form {
+                display: flex;
+                align-items: center;
+                background: white;
+                border-radius: 30px;
+                padding: 5px 15px;
+                border: 1px solid gray;
+                height: 24px;
+            }
+            .buscador input {
+                flex-grow: 1;
+                border: none;
+                outline: 0;
+                padding: 5px;
+                font-size: 16.8px;
+                border-radius: 30px;
+            }
+            .buscador button {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+            .buscador button img {
+                height: 24px;
+            }
+            .carrito img {
+                height: 32px;
+                display: flex;
+                background-color: rgb(111, 111, 111);
+                border-radius: 30%;
+
+            }
+            .cuenta img {
+                height: 24px;
+                border-radius: 50%;
+            }
+            .cuenta-completo {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 5px 10px;
+                background-color: rgb(111, 111, 111);;
+                border: 1px solid rgb(111, 111, 111);;
+                border-radius: 20px;
+                text-decoration: none;
+            }
+            .acciones {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            }
+
+        /*botones del contenedor negro*/
+            .recuadro,
+            .recuadro-2 {
+                background-color: rgb(40, 40, 40);
+                border-radius: 30px;
+                width: 90%;
+                max-width: 900px;
+                overflow: hidden;
+            }
+            .recuadro {
+                margin: 0 auto;
+                margin-top: 50px;
+            }
+            .recuadro-2 {
+                margin: 7rem auto;
+            }
+            .desordenada {
+                padding: 0;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+            }
+            .lista-imagen,
+            .solitaria-imagen {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                width: 100px;
+                padding: 0.5rem;
+                padding-bottom: 0;
+            }
+            .lista-imagen:hover,
+            .solitaria-imagen:hover {
+            background-color: var(--color-primario); /* Usando la variable */
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            }
+            .imagen {
+                width: 40px;
+                height: 40px;
+                object-fit: contain;
+                margin-top: 4px;
+            }
+            .texto {
+                color: white;
+            }
+
+        /*Las dos imagenes principales*/
+            .recuadro-principal {
+                background-color: var(--color-primario); /* Usando la variable */
+                margin: 125px 0 75px 0;
+                position: relative;
+            }
+            .desordenada-principal {
+                display: flex;
+                margin: 0 auto;
+                padding: 0;
+                justify-content: center;
+                gap: 5.5%;
+            }
+            .lista-imagen-principal {
+                list-style: none;
+                padding: 0.3rem 0.7rem;
+            }
+            .imagen-principal-izquierda,
+            .imagen-principal-derecha {
+                height: 250px;
+                width: 358px;
+                position: relative;
+                top: -50px;
+                right: 28px;
+                border-radius: 40px;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            }
+
+        /*Los dos contenedores superpuestos en las imagenes principales*/
+            .contenedor-imagen {
+                position: relative;
+                display: inline-block;
+                width: 300px;
+            }
+            .info-superpuesta {
+                width: 100%;
+                height: auto;
+                position: absolute;
+                bottom: 65px;
+                background-color: rgba(97, 97, 97, 0.6);
+                padding: 6px;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            }
+            .icono {
+                height: 80px;
+                width: 120px;
+                border-radius: 20px;
+                object-fit: cover;
+            }
+            .descripcion {
+                font-size: 18px;
+                color: #ffffff;
+                font-weight: bold;
+                flex-direction: column;
+                list-style: none;
+            }
+            .descripcion-2 {
+                font-size: 14px;
+                color: #ffffff;
+                flex-direction: column;
+                list-style: none;
+            }
+
+        /*ambos subtitulos del cuerpo de la pagina*/
+            .subtitulo {
+                text-align: center;
+                margin-right: 45%;
+                margin-bottom: 2rem;
+            }
+
+            .cuerpo,
+            .cuerpo-2 {
+                margin-left: 15%;
+                display: flex;
+                justify-content: start;
+                flex-wrap: wrap;
+                gap: 25px;
+                margin-bottom: 5rem;
+            }
+            .contenedor-cuerpo {
+            background: #ededed;
+                padding: 0.45rem;
+                width: 24%;
+                height: auto;
+                border-radius: 15px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.5);
+                display: flex;
+                flex-direction: column;
+            }
+            .imagen-cuerpo {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                border-radius: 25px;
+            }
+
+            .info-wrapper {
+                flex-grow: 1;
+                display: flex;
+            }
+            .info-imagen {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                margin-top: 8px;
+            }
+            .texto-izq,
+            .texto-der {
+                font-size: 16px;
+                word-break: break-word;
+                width: 45%;
+                text-align: center;
+                align-items: start;
+                font-weight: bold;
+            }
+            .linea-vertical {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                width: 1px;
+                background-color: gray;
+                transform: translateX(-50%);
+            }
+        /*Pie de Pagina*/
+            footer {
+            background-color: rgb(238, 238, 238);
+            padding: 5px 50px;
+            border-top: 1px solid rgb(111, 111, 111);
+            }
+            .pie-de-pagina {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+            }
+            .grupo-1,
+            .grupo-3 {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .grupo-2 p {
+                color: gray;
+                margin: 0;
+            }
+            .boton-app .descripcion-pie {
+                display: none;
+            }
+
+
+
+        /* LOGIN.HTML y REGISTER.HTML*/
+
+        /* encabezado */
+            .encabezado-login {
+                padding: 2rem;
+            }
+
+        /* inicio de sesión - y registro */
+            .main-login {
+                padding: 5rem 0rem;
+                background-color: var(--color-primario); /* Usando la variable */
+                margin-bottom: 8rem;
+                display: flex;
+                justify-content: center;
+            }
+            .formulario {
+                padding: 3.5rem 2rem;
+                background-color: white;
+                display: inline-block;
+                width: 100%;
+                max-width: 400px;
+                border-radius: 2rem;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+                min-width: 300px;
+                margin-bottom: -12rem;
+            }
+            .Hola {
+                font-size: 2.5rem;
+                display: block;
+                margin-bottom: 2rem;
+                text-align: start;
+            }
+            .input {
+                font-size: .6rem;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                border-radius: 2rem;
+                border: 0.1rem solid gray;
+                padding: 0.8rem 1.2rem;
+                margin-bottom: 1rem;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .input::placeholder {
+                font-size: 13px;
+            }
+            .sesion {
+                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+                background-color: rgb(66, 66, 66);
+                color: white;
+                border-radius: 2rem;
+                display: flex;
+                justify-content: center;
+                margin-top: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            .sesion:hover {
+                background-color: var(--color-primario); /* Usando la variable */
+            }
+            .register {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 12rem;
+                font-size: 15px;
+            }
+            .sesion a {
+                color: white !important;
+            }
+            .register-link {
+                color: gray !important;
+                text-decoration: underline !important;
+            }
+
+    /*PRODUCT 1 y 2.HTML*/
+        /*contenido principal*/
+            .producto-whiskey {
+                width: 45rem;
+                padding: 0.4rem;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.35);
+                border-radius: 1rem;
+                display: flex;
+                margin: 0 auto;
+                min-height: 300px;
+                margin-bottom: 5rem;
+            }
+            .producto-whiskey-contenido {
+                display: flex;
+                height: 100%;
+                width: 100%;
+            }
+            .producto-img {
+                width: 350px;
+                height: auto;
+                object-fit: cover;
+                border-radius: 1rem;
+            }
+            .producto-whiskey-contenido-descripcion {
+                background-color: rgb(246, 246, 246);
+                border: 0.1rem solid rgb(199, 199, 199);
+                border-radius: 1rem;
+                padding: 0.2rem 1rem 1rem 1rem;
+                margin-left: 1rem;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                min-width: 0;
+            }
+            .volver-listado {
+                display: inline-block;
+                text-decoration: none;
+                color: inherit;
+                margin-left: 21.6%;
+                margin-bottom: 1.1rem;
+                }
+            .subtitulo-2 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                font-weight: 500;
+                font-size: 1.1rem;
+                cursor: pointer;
+                color: rgb(75, 75, 75);
+                }
+            .subtitulo-2 img {
+                width: 20px;
+                height: auto;
+                }
+
+    /*CARRITO*/
+        /*contenido principal*/
+            .subtitulo-3 {
+                margin-left: 21.6%;
+                margin-bottom: 1.1rem;
+            }
+            .carrito-caja {
+                height: 5rem;
+                width: 35rem;
+                margin: auto;
+                margin-bottom: 1.2rem;
+                padding: 1rem 3rem;
+                display:flex;
+                background-color: rgb(235, 235, 235);
+                justify-content: space-between;
+                border-radius: 2rem;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            }
+            .cantidad {
+                display: flex;
+                width: 4rem;
+                border: 2px solid rgb(84, 84, 84);
+                border-radius: 2rem;
+                margin: auto;
+                padding: .5rem .8rem;
+                justify-content: space-between;
+            }
+            .caja-1 {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            .caja-2 {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            .sesion-margen {
+                margin: auto;
+            }
+            .tamaño-p {
+                font-size: 1.2rem;
+            }
+            .imagen-carrito {
+                height: 100%;
+                border-radius: 1rem;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            }
+            .puntos {
+                font-size: 25px;
+            }
+            .Total {
+                margin-left: 50%;
+            }
+            .sesion-3 {
+                width: 5rem;
+                margin-left: 60%;
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+
+            
+}
