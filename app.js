@@ -22,6 +22,14 @@ app.get("/menu", (req, res) => {
     res.render("pages/menu");
 });
 
+app.get("/product", (req, res) => {
+    res.render("pages/product");
+});
+
+app.get("/product2", (req, res) => {
+    res.render("pages/product2");
+});
+
 app.get("/login", (req, res) => {
     res.render("pages/login");
 });
