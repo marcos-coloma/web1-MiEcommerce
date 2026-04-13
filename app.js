@@ -17,6 +17,14 @@ app.get("/", (req, res) => {
 app.get("/cart", (req, res) => {
     res.render("pages/cart");
 });
+
+app.get("/login", (req, res) => {
+    res.render("pages/login");
+});
+
+app.get("/register", (req, res) => {
+    res.render("pages/register");
+});
 //-------------------------------//
 
 // levantar el servidor
