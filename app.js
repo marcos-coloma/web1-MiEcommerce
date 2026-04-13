@@ -18,6 +18,10 @@ app.get("/cart", (req, res) => {
     res.render("pages/cart");
 });
 
+app.get("/menu", (req, res) => {
+    res.render("pages/menu");
+});
+
 app.get("/login", (req, res) => {
     res.render("pages/login");
 });
