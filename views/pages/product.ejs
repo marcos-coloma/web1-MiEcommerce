@@ -46,58 +46,39 @@
 
         <h2 class="subtitulo">Te puede interesar</h2>
         <div class="cuerpo">
-        <div class="contenedor-cuerpo">
-            <a href="/product2">
-            <img src="/img/coca.png" alt="Coca Cola" class="imagen-cuerpo">
-            <div class="info-wrapper">
-                <div class="info-imagen">
-                <span class="texto-izq">Coca Cola Lata 220ml Pack Original x8</span>
-                <div class="linea-vertical"></div>
-                <span class="texto-der">760 <span style="color: gray;">PUNTOS</span></span>
-                </div>
-            </div>
-            </a>
+            <%- include('../partials/productCard', {
+                link: '/product2',
+                img: '/img/coca.png',
+                alt: 'Coca Cola',
+                title: 'Coca Cola Lata 220ml Pack Original x8',
+                points: '760'
+            }) %>
+
+            <%- include('../partials/productCard', {
+                link: '/product',
+                img: '/img/placeholder.jpg',
+                alt: 'producto',
+                title: 'Nombre del producto o servicio',
+                points: 'XX.XXX'
+            }) %>
+
+            <%- include('../partials/productCard', {
+                link: '/product',
+                img: '/img/placeholder.jpg',
+                alt: 'producto',
+                title: 'Nombre del producto o servicio',
+                points: 'XX.XXX'
+            }) %>
+
+            <%- include('../partials/productCard', {
+                link: '/product',
+                img: '/img/placeholder.jpg',
+                alt: 'producto',
+                title: 'Nombre del producto o servicio',
+                points: 'XX.XXX'
+            }) %>
         </div>
 
-        <div class="contenedor-cuerpo">
-            <a href="/product">
-            <img src="/img/placeholder.jpg" alt="#" class="imagen-cuerpo">
-            <div class="info-wrapper">
-                <div class="info-imagen">
-                <span class="texto-izq">Nombre del producto o servicio</span>
-                <div class="linea-vertical"></div>
-                <span class="texto-der">XX.XXX <span style="color: gray;">PUNTOS</span></span>
-                </div>
-            </div>
-            </a>
-        </div>
-
-        <div class="contenedor-cuerpo">
-            <a href="/product">
-            <img src="/img/placeholder.jpg" alt="#" class="imagen-cuerpo">
-            <div class="info-wrapper">
-                <div class="info-imagen">
-                <span class="texto-izq">Nombre del producto o servicio</span>
-                <div class="linea-vertical"></div>
-                <span class="texto-der">XX.XXX <span style="color: gray;">PUNTOS</span></span>
-                </div>
-            </div>
-            </a>
-        </div>
-
-        <div class="contenedor-cuerpo">
-            <a href="/product">
-            <img src="/img/placeholder.jpg" alt="#" class="imagen-cuerpo">
-            <div class="info-wrapper">
-                <div class="info-imagen">
-                <span class="texto-izq">Nombre del producto o servicio</span>
-                <div class="linea-vertical"></div>
-                <span class="texto-der">XX.XXX <span style="color: gray;">PUNTOS</span></span>
-                </div>
-            </div>
-            </a>
-        </div>
-        </div>
         <div class="recuadro-2">
             <ul class="desordenada">
                 

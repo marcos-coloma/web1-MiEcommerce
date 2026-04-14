@@ -49,57 +49,39 @@
 
         <h2 class="subtitulo">Te puede interesar</h2>
         <div class="cuerpo">
-        <div class="contenedor-cuerpo">
-            <a href="/product">
-            <img src="/img/jack.png" alt="whiskey" class="imagen-cuerpo">
-            <div class="info-wrapper">
-                <div class="info-imagen">
-                <span class="texto-izq">Jack Daniels Honey 750ml</span>
-                <div class="linea-vertical"></div>
-                <span class="texto-der">19.990 <span style="color: gray;">PUNTOS</span></span>
-                </div>
-            </div>
-            </a>
-        </div>
 
-        <div class="contenedor-cuerpo">
-            <a href="/product">
-            <img src="/img/placeholder.jpg" alt="#" class="imagen-cuerpo">
-            <div class="info-wrapper">
-                <div class="info-imagen">
-                <span class="texto-izq">Nombre del producto o servicio</span>
-                <div class="linea-vertical"></div>
-                <span class="texto-der">XX.XXX <span style="color: gray;">PUNTOS</span></span>
-                </div>
-            </div>
-            </a>
-        </div>
+            <%- include('../partials/productCard', {
+                link: '/product',
+                img: '/img/jack.png',
+                alt: 'whisky jack daniels honey',
+                title: 'Jack Daniels Honey 750ml',
+                points: '19.900'
+            }) %>
 
-        <div class="contenedor-cuerpo">
-            <a href="/product">
-            <img src="/img/placeholder.jpg" alt="#" class="imagen-cuerpo">
-            <div class="info-wrapper">
-                <div class="info-imagen">
-                <span class="texto-izq">Nombre del producto o servicio</span>
-                <div class="linea-vertical"></div>
-                <span class="texto-der">XX.XXX <span style="color: gray;">PUNTOS</span></span>
-                </div>
-            </div>
-            </a>
-        </div>
+            <%- include('../partials/productCard', {
+                link: '/product',
+                img: '/img/placeholder.jpg',
+                alt: 'producto',
+                title: 'Nombre del producto o servicio',
+                points: 'XX.XXX'
+            }) %>
 
-        <div class="contenedor-cuerpo">
-            <a href="/product">
-            <img src="/img/placeholder.jpg" alt="#" class="imagen-cuerpo">
-            <div class="info-wrapper">
-                <div class="info-imagen">
-                <span class="texto-izq">Nombre del producto o servicio</span>
-                <div class="linea-vertical"></div>
-                <span class="texto-der">XX.XXX <span style="color: gray;">PUNTOS</span></span>
-                </div>
-            </div>
-            </a>
-        </div>
+            <%- include('../partials/productCard', {
+                link: '/product',
+                img: '/img/placeholder.jpg',
+                alt: 'producto',
+                title: 'Nombre del producto o servicio',
+                points: 'XX.XXX'
+            }) %>
+
+            <%- include('../partials/productCard', {
+                link: '/product',
+                img: '/img/placeholder.jpg',
+                alt: 'producto',
+                title: 'Nombre del producto o servicio',
+                points: 'XX.XXX'
+            }) %>
+
         </div>
         <div class="recuadro-2">
             <ul class="desordenada">
