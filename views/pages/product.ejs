@@ -79,66 +79,7 @@
             }) %>
         </div>
 
-        <div class="recuadro-2">
-            <ul class="desordenada">
-                
-                    <li class="solitaria-imagen">
-                        <a href="#">
-                            <img src="/img/boton 1 (electronica).png" alt="electronica" class="imagen">
-                            <p class="texto"> Electrónica </p>
-                        </a>
-                    </li>
-                <hr class="ocultar">
-                <li class="lista-imagen">
-                    <a href="#">
-                        <img src="/img/boton 2 (alimentos).png" alt="alimentos" class="imagen">
-                        <p class="texto"> Alimentos </p>
-                    </a>
-                </li>
-                <hr class="ocultar">
-                <li class="lista-imagen">
-                    <a href="#">
-                        <img src="/img/boton 3 (bebidas).png" alt="bebidas" class="imagen">
-                        <p class="texto"> Bebidas </p>
-                    </a>
-                </li>
-                <hr class="ocultar">
-                <li class="lista-imagen">
-                    <a href="#">
-                        <img src="/img/boton 4 (indumentaria).png" alt="indumentaria" class="imagen">
-                        <p class="texto"> Indumentaria </p>
-                    </a>
-                </li>
-                <hr class="ocultar">
-                <li class="lista-imagen">
-                    <a href="#">
-                        <img src="/img/boton 5 (juegos).png" alt="indumentaria" class="imagen">
-                        <p class="texto"> Juegos </p>
-                    </a>
-                </li>
-                <hr class="ocultar">
-                <li class="lista-imagen">
-                    <a href="#">
-                        <img src="/img/boton 6 (automotor).png" alt="automotor" class="imagen">
-                        <p class="texto"> Automotor </p>
-                    </a>
-                </li>
-                <hr class="ocultar">
-                <li class="lista-imagen">
-                    <a href="#">
-                        <img src="/img/boton 7 (hogar).png" alt="hogar" class="imagen">
-                        <p class="texto"> Hogar </p>
-                    </a>
-                </li>
-                <hr class="ocultar">
-                <li class="lista-imagen">
-                    <a href="#">
-                        <img src="/img/boton 8 (otros).png" alt="otros" class="imagen">
-                        <p class="texto"> Otros </p>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <%- include('../partials/categories', { recuadroClass: 'recuadro-2' }) %>
     </main>
 
 <%- include('../partials/footer') %>
