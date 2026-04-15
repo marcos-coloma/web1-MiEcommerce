@@ -689,8 +689,6 @@
     }
 
 /*--------Footer------------*/
-@media (max-width: 1000px) {
-
     footer {
         padding: 20px 40px;
     }
@@ -715,7 +713,6 @@
         text-align: center;
     }
 
-}
 /*--------product cards--------*/
     .cuerpo,
     .cuerpo-2 {
@@ -738,23 +735,104 @@
         font-size: 12px;
     }
 
+/*--------PRODUCTOS------------*/
+    .producto-whiskey {
+        width: 90%;
+        flex-direction: column;
+        padding: 0.5rem;
+    }
 
+.producto-whiskey-contenido-descripcion {
+    box-sizing: border-box;
+    width: 100%;
+}
 
+        .producto-img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
 
-/*--------Checkout------------*/
+    .producto-whiskey-contenido-descripcion {
+        margin-left: 0;
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .volver-listado {
+        margin-left: 0;
+        text-align: center;
+        display: block;
+    }
+
+/*--------CARRITO------------*/
+
     .carrito-caja {
         width: 90%;
+        height: auto;
+        padding: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .caja-1 {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex: 1 1 60%;
+    }
+
+    .caja-2 {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex: 1 1 40%;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+    }
+
+    .imagen-carrito {
+        height: 60px;
+    }
+
+    .carrito-caja {
+        width: 80%;
         flex-direction: column;
         height: auto;
         gap: 10px;
     }
 
+/*--------CHECKOUT------------*/
+
     .checkout-container {
         flex-direction: column;
         gap: 2rem;
+        padding: 1rem;
+        max-width: 70%;
     }
 
+    .checkout-resumen {
+        width: 100%;
+        border-radius: 1.5rem;
+    }
 
+    .opcion {
+        padding: 1rem;
+        border-radius: 1.5rem;
+    }
+
+    .resumen-item,
+    .resumen-total {
+        font-size: 0.95rem;
+    }
+
+    .btn-continuar {
+        width: 100%;
+        text-align: center;
+    }
 
 }
 
@@ -846,6 +924,37 @@
         font-size: 13px;
     }
 
+    
+/*--------PRODUCTOS------------*/
+    .producto-whiskey {
+        width: 95%;
+        flex-direction: column;
+        padding: 0.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .producto-whiskey-contenido {
+        flex-direction: column;
+    }
+
+    .producto-img {
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
+        display: block;
+        object-fit: contain;
+    }
+
+    .producto-whiskey-contenido-descripcion {
+        width: 100%;
+        margin: 1rem 0 0 0;
+        padding: 0.8rem;
+    }
+
+    .volver-listado {
+        margin: 0 0 1rem 0;
+        text-align: center;
+    }
 
     /* CARRITO */
     .carrito-caja {
