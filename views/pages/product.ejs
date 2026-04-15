@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head', { title: 'Product' }) %>
+
+
+<body>
+    
+    <%- include('../partials/header', { perfilLink: '/login' }) %>
+
+    <main>
+
+
+        <a href="/" class="volver-listado">
+            <div class="subtitulo-2">
+                <img src="/img/flecha-izquierda.png" alt="<-">
+                <span>Volver al listado</span>
+                <img src="/img/flecha-derecha.png" alt="->">
+                <span>alimentos</span>
+            </div>
+        </a>
+
+
+
+    <div class="producto-whiskey">
+        <div class="producto-whiskey-contenido">
+            <img src="/img/jack.png" alt="whiskey jack" class="producto-img">
+            <div class="producto-whiskey-contenido-descripcion">
+                <h2>Whiskey Jack Daniels <br> Honey 750ml <br>
+                <span style="font-size: 40px;">19.900</span>
+                <span style="color: gray; font-size: 15px;">PUNTOS</span></h2>
+                <a href="/cart">
+                    <div class="sesion">
+                    Agregar al Carrito
+                    </div>
+                </a>
+                <br>
+                <p style="font-size: 15px; color: rgb(54, 54, 54);">Descubrí el irresistible sabor del Jack Daniels Honey 750ml, una fusión única entre el clásico Tennessee Whiskey y un suave toque de miel natural.<br><br>Su perfil dulce y equilibrado lo convierte en la elección perfecta para quienes buscan un trago suave pero con personalidad.<br><br> Disfrutalo solo, con hielo o en tus cócteles favoritos.<br><br> ¡Ideal para regalar o compartir en cualquier ocasión!</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+        <h2 class="subtitulo">Te puede interesar</h2>
+        <div class="cuerpo">
+            <%- include('../partials/productCard', {
+                link: '/product2',
+                img: '/img/coca.png',
+                alt: 'Coca Cola',
+                title: 'Coca Cola Lata 220ml Pack Original x8',
+                points: '760'
+            }) %>
+
+            <%- include('../partials/productCard', {
+                link: '/product',
+                img: '/img/placeholder.jpg',
+                alt: 'producto',
+                title: 'Nombre del producto o servicio',
+                points: 'XX.XXX'
+            }) %>
+
+            <%- include('../partials/productCard', {
+                link: '/product',
+                img: '/img/placeholder.jpg',
+                alt: 'producto',
+                title: 'Nombre del producto o servicio',
+                points: 'XX.XXX'
+            }) %>
+
+            <%- include('../partials/productCard', {
+                link: '/product',
+                img: '/img/placeholder.jpg',
+                alt: 'producto',
+                title: 'Nombre del producto o servicio',
+                points: 'XX.XXX'
+            }) %>
+        </div>
+
+        <%- include('../partials/categories', { recuadroClass: 'recuadro-2' }) %>
+    </main>
+
+<%- include('../partials/footer') %>
+
+</body>
+</html>
+
+
+

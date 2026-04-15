@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head', { title: 'Checkout' }) %>
+
+<body>
+
+    <%- include('../partials/header', { perfilLink: '/login' }) %>
+
+<main class="checkout-container">
+
+    <section class="checkout-opciones">
+
+        <h2>Elegí la forma de entrega</h2>
+
+        <div class="opcion">
+            <div class="caja-1">
+                <input type="radio" name="entrega">
+                <div>
+                    <p class="tamaño-p"><strong>Enviar a domicilio</strong></p>
+                    <p>calle ejemplo 236 casa 72 -Villa Mercedes, San Luis - CP5730</p>
+                </div>
+            </div>
+
+            <div class="caja-2">
+                <span class="gratis">Gratis</span>
+            </div>
+        </div>
+
+        <div class="opcion">
+            <div class="caja-1">
+                <input type="radio" name="entrega">
+                <div>
+                    <p class="tamaño-p"><strong>Retirar en un punto de entrega</strong></p>
+                    <p>Sucursal OCA - SAN MARTIN 319 - VA.MERCEDES</p>
+                </div>
+            </div>
+
+            <div class="caja-2">
+                <span class="gratis">Gratis</span>
+            </div>
+        </div>
+
+        <a href="#">
+            <button class="btn-continuar">Continuar</button>
+        </a>
+
+    </section>
+
+
+    <aside class="checkout-resumen">
+
+        <h3>Resumen de compra</h3>
+
+        <div class="resumen-item">
+            <span>Producto</span>
+            <span>$9.750</span>
+        </div>
+
+        <div class="resumen-item">
+            <span>Envío</span>
+            <span class="gratis">Gratis</span>
+        </div>
+
+        <hr>
+
+        <div class="resumen-total">
+            <strong>Total</strong>
+            <strong>$9.750</strong>
+        </div>
+
+    </aside>
+
+</main>
+
+<%- include('../partials/footer') %>
+
+</body>
+</html>
