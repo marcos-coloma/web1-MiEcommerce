@@ -175,6 +175,11 @@
                 padding: 0.5rem;
                 padding-bottom: 0;
             }
+
+            .lista-imagen:not(:last-child),
+            .solitaria-imagen:not(:last-child) {
+                border-right: 1px solid #777;
+            }
             .lista-imagen:hover,
             .solitaria-imagen:hover {
             background-color: var(--color-primario);
@@ -372,7 +377,7 @@
         /* inicio de sesión - y registro */
             .main-login {
                 padding: 5rem 0rem;
-                background-color: var(--color-primario); /* Usando la variable */
+                background-color: var(--color-primario);
                 margin-bottom: 8rem;
                 display: flex;
                 justify-content: center;
@@ -652,20 +657,34 @@
         padding: 15px;
     }
 
+    .recuadro-2{
+        margin-bottom: 4rem;
+        margin-top: 4rem;
+    }
+
     .desordenada {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .lista-imagen,
     .solitaria-imagen {
-        width: 80%;
-        max-width: 300px;
+        width: 25%;
+        min-width: 120px;
+        box-sizing: border-box;
+        border-bottom: 1px solid #777;
     }
 
+    .lista-imagen:nth-child(4n),
+    .solitaria-imagen:nth-child(4n) {
+        border-right: none;
+    }
+    .desordenada li:nth-last-child(-n+4) {
+        border-bottom: none;
+    }
 
+/*--------------------*/
     .carrito-caja {
         width: 90%;
         flex-direction: column;
@@ -700,7 +719,6 @@
 
 /* Mobile */
 @media (max-width: 600px) {
-@media (max-width: 600px) {
 
     /* HEADER */
     .encabezado {
@@ -730,15 +748,21 @@
     }
 
     /* CATEGORÍAS */
+    .recuadro,
+    .recuadro-2 {
+        width: 75%;
+        padding: 0;
+    }
     .desordenada {
         flex-direction: column;
         align-items: center;
-        gap: 15px;
     }
 
     .lista-imagen,
     .solitaria-imagen {
-        width: 80%;
+        width: 100%;
+        max-width: 100%;
+        border: none !important;
     }
 
     /* CARRITO */
@@ -781,5 +805,4 @@
         width: 100px;
         height: 60px;
     }
-}
 }
