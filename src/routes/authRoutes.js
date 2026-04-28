@@ -1,12 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const authController = require("../controllers/authController");
 
-router.get("/login", (req, res) => {
-    res.render("pages/login", { title: "Login" });
-});
-
-router.get("/register", (req, res) => {
-    res.render("pages/register", { title: "Register" });
-});
+router.get("/login", authController.login);
+router.get("/register", authController.register);
 
 module.exports = router;

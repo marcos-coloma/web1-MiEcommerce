@@ -1,16 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const mainController = require("../controllers/mainController");
 
-router.get("/", (req, res) => {
-    res.render("pages/home", { 
-        title: "Home",
-        perfilLink: "/menu"
-    });
-});
-
-router.get("/menu", (req, res) => {
-    res.render("pages/menu", {title:"Menu"});
-});
+router.get("/", mainController.home);
+router.get("/menu", mainController.menu);
 
 module.exports = router;
-

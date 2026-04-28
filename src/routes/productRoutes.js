@@ -1,20 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const productController = require("../controllers/productController");
 
-
-router.get("/product", (req, res) => {
-    res.render("pages/product", { 
-        title: "Product",
-        perfilLink: "/login"
-    });
-});
-
-router.get("/product2", (req, res) => {
-    res.render("pages/product2", { 
-        title: "Product2",
-        perfilLink: "/login"
-    });
-});
-
+router.get("/product", productController.product);
+router.get("/product2", productController.product2);
 
 module.exports = router;
