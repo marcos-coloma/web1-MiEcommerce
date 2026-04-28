@@ -1,20 +1,23 @@
-<div class="contenedor-cuerpo">
-    <a href="<%= link %>">
-        <img src="<%= img %>" alt="<%= alt %>" class="imagen-cuerpo">
+<a href="/products/<%= product.id %>">
+    <div class="contenedor-cuerpo">
+
+        <img src="<%= product.img %>" alt="<%= product.name %>" class="imagen-cuerpo">
 
         <div class="info-wrapper">
             <div class="info-imagen">
-                <span class="texto-izq">
-                    <%= title %>
-                </span>
+
+                <div class="texto-izq">
+                    <%= product.name %>
+                </div>
 
                 <div class="linea-vertical"></div>
 
-                <span class="texto-der">
-                    <%= points %> <br>
-                    <span style="color: gray;">PUNTOS</span>
-                </span>
+                <div class="texto-der">
+                    $ <%= product.price.toLocaleString() %>
+                </div>
+
             </div>
         </div>
-    </a>
-</div>
+
+    </div>
+</a>

@@ -1,9 +1,12 @@
+const Product = require("../models/Product");
+
 const mainController = {
 
     home: (req, res) => {
+        const products = Product.getAll();
+
         res.render("pages/home", { 
-            title: "Home",
-            perfilLink: "/menu"
+            products
         });
     },
 

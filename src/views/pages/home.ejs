@@ -43,105 +43,17 @@
         <h2 class="subtitulo">Te puede interesar</h2>
 
         <div class="cuerpo">
-            <%- include('../partials/productCard', {
-                link: '/product',
-                img: '/img/jack.png',
-                alt: 'whisky jack daniels honey',
-                title: 'Jack Daniels Honey 750ml',
-                points: '19.900'
-            }) %>
-
-            <%- include('../partials/productCard', {
-                link: '/product',
-                img: '/img/placeholder.jpg',
-                alt: 'producto',
-                title: 'Nombre del producto o servicio',
-                points: 'XX.XXX'
-            }) %>
-
-            <%- include('../partials/productCard', {
-                link: '/product',
-                img: '/img/placeholder.jpg',
-                alt: 'producto',
-                title: 'Nombre del producto o servicio',
-                points: 'XX.XXX'
-            }) %>
-
-            <%- include('../partials/productCard', {
-                link: '/product',
-                img: '/img/placeholder.jpg',
-                alt: 'producto',
-                title: 'Nombre del producto o servicio',
-                points: 'XX.XXX'
-            }) %>
+            <% products.slice(0, 4).forEach(product => { %>
+                <%- include('../partials/productCard', { product }) %>
+            <% }) %>
         </div>
 
         <h2 class="subtitulo">Lo más pedido</h2>
 
         <div class="cuerpo-2">
-            <%- include('../partials/productCard', {
-                link: '/product2',
-                img: '/img/coca.png',
-                alt: 'Coca Cola',
-                title: 'Coca Cola Lata 220ml Pack Original x8',
-                points: '760'
-            }) %>
-
-            <%- include('../partials/productCard', {
-                link: '/product',
-                img: '/img/placeholder.jpg',
-                alt: 'producto',
-                title: 'Nombre del producto o servicio',
-                points: 'XX.XXX'
-            }) %>
-
-            <%- include('../partials/productCard', {
-                link: '/product',
-                img: '/img/placeholder.jpg',
-                alt: 'producto',
-                title: 'Nombre del producto o servicio',
-                points: 'XX.XXX'
-            }) %>
-
-            <%- include('../partials/productCard', {
-                link: '/product',
-                img: '/img/placeholder.jpg',
-                alt: 'producto',
-                title: 'Nombre del producto o servicio',
-                points: 'XX.XXX'
-            }) %>
-
-            <%- include('../partials/productCard', {
-                link: '/product',
-                img: '/img/placeholder.jpg',
-                alt: 'producto',
-                title: 'Nombre del producto o servicio',
-                points: 'XX.XXX'
-            }) %>
-
-            <%- include('../partials/productCard', {
-                link: '/product',
-                img: '/img/placeholder.jpg',
-                alt: 'producto',
-                title: 'Nombre del producto o servicio',
-                points: 'XX.XXX'
-            }) %>
-
-            <%- include('../partials/productCard', {
-                link: '/product',
-                img: '/img/placeholder.jpg',
-                alt: 'producto',
-                title: 'Nombre del producto o servicio',
-                points: 'XX.XXX'
-            }) %>
-            
-            <%- include('../partials/productCard', {
-                link: '/product',
-                img: '/img/placeholder.jpg',
-                alt: 'producto',
-                title: 'Nombre del producto o servicio',
-                points: 'XX.XXX'
-            }) %>
+            <% products.forEach(product => { %>
+                <%- include('../partials/productCard', { product }) %>
+            <% }) %>
         </div>
 
         <%- include('../partials/categories', { recuadroClass: 'recuadro-2' }) %>

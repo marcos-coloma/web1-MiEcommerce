@@ -1,0 +1,7 @@
+<h1>Productos</h1>
+
+<div class="cuerpo">
+    <% products.forEach(product => { %>
+        <%- include('../partials/productCard', { product }) %>
+    <% }) %>
+</div>
