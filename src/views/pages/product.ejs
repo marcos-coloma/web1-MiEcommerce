@@ -1,7 +1,66 @@
-<h1><%= product.name %></h1>
+<!DOCTYPE html>
+<html lang="es">
 
-<img src="<%= product.img %>" alt="<%= product.name %>">
+<%- include('../partials/head', { title: product.name }) %>
 
-<p><%= product.price %> PUNTOS</p>
+<body>
+    
+<%- include('../partials/header', { perfilLink: '/login' }) %>
 
-<p><%= product.description %></p>
+<main>
+
+    <a href="/products" class="volver-listado">
+        <div class="subtitulo-2">
+            <img src="/img/flecha-izquierda.png" alt="<-">
+            <span>Volver al listado</span>
+            <img src="/img/flecha-derecha.png" alt="->">
+            <span>alimentos</span>
+        </div>
+    </a>
+
+    <div class="producto-whiskey">
+        <div class="producto-whiskey-contenido">
+
+            <img src="<%= product.img %>" alt="<%= product.name %>" class="producto-img">
+
+            <div class="producto-whiskey-contenido-descripcion">
+                <h2>
+                    <%= product.name %> <br>
+                    <span style="font-size: 40px;">
+                        $ <%= product.price.toLocaleString() %>
+                    </span>
+                    <span style="color: gray; font-size: 15px;">PUNTOS</span>
+                </h2>
+
+                <a href="/cart">
+                    <div class="sesion">
+                        Agregar al Carrito
+                    </div>
+                </a>
+
+                <br>
+
+                <p style="font-size: 15px; color: rgb(54, 54, 54);">
+                    <%= product.description %>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <h2 class="subtitulo">Te puede interesar</h2>
+
+    <div class="cuerpo">
+        <% products.forEach(p => { %>
+            <%- include('../partials/productCard', { product: p }) %>
+        <% }) %>
+    </div>
+
+    <%- include('../partials/categories', { recuadroClass: 'recuadro-2' }) %>
+
+</main>
+
+<%- include('../partials/footer') %>
+
+</body>
+</html>
