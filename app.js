@@ -26,7 +26,7 @@ app.use("/", productRoutes);
 app.use("/", cartRoutes);
 
 app.use((req, res, next) => {
-    res.status(404).send("Página no encontrada");
+    res.status(404).render("pages/404");
 });
 
 //---Inicializacion del Servidor---//
