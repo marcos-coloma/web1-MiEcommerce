@@ -2,7 +2,7 @@ window.addEventListener("load", function () {
 
     const form = document.querySelector("form");
 
-    const email = document.querySelector("#username");
+    const username = document.querySelector("#username");
     const password = document.querySelector("#password");
 
     form.addEventListener("submit", function (e) {
@@ -10,19 +10,29 @@ window.addEventListener("load", function () {
 
         let errores = [];
 
-        if (email.value.trim() === "") {
-            errores.push("Email obligatorio");
-        }
+        const usernameValue = username.value.trim();
+        const passwordValue = password.value.trim();
 
-        if (password.value.trim() === "") {
-            errores.push("Contraseña obligatoria");
-        }
+        //------------Spaces Validation------------------//
+
+        errores.push(
+            ...validateNoSpaces(username, password)
+        );
+
+        //------------Password Validation------------------//
+
+        errores.push(
+            ...validatePassword(passwordValue, passwordValue)
+        );
+
+
+        //------------Total Errors------------------//
 
         if (errores.length > 0) {
             console.log(errores);
-        } else {
-            form.submit();
+            return;
         }
-    });
 
+        form.submit();
+    });
 });
