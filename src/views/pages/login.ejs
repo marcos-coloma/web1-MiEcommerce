@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<%- include('../partials/head', { title: 'Login' }) %>
+    <%- include('../partials/head', { title: 'Login' }) %>
 
-<body>
-    <header class="encabezado-login">
-        <a href="/">
-            <span class="Logo"><strong>Mi</strong>Ecommerce</span>
-        </a>
-    </header>
+    <body>
+        <header class="encabezado-login">
+            <a href="/">
+                <span class="Logo"><strong>Mi</strong>Ecommerce</span>
+            </a>
+        </header>
 
 
-    <main>
+        <main>
 
-        <div class="main-login">
-            <div class="formulario">
-                <span class="Hola">¡Hola!</span>
-                <form action="#">
-                    <input type="text" placeholder="Tu nombre de usuario" class="input">
-                    <input type="password" placeholder="Tu contraseña" class="input">
-                    <a href="/">
-                        <div class="sesion">
-                        Iniciar Sesión
-                        </div>
-                    </a>
-                    
-                </form>
+            <div class="main-login">
+                <div class="formulario">
+                    <span class="Hola">¡Hola!</span>
+                    <form action="/">
+                        <input id="username" type="text" placeholder="Tu nombre de usuario" class="input">
+                        <input id="password" type="password" placeholder="Tu contraseña" class="input">
+
+                        <button type="submit" class="sesion">
+                            Crear Cuenta
+                        </button>
+                        
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="register"> 
-            <span>¿No tienes una cuenta?&nbsp;</span>
-            <a href="/register" class="register-link">registrate</a>
-        </div>
-    
+            <div class="register"> 
+                <span>¿No tienes una cuenta?&nbsp;</span>
+                <a href="/register" class="register-link">registrate</a>
+            </div>
+        
 
-    </main>
 
-<%- include('../partials/footer') %>
+        </main>
 
-</body>
+        <%- include('../partials/footer') %>
+        <script src="/js/loginValidation.js"></script>
+    </body>
 </html>
