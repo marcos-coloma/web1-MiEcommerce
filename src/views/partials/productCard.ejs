@@ -1,0 +1,23 @@
+<a href="/products/<%= product.id %>">
+    <div class="contenedor-cuerpo">
+
+        <img src="<%= product.img %>" alt="<%= product.name %>" class="imagen-cuerpo">
+
+        <div class="info-wrapper">
+            <div class="info-imagen">
+
+                <div class="texto-izq">
+                    <%= product.name %>
+                </div>
+
+                <div class="linea-vertical"></div>
+
+                <div class="texto-der">
+                    $ <%= product.price.toLocaleString() %>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</a>

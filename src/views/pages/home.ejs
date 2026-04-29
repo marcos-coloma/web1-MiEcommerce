@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<%- include('../partials/head', { title: 'Home' }) %>
+
+<body>
+
+    <%- include('../partials/header', { perfilLink: '/menu' }) %>
+
+    <main>
+
+<%- include('../partials/categories', { recuadroClass: 'recuadro' }) %>
+
+        <div class="recuadro-principal">
+            <ul class="desordenada-principal">
+                <li class="lista-imagen-principal">
+                    <div class="contenedor-imagen">
+                            <img src="/img/Imagen grande de la Izquierda.png" alt="imagen-grande1" class="imagen-principal-izquierda">
+                        <div class="info-superpuesta">
+                            <img src="/img/icono1.jpg" alt="icono" class="icono">
+                            <ul>
+                                <li class="descripcion">50% OFF en Combo Plus</li>
+                                <li class="descripcion-2">Canjeando 50.000 puntos MiEcommerce</li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="lista-imagen-principal"> 
+                    <div class="contenedor-imagen">
+                            <img src="/img/Imagen grande de la derecha.png" alt="imagen-grande2" class="imagen-principal-derecha">
+                        <div class="info-superpuesta">
+                            <img src="/img/icono2.jpg" alt="icono" class="icono">
+                            <ul>
+                                <li class="descripcion">50% OFF en Combo Plus</li>
+                                <li class="descripcion-2">Canjeando 50.000 puntos MiEcommerce</li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="subtitulo">Te puede interesar</h2>
+
+        <div class="cuerpo">
+            <% products.slice(0, 4).forEach(product => { %>
+                <%- include('../partials/productCard', { product }) %>
+            <% }) %>
+        </div>
+
+        <h2 class="subtitulo">Lo más pedido</h2>
+
+        <div class="cuerpo-2">
+            <% products.forEach(product => { %>
+                <%- include('../partials/productCard', { product }) %>
+            <% }) %>
+        </div>
+
+        <%- include('../partials/categories', { recuadroClass: 'recuadro-2' }) %>
+    </main>
+
+<%- include('../partials/footer') %>
+
+</body>
+</html>

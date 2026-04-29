@@ -1,64 +1,36 @@
 const express = require("express");
+const path = require("path");
 const app = express();
 const PORT = 3000;
 
-// configuracion de EJS
-app.set("view engine", "ejs");
+//--------------Rutas-----------------//
 
+const mainRoutes = require("./src/routes/mainRoutes");
+const authRoutes = require("./src/routes/authRoutes");
+const productRoutes = require("./src/routes/productRoutes");
+const cartRoutes = require("./src/routes/cartRoutes");
+
+
+//-----configuracion de EJS------//
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "src", "views"));
 app.use(express.static("assets"));
 
 
-//--------------Rutas-----------------//
+//---------Uso de rutas----------//
 
-app.get("/", (req, res) => {
-    res.render("pages/home", { 
-        title: "Home",
-        perfilLink: "/menu"
-    });
+app.use("/", mainRoutes);
+app.use("/", authRoutes);
+app.use("/", productRoutes);
+app.use("/", cartRoutes);
+
+app.use((req, res, next) => {
+    res.status(404).send("Página no encontrada");
 });
 
-app.get("/cart", (req, res) => {
-    res.render("pages/cart", { 
-        title: "Cart",
-        perfilLink: "/login"
-    });
-});
+//---Inicializacion del Servidor---//
 
-app.get("/checkout", (req, res) => {
-    res.render("pages/checkout", { 
-        title: "Checkout",
-        perfilLink: "/login"
-    });
-});
-
-app.get("/product", (req, res) => {
-    res.render("pages/product", { 
-        title: "Product",
-        perfilLink: "/login"
-    });
-});
-
-app.get("/product2", (req, res) => {
-    res.render("pages/product2", { 
-        title: "Product2",
-        perfilLink: "/login"
-    });
-});
-
-app.get("/menu", (req, res) => {
-    res.render("pages/menu", {title:"Menu"});
-});
-
-app.get("/login", (req, res) => {
-    res.render("pages/login", {title:"Login"});
-});
-
-app.get("/register", (req, res) => {
-    res.render("pages/register", {title:"Register"});
-});
-//-------------------------------//
-
-// levantar el servidor
 app.listen(PORT, () => {
     console.log("Servidor corriendo en http://localhost:3000");
 });
