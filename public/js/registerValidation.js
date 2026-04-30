@@ -1,7 +1,7 @@
 window.addEventListener("load", function () {
 
     const form = document.querySelector("form");
-
+    const errorList = document.querySelector("#errors");
     const email = document.querySelector("#email");
     const password = document.querySelector("#password");
     const repeatPassword = document.querySelector("#repeatPassword");
@@ -13,7 +13,7 @@ window.addEventListener("load", function () {
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        let errores = [];
+        let errors = [];
 
         const emailValue = email.value.trim();
         const passwordValue = password.value.trim();
@@ -22,20 +22,20 @@ window.addEventListener("load", function () {
 
 //------------Email Validations------------------//
 
-errores.push(
+errors.push(
     ...validateEmail(emailValue, emailRegex)
 );
 
 //------------Password Validations------------------//
 
-errores.push(
-    ...validatePassword(passwordValue, repeatPasswordValue, emailValue)
+errors.push(
+    ...validateRegisterPassword(passwordValue, repeatPasswordValue, emailValue)
 );
 
 //------------Total Errors------------------//
 
-        if (errores.length > 0) {
-            console.log(errores);
+        if (errors.length > 0) {
+            renderErrors(errors, errorList);
             return;
         }
 

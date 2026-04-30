@@ -442,6 +442,22 @@
                 text-decoration: underline !important;
             }
 
+            #errors {
+                list-style: none;
+                padding: 0;
+                margin: 10px 0;
+            }
+
+            #errors li {
+                background-color: #ffe5e5;
+                color: #b30000;
+                padding: 8px 10px;
+                margin-bottom: 5px;
+                border-radius: 5px;
+                font-size: 14px;
+                border-left: 4px solid red;
+            }
+
     /*PRODUCT 1 y 2.HTML*/
         /*contenido principal*/
             .producto-whiskey {

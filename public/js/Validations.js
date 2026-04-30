@@ -1,65 +1,65 @@
 function validateNoSpaces(...fields) {
-    let errores = [];
+    let errors = [];
 
     fields.forEach(field => {
         if (field.value !== field.value.trim()) {
-            errores.push(`El campo "${field.name || "input"}" no debe tener espacios al inicio o final`);
+            errors.push(`El campo "${field.name || "input"}" no debe tener espacios al inicio o final`);
         }
     });
 
-    return errores;
+    return errors;
 }
 
 function validateEmail(emailValue, emailRegex) {
-    let errores = [];
+    let errors = [];
 
     if (emailValue !== emailValue.trim()) {
-        errores.push("El email no debe tener espacios al inicio o final");
+        errors.push("El email no debe tener espacios al inicio o final");
     }
 
     if (emailValue === "") {
-        errores.push("Email obligatorio");
+        errors.push("Email obligatorio");
     } else if (!emailRegex.test(emailValue)) {
-        errores.push("Email inválido");
+        errors.push("Email inválido");
     }
 
-    return errores;
+    return errors;
 }
 
-function validatePassword(passwordValue, repeatPasswordValue = null, emailValue = null) {
-    let errores = [];
+function validateRegisterPassword(passwordValue, repeatPasswordValue = null, emailValue = null) {
+    let errors = [];
 
     if (passwordValue !== passwordValue.trim()) {
-        errores.push("La contraseña no debe tener espacios al inicio o final");
+        errors.push("La contraseña no debe tener espacios al inicio o final");
     }
 
     if (passwordValue === "") {
-        errores.push("Contraseña obligatoria");
+        errors.push("Contraseña obligatoria");
     }
 
     if (repeatPasswordValue !== null && repeatPasswordValue === "") {
-        errores.push("Repetir contraseña obligatoria");
+        errors.push("Repetir contraseña obligatoria");
     }
 
     if (repeatPasswordValue !== null && passwordValue !== repeatPasswordValue) {
-        errores.push("Las contraseñas no coinciden");
+        errors.push("Las contraseñas no coinciden");
     }
 
     if (passwordValue.length < 8) {
-        errores.push("La contraseña debe tener al menos 8 caracteres");
+        errors.push("La contraseña debe tener al menos 8 caracteres");
     }
 
     if (!/[a-zA-Z]/.test(passwordValue)) {
-        errores.push("Debe contener al menos una letra");
+        errors.push("Debe contener al menos una letra");
     }
 
     if (!/\d/.test(passwordValue)) {
-        errores.push("Debe contener al menos un número");
+        errors.push("Debe contener al menos un número");
     }
 
     const especial = /[!@#$%^&*(),.?":{}|<>]/;
     if (!especial.test(passwordValue)) {
-        errores.push("Debe contener al menos un carácter especial");
+        errors.push("Debe contener al menos un carácter especial");
     }
 
     const prohibidas = [
@@ -70,12 +70,55 @@ function validatePassword(passwordValue, repeatPasswordValue = null, emailValue 
     ];
 
     if (prohibidas.some(p => passwordValue.toLowerCase().includes(p))) {
-        errores.push("La contraseña contiene una palabra no permitida");
+        errors.push("La contraseña contiene una palabra no permitida");
     }
 
     if (emailValue && passwordValue === emailValue) {
-        errores.push("La contraseña no puede ser igual al email");
+        errors.push("La contraseña no puede ser igual al email");
     }
 
-    return errores;
+    return errors;
+}
+
+function validateLoginPassword(passwordValue) {
+    let errors = [];
+
+    if (passwordValue !== passwordValue.trim()) {
+        errors.push("La contraseña no debe tener espacios al inicio o final");
+    }
+
+    if (passwordValue === "") {
+        errors.push("Contraseña obligatoria");
+    }
+
+    if (passwordValue.length < 8) {
+        errors.push("La contraseña debe tener al menos 8 caracteres");
+    }
+
+    if (!/[a-zA-Z]/.test(passwordValue)) {
+        errors.push("Debe contener al menos una letra");
+    }
+
+    if (!/\d/.test(passwordValue)) {
+        errors.push("Debe contener al menos un número");
+    }
+
+    const especial = /[!@#$%^&*(),.?":{}|<>]/;
+    if (!especial.test(passwordValue)) {
+        errors.push("Debe contener al menos un carácter especial");
+    }
+
+    return errors;
+}
+
+
+
+function renderErrors(errors, errorListElement) {
+    if (!errorListElement) return;
+
+    errorListElement.innerHTML = "";
+
+    errorListElement.innerHTML = errors
+        .map(error => `<li>${error}</li>`)
+        .join("");
 }

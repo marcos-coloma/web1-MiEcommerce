@@ -1,35 +1,35 @@
 window.addEventListener("load", function () {
 
     const form = document.querySelector("form");
-
+    const errorList = document.querySelector("#errors");
     const username = document.querySelector("#username");
     const password = document.querySelector("#password");
 
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        let errores = [];
+        let errors = [];
 
         const usernameValue = username.value.trim();
         const passwordValue = password.value.trim();
 
         //------------Spaces Validation------------------//
 
-        errores.push(
+        errors.push(
             ...validateNoSpaces(username, password)
         );
 
         //------------Password Validation------------------//
 
-        errores.push(
-            ...validatePassword(passwordValue, passwordValue)
+        errors.push(
+            ...validateLoginPassword(passwordValue)
         );
 
 
         //------------Total Errors------------------//
 
-        if (errores.length > 0) {
-            console.log(errores);
+        if (errors.length > 0) {
+            renderErrors(errors, errorList);
             return;
         }
 
