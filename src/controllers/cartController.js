@@ -33,9 +33,6 @@ const cartController = {
     },
 
 
-
-
-
     add: (req, res) => {
         
         const productId = Number(req.params.id);
@@ -60,6 +57,46 @@ const cartController = {
         }
 
         console.log(req.session.cart);
+
+        res.redirect("/cart");
+    },
+
+    increase: (req, res) => {
+        const productId = Number(req.params.id);
+
+        const item = req.session.cart.find(p => p.productId === productId);
+
+        if (item) {
+            item.quantity++;
+        }
+
+        res.redirect("/cart");
+    },
+
+    decrease: (req, res) => {
+        const productId = Number(req.params.id);
+
+        const item = req.session.cart.find(p => p.productId === productId);
+
+        if (item) {
+            item.quantity--;
+
+            if (item.quantity <= 0) {
+                req.session.cart = req.session.cart.filter(
+                    p => p.productId !== productId
+                );
+            }
+        }
+
+        res.redirect("/cart");
+    },
+
+    remove: (req, res) => {
+        const productId = Number(req.params.id);
+
+        req.session.cart = req.session.cart.filter(
+            p => p.productId !== productId
+        );
 
         res.redirect("/cart");
     },
