@@ -32,11 +32,9 @@
                     <span style="color: gray; font-size: 15px;">PUNTOS</span>
                 </h2>
 
-                <a href="/cart">
-                    <div class="sesion">
-                        Agregar al Carrito
-                    </div>
-                </a>
+                <form action="/cart/add/<%= product.id %>" method="POST">
+                    <button type="submit">Agregar al carrito</button>
+                </form>
 
                 <br>
 
