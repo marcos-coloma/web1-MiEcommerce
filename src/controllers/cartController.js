@@ -1,3 +1,4 @@
+const products = require("../data/products");
 
 const cartController = {
 
@@ -9,8 +10,31 @@ const cartController = {
 
         console.log(req.session.cart);
 
-        res.send("Carrito inicializado");
+        const cartDetailed = req.session.cart.map(item => {
+            const product = products.find(p => p.id === item.productId);
+
+            return {
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                quantity: item.quantity,
+                subtotal: product.price * item.quantity
+            };
+        });
+
+        console.log(cartDetailed);
+
+        const total = cartDetailed.reduce((acc, item) => acc + item.subtotal, 0);
+
+        res.render("pages/cart", { 
+            cart: cartDetailed,
+            total: total
+        });
     },
+
+
+
+
 
     add: (req, res) => {
         
@@ -19,6 +43,8 @@ const cartController = {
         if (!req.session.cart) {
             req.session.cart = [];
         }
+
+    
 
         const existingProduct = req.session.cart.find(
             p => p.productId === productId
@@ -41,6 +67,11 @@ const cartController = {
 
 
     checkout: (req, res) => {
+
+        if (!req.session.cart || req.session.cart.length === 0) {
+            return res.redirect("/cart");
+        }
+
         res.render("pages/checkout", { 
             title: "Checkout",
             perfilLink: "/login"

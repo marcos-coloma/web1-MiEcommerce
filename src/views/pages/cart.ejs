@@ -19,66 +19,61 @@
             <h2>Productos en tu Carrito</h2>
         </div>
 
-        <div class="carrito-caja">
-            <div class="caja-1">
-                <img src="/img/jack.png" alt="whiskey jack" class="imagen-carrito">
-                <p class="tamaño-p">Jack Daniel's Tennessee Honey Botella 750ml</p>
+
+        <% if (cart.length === 0) { %>
+
+            <div class="carrito-vacio">
+                <p>No hay productos en tu carrito</p>
+                <a href="/">Ver productos</a>
             </div>
-            <div class="caja-2">
-                <div class="sesion sesion-margen">
-                    <a href="#">Quitar</a>
+
+        <% } else { %>
+
+            <% cart.forEach(product => { %>
+
+            <div class="carrito-caja">
+                <div class="caja-1">
+                    <img src="/img/<%= product.id === 1 ? 'jack.png' : product.id === 2 ? 'coca.png' : 'placeholder.jpg' %>" 
+                        class="imagen-carrito">
+
+                    <p class="tamaño-p"><%= product.name %></p>
                 </div>
-                <div class="cantidad">
-                    <a href="#">-</a>
-                    <span>1</span>
-                    <a href="#">+</a>
+
+                <div class="caja-2">
+                    <div class="sesion sesion-margen">
+                        <a href="#">Quitar</a>
+                    </div>
+
+                    <div class="cantidad">
+                        <a href="#">-</a>
+                        <span><%= product.quantity %></span>
+                        <a href="#">+</a>
+                    </div>
+
+                    <span class="puntos"><%= product.subtotal %></span>
                 </div>
-                <span class="puntos">24.343</span>
             </div>
+
+            <% }) %>
+
+        <% } %>
+
+        <div class="Total">
+            <p class="puntos">Total de puntos: <span style="font-size: 1.8rem;"><%= total %></span></p>
         </div>
 
-        <div class="carrito-caja">
-            <div class="caja-1">
-                <img src="/img/combo.jpg" alt="combo hamburguesa+coca" class="imagen-carrito">
-                <p class="tamaño-p">1 Combo Hamburguesa Mega Cuarto Deluxe + Coca Cola</p>
-            </div>
-            <div class="caja-2">
-                <div class="sesion sesion-margen">
-                    <a href="#">Quitar</a>
-                </div>
-                <div class="cantidad">
-                    <a href="#">-</a>
-                    <span>1</span>
-                    <a href="#">+</a>
-                </div>
-                <span class="puntos">10.000</span>
-            </div>
-        </div>
 
-        <div class="carrito-caja">
-            <div class="caja-1">
-                <img src="/img/coca.png" alt="coca cola" class="imagen-carrito">
-                <p class="tamaño-p">Coca Cola Lata 220ml Pack Original x8</p>
+        <% if (cart.length > 0) { %>
+            <div class="sesion sesion-3">
+                <a href="/checkout">Ir a Pagar</a>
             </div>
-            <div class="caja-2">
-                <div class="sesion sesion-margen">
-                    <a href="#">Quitar</a>
-                </div>
-                <div class="cantidad">
-                    <a href="#">-</a>
-                    <span>1</span>
-                    <a href="#">+</a>
-                </div>
-                <span class="puntos">1.520&nbsp;&nbsp;</span>
+        <% } else { %>
+            <div class="sesion sesion-3">
+                <a href="#" style="opacity: 0.8; pointer-events: none; text-align: center;">
+                    Carrito vacío
+                </a>
             </div>
-        </div>
-
-    <div class="Total">
-        <p class="puntos">Total de puntos: <span style="font-size: 1.8rem;">42.100</span></p>
-    </div>
-    <div class="sesion sesion-3">
-    <a href="/checkout">Ir a Pagar</a>
-    </div>
+        <% } %>
 
     </main>
 
