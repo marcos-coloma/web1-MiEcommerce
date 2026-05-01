@@ -12,15 +12,26 @@ const productController = {
 
     detail: (req, res) => {
         const product = Product.getById(req.params.id);
-        const products = Product.getAll();
+        const allProducts = Product.getAll();
 
         if (!product) {
             return res.status(404).send("Producto no encontrado");
         }
 
+        let relatedProducts = [];
+
+        if (product.category) {
+            relatedProducts = allProducts.filter(p => 
+                p.category === product.category && p.id != product.id
+            );
+
+            relatedProducts = relatedProducts.sort(() => 0.5 - Math.random());
+            relatedProducts = relatedProducts.slice(0, 4);
+        }
+
         res.render("pages/product", {
             product,
-            products
+            relatedProducts
         });
     }
 };
