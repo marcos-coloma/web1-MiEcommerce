@@ -5,7 +5,7 @@ module.exports = [
         id: 1,
         name: "Smartphone Galaxy A54 5G",
         price: 650000,
-        img: "/img/products/1-Smartpshone Galaxy A54 5G.webp",
+        img: "/img/products/1-Smartphone Galaxy A54 5G.webp",
         description: "Smartphone de gama media con conectividad 5G, pantalla Super AMOLED de 6.4 pulgadas y tasa de refresco de 120Hz. Ideal para uso diario, redes sociales, fotografía y consumo multimedia con gran fluidez y buena autonomía de batería.",
         category:"electronica",
         popular: true
