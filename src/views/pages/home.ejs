@@ -51,7 +51,7 @@
         <h2 class="subtitulo">Lo más pedido</h2>
 
         <div class="cuerpo-2">
-            <% products.forEach(product => { %>
+            <% popularProducts.forEach(product => { %>
                 <%- include('../partials/productCard', { product }) %>
             <% }) %>
         </div>

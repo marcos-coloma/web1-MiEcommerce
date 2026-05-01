@@ -10,9 +10,15 @@ const mainController = {
 
         const suggested = shuffled.slice(0, 5);
 
+        const popularProducts = products
+        .filter(p => p.popular)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 10);
+
         res.render("pages/home", { 
             products,
-            suggested
+            suggested,
+            popularProducts
         });
     },
 
