@@ -43,7 +43,7 @@
         <h2 class="subtitulo">Te puede interesar</h2>
 
         <div class="cuerpo">
-            <% products.slice(0, 4).forEach(product => { %>
+            <% suggested.forEach(product => { %>
                 <%- include('../partials/productCard', { product }) %>
             <% }) %>
         </div>
