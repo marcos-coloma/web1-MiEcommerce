@@ -8,6 +8,10 @@
     gap: 25px;
 }
 
+.product-grid {
+    margin-bottom: 5rem; 
+}
+
 .product-grid-alt {
     flex-wrap: wrap;
     max-width: 70rem;
@@ -60,10 +64,17 @@
     margin-top: 8px;
 }
 
-/* Texto izquierdo y derecho - CORREGIDO */
-.product-text-left,
+/* Texto izquierdo y derecho */
+.product-text-left {
+    font-size: 13px;
+    word-break: break-word;
+    width: 45%;
+    text-align: center;
+    font-weight: bold;
+}
+
 .product-text-right {
-    font-size: 14px;
+    font-size: 16px;
     word-break: break-word;
     width: 45%;
     text-align: center;

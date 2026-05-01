@@ -1,7 +1,6 @@
-/*--------PRODUCT DETAIL PAGE--------*/
+/*-------- PRODUCT DETAIL PAGE --------*/
 
-/* link volver */
-.back-link {
+.back-to-list {
     display: inline-block;
     text-decoration: none;
     color: inherit;
@@ -9,8 +8,7 @@
     margin-bottom: 1.1rem;
 }
 
-/* breadcrumb */
-.product-breadcrumb {
+.breadcrumb-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,13 +19,12 @@
     color: rgb(75, 75, 75);
 }
 
-.product-breadcrumb img {
+.breadcrumb-wrapper img {
     width: 20px;
     height: auto;
 }
 
-/* contenedor principal */
-.product-detail {
+.product-detail-card {
     width: 55rem;
     padding: 0.4rem;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.35);
@@ -38,22 +35,20 @@
     margin-bottom: 5rem;
 }
 
-.product-detail-container {
+.product-detail-flex {
     display: flex;
     height: 100%;
     width: 100%;
 }
 
-/* imagen */
-.product-image {
+.product-detail-img {
     width: 500px;
     height: auto;
     object-fit: cover;
     border-radius: 1rem;
 }
 
-/* info */
-.product-info {
+.product-detail-info {
     background-color: rgb(246, 246, 246);
     border: 0.1rem solid rgb(199, 199, 199);
     border-radius: 1rem;
@@ -65,35 +60,18 @@
     min-width: 0;
 }
 
-/* precio */
-.product-price {
-    font-size: 40px;
+/* Botón de acción */
+.btn-cart {
+    /* Aquí van los estilos de tu botón .sesion */
+    cursor: pointer;
 }
 
-.product-points {
-    color: gray;
-    font-size: 15px;
+.btn-cart:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
-/* descripción */
-.product-description {
-    font-size: 15px;
-    color: rgb(54, 54, 54);
-}
-
-/* botones reutilizados
-.btn {
-    ya existe en login/cart → no tocar diseño 
-}
-*/
-/* sección */
 .section-title {
     text-align: center;
     margin-bottom: 2rem;
-}
-
-/* Botones deshabilitados */
-button:disabled {
-    opacity: 0.8;
-    cursor: not-allowed;
 }
