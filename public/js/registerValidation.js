@@ -1,7 +1,7 @@
 window.addEventListener("load", function () {
 
     const form = document.querySelector("form");
-    const errorList = document.querySelector("#errors");
+    const errorList = document.querySelector("#auth-errors");
     const email = document.querySelector("#email");
     const password = document.querySelector("#password");
     const repeatPassword = document.querySelector("#repeatPassword");

@@ -1,5 +1,22 @@
 /*--------AUTH (LOGIN / REGISTER)--------*/
 
+
+
+.header-login {
+    padding: 2rem;
+}
+
+.logo {
+    display: flex;
+    color: var(--primary-color);
+    font-size: 24px;
+}
+
+.auth-input:focus {
+    outline: none;
+    border: 2px solid var(--primary-color);
+}
+
 /* Contenedor principal de auth */
 .auth-container {
     padding: 5rem 0rem;
@@ -85,13 +102,13 @@
 }
 
 /* Errores */
-.auth-errors {
+#auth-errors {
     list-style: none;
     padding: 0;
     margin: 10px 0;
 }
 
-.auth-errors li {
+#auth-errors li {
     background-color: #ffe5e5;
     color: #b30000;
     padding: 8px 10px;
