@@ -21,7 +21,11 @@
     <div class="producto-whiskey">
         <div class="producto-whiskey-contenido">
 
-            <img src="<%= product.img %>" alt="<%= product.name %>" class="producto-img">
+        <img 
+            src="<%= product.img || '/img/products/placeholder.webp' %>" 
+            alt="<%= product.name %>" 
+            class="producto-img"
+            onerror="this.onerror=null; this.src='/img/products/placeholder.webp';">
 
             <div class="producto-whiskey-contenido-descripcion">
                 <h2>

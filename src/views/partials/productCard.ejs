@@ -1,7 +1,11 @@
 <a href="/products/<%= product.id %>">
     <div class="contenedor-cuerpo">
 
-        <img src="<%= product.img %>" alt="<%= product.name %>" class="imagen-cuerpo">
+<img 
+    src="<%= product.img || '/img/products/placeholder.webp' %>" 
+    alt="<%= product.name %>" 
+    class="imagen-cuerpo"
+    onerror="this.onerror=null; this.src='/img/products/placeholder.webp';">
 
         <div class="info-wrapper">
             <div class="info-imagen">
