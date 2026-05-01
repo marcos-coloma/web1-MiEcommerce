@@ -1,7 +1,15 @@
-<h1>Productos</h1>
+<h1>Productos relacionados</h1>
 
-<div class="cuerpo">
-    <% products.forEach(product => { %>
-        <%- include('../partials/productCard', { product }) %>
-    <% }) %>
-</div>
+<% if (relatedProducts.length > 0) { %>
+
+    <div class="cuerpo">
+        <% relatedProducts.forEach(p => { %>
+            <%- include('../partials/productCard', { product: p }) %>
+        <% }) %>
+    </div>
+
+<% } else { %>
+
+    <p>No hay productos relacionados disponibles.</p>
+
+<% } %>
