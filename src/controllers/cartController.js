@@ -17,6 +17,7 @@ const cartController = {
                 id: product.id,
                 name: product.name,
                 price: product.price,
+                img: product.img,
                 quantity: item.quantity,
                 subtotal: product.price * item.quantity
             };

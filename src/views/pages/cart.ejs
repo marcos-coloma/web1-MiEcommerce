@@ -10,7 +10,7 @@
     <main>
         <a href="/" class="volver-listado">
             <div class="subtitulo-2">
-                <img src="/img/flecha-izquierda.png" alt="<-">
+                <img src="/img/ui/flecha-izquierda.png" alt="<-">
                 <span>Volver</span>
             </div>
         </a>
@@ -31,22 +31,22 @@
 
             <% cart.forEach(product => { %>
 
-            <div class="carrito-caja">
-                <div class="caja-1">
-                    <img src="/img/<%= product.id === 1 ? 'jack.png' : product.id === 2 ? 'coca.png' : 'placeholder.jpg' %>" 
-                        class="imagen-carrito">
+        <div class="carrito-caja">
+            <div class="caja-1">
+                <img src="<%= product.img || '/img/placeholder.jpg' %>" 
+                    class="imagen-carrito">
 
-                    <p class="tamaño-p"><%= product.name %></p>
-                </div>
+                <p class="tamaño-p"><%= product.name %></p>
+            </div>
 
-<div class="caja-2">
+        <div class="caja-2">
 
 
-    <div class="sesion sesion-margen">
-        <form action="/cart/remove/<%= product.id %>" method="POST">
-            <button type="submit">Quitar</button>
-        </form>
-    </div>
+            <div class="sesion sesion-margen">
+                <form action="/cart/remove/<%= product.id %>" method="POST">
+                    <button type="submit">Quitar</button>
+                </form>
+            </div>
 
         <div class="cantidad">
 
