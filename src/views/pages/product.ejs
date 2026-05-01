@@ -36,9 +36,23 @@
                     <span style="color: gray; font-size: 15px;">PUNTOS</span>
                 </h2>
 
-                <form action="/cart/add/<%= product.id %>" method="POST">
-                    <button type="submit" class="sesion">Agregar al carrito</button>
-                </form>
+        <form action="/cart/add/<%= product.id %>" method="POST">
+            
+            <% if (product.stock === 0) { %>
+
+                <button type="button" class="sesion" disabled>
+                    Sin stock
+                </button>
+
+            <% } else { %>
+
+                <button type="submit" class="sesion">
+                    Agregar al carrito
+                </button>
+
+            <% } %>
+
+        </form>
 
                 <br>
 

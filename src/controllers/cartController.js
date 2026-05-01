@@ -1,4 +1,4 @@
-const products = require("../data/products");
+const Product = require("../models/Product");
 
 const cartController = {
 
@@ -11,7 +11,7 @@ const cartController = {
         console.log(req.session.cart);
 
         const cartDetailed = req.session.cart.map(item => {
-            const product = products.find(p => p.id === item.productId);
+        const product = Product.getById(item.productId);
 
             return {
                 id: product.id,
@@ -33,16 +33,23 @@ const cartController = {
         });
     },
 
-
     add: (req, res) => {
         
-        const productId = Number(req.params.id);
-
         if (!req.session.cart) {
             req.session.cart = [];
         }
 
-    
+        const productId = Number(req.params.id);
+        const product = Product.getById(productId);
+
+        if (!product) {
+            return res.status(404).send("Producto no encontrado");
+        }
+
+        if (product.stock === 0) {
+            return res.status(400).send("Producto sin stock");
+        }
+
 
         const existingProduct = req.session.cart.find(
             p => p.productId === productId
@@ -57,12 +64,15 @@ const cartController = {
             });
         }
 
-        console.log(req.session.cart);
 
         res.redirect("/cart");
     },
 
     increase: (req, res) => {
+
+        if (!req.session.cart) {
+            req.session.cart = [];
+        }
         const productId = Number(req.params.id);
 
         const item = req.session.cart.find(p => p.productId === productId);
@@ -75,6 +85,11 @@ const cartController = {
     },
 
     decrease: (req, res) => {
+
+        if (!req.session.cart) {
+            req.session.cart = [];
+        }
+
         const productId = Number(req.params.id);
 
         const item = req.session.cart.find(p => p.productId === productId);
@@ -93,6 +108,10 @@ const cartController = {
     },
 
     remove: (req, res) => {
+
+        if (!req.session.cart) {
+            req.session.cart = [];
+        }
         const productId = Number(req.params.id);
 
         req.session.cart = req.session.cart.filter(
