@@ -7,89 +7,89 @@
 
     <%- include('../partials/header', { perfilLink: '/login' }) %>
 
-    <main>
-        <a href="/" class="volver-listado">
-            <div class="subtitulo-2">
-                <img src="/img/ui/flecha-izquierda.png" alt="<-">
-                <span>Volver</span>
-            </div>
-        </a>
-        
-        <div class="subtitulo-3">
-            <h2>Productos en tu Carrito</h2>
+<main>
+
+    <a href="/" class="cart-back-link">
+        <div class="cart-back">
+            <img src="/img/ui/flecha-izquierda.png" alt="<-">
+            <span>Volver</span>
         </div>
-
-
-        <% if (cart.length === 0) { %>
-
-            <div class="carrito-vacio">
-                <p>No hay productos en tu carrito</p>
-                <a href="/">Ver productos</a>
-            </div>
-
-        <% } else { %>
-
-            <% cart.forEach(product => { %>
-
-        <div class="carrito-caja">
-            <div class="caja-1">
-                <img src="<%= product.img || '/img/placeholder.jpg' %>" 
-                    class="imagen-carrito">
-
-                <p class="tamaño-p"><%= product.name %></p>
-            </div>
-
-        <div class="caja-2">
-
-
-        <form action="/cart/remove/<%= product.id %>" method="POST">
-            <button type="submit" class="sesion sesion-margen">
-                Quitar
-            </button>
-        </form>
-
-        <div class="cantidad">
-
-            <form action="/cart/decrease/<%= product.id %>" method="POST" style="display:inline;">
-                <button type="submit">-</button>
-            </form>
-
-            <span><%= product.quantity %></span>
-
-            <form action="/cart/increase/<%= product.id %>" method="POST" style="display:inline;">
-                <button type="submit">+</button>
-            </form>
-
-        </div>
-
+    </a>
+    
+    <div class="cart-title">
+        <h2>Productos en tu Carrito</h2>
     </div>
 
-                    <span class="puntos"><%= product.subtotal %></span>
-                </div>
-            </div>
+    <% if (cart.length === 0) { %>
 
-            <% }) %>
-
-        <% } %>
-
-        <div class="Total">
-            <p class="puntos">Total de puntos: <span style="font-size: 1.8rem;"><%= total %></span></p>
+        <div class="cart-empty">
+            <p>No hay productos en tu carrito</p>
+            <a href="/">Ver productos</a>
         </div>
 
+    <% } else { %>
 
-        <% if (cart.length > 0) { %>
-            <div class="sesion sesion-3">
-                <a href="/checkout">Ir a Pagar</a>
-            </div>
-        <% } else { %>
-            <div class="sesion sesion-3">
-                <a href="#" style="opacity: 0.8; pointer-events: none; text-align: center;">
-                    Carrito vacío
-                </a>
-            </div>
-        <% } %>
+        <% cart.forEach(product => { %>
 
-    </main>
+            <div class="cart-item">
+                <div class="cart-left">
+                    <img src="<%= product.img || '/img/placeholder.jpg' %>" 
+                        class="cart-image">
+
+                    <p class="cart-name"><%= product.name %></p>
+                </div>
+
+                <div class="cart-right">
+
+                    <form action="/cart/remove/<%= product.id %>" method="POST">
+                        <button type="submit" class="cart-button">
+                            Quitar
+                        </button>
+                    </form>
+
+                    <div class="cart-quantity">
+
+                        <form action="/cart/decrease/<%= product.id %>" method="POST" style="display:inline;">
+                            <button type="submit">-</button>
+                        </form>
+
+                        <span><%= product.quantity %></span>
+
+                        <form action="/cart/increase/<%= product.id %>" method="POST" style="display:inline;">
+                            <button type="submit">+</button>
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <span class="cart-subtotal"><%= product.subtotal %></span>
+            </div>
+
+        <% }) %>
+
+    <% } %>
+
+    <div class="cart-total">
+        <p class="cart-points">
+            Total de puntos: 
+            <span class="cart-total-value"><%= total %></span>
+        </p>
+    </div>
+
+    <% if (cart.length > 0) { %>
+        <div class="cart-checkout">
+            <a href="/checkout" class="cart-checkout-link">Ir a Pagar</a>
+        </div>
+    <% } else { %>
+        <div class="cart-checkout">
+            <a href="#" class="cart-disabled">
+                Carrito vacío
+            </a>
+        </div>
+    <% } %>
+
+</main>
 
     <%- include('../partials/footer') %>
 

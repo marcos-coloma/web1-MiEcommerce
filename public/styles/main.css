@@ -219,8 +219,8 @@
             .texto {
                 color: white;
             }
-*/
-        /*Las dos imagenes principales*/
+
+        /*Las dos imagenes principales*//*
             .recuadro-principal {
                 background-color: var(--color-primario);
                 margin: 125px 0 75px 0;
@@ -290,7 +290,7 @@
                 margin-bottom: 2rem;
             }
 
-        /*Imagenes de las Product Cards*/
+        /*Imagenes de las Product Cards*//*
             .cuerpo {
                 display: flex;
                 justify-content: center;
@@ -367,7 +367,7 @@
                 opacity: 0.8;
                 cursor: not-allowed;
             }
-            /*Pie de Pagina*/
+            /*Pie de Pagina*//*
             footer {
                 background-color: rgb(238, 238, 238);
                 padding: 10px 100px;
@@ -402,7 +402,7 @@
                 align-items: center;
                 gap: 8px;
             }
-
+*/
 
 
         /* LOGIN.HTML y REGISTER.HTML*/
@@ -412,7 +412,7 @@
                 padding: 2rem;
             }
 
-        /* inicio de sesión - y registro */
+        /* inicio de sesión - y registro 
             .main-login {
                 padding: 5rem 0rem;
                 background-color: var(--color-primario);
@@ -451,7 +451,7 @@
             .input::placeholder {
                 font-size: 13px;
             }
-            /*-----------------------------*/
+
             .sesion {
                 font-size: 1rem;
                 padding: 0.8rem 1.5rem;
@@ -496,9 +496,9 @@
                 font-size: 14px;
                 border-left: 4px solid red;
             }
-
+*/
     /*PRODUCT 1 y 2.HTML*/
-        /*contenido principal*/
+        /*contenido principal
             .producto-whiskey {
                 width: 55rem;
                 padding: 0.4rem;
@@ -552,9 +552,9 @@
                 width: 20px;
                 height: auto;
                 }
-
+*/
     /*CARRITO*/
-        /*contenido principal*/
+        /*contenido principal
             .subtitulo-3 {
                 margin-left: 21.6%;
                 margin-bottom: 1.1rem;
@@ -665,7 +665,7 @@
                 background-color: rgb(244, 244, 244);
             }
 
-            /* CHECKOUT */
+            /* CHECKOUT 
             .checkout-container {
                 display: flex;
                 max-width: 75rem;
@@ -720,7 +720,7 @@
             }
             
 
-/*--------------------------------------------------------------*/
+--------------------------------------------------------------*/
 
 /*--------------------------------------------------------------*/
 

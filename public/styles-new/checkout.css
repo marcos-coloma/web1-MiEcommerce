@@ -1,0 +1,83 @@
+/*--------CHECKOUT PAGE--------*/
+
+.checkout-container {
+    display: flex;
+    max-width: 75rem;
+    margin: 0 auto;
+    gap: 10rem;
+    padding: 1.25rem;
+}
+
+/* Resumen */
+.checkout-summary {
+    flex: 1;
+    background: rgb(235, 235, 235);
+    padding: 1.25rem;
+    border-radius: 2rem;
+    height: fit-content;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Opciones de entrega */
+.checkout-option {
+    height: auto;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(235, 235, 235);
+    border-radius: 2rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Lado izquierdo */
+.checkout-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Lado derecho */
+.checkout-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Texto */
+.checkout-text {
+    font-size: 1.2rem;
+}
+
+/* Gratis */
+.checkout-free {
+    color: rgb(0, 189, 0);
+    font-weight: bold;
+}
+
+/* Filas resumen */
+.checkout-row,
+.checkout-total {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.625rem 0;
+}
+
+/* Botón */
+.checkout-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    background-color: rgb(95, 95, 95);
+    color: white;
+    border-radius: 2rem;
+    border: none;
+    display: inline-block;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.checkout-button:hover {
+    background-color: var(--primary-color);
+}

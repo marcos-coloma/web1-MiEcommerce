@@ -9,8 +9,8 @@
 
 <main>
 
-    <a href="/" class="volver-listado">
-        <div class="subtitulo-2">
+    <a href="/" class="back-link">
+        <div class="product-breadcrumb">
             <img src="/img/ui/flecha-izquierda.png" alt="<-">
             <span>Volver al listado</span>
             <img src="/img/ui/flecha-derecha.png" alt="->">
@@ -18,57 +18,57 @@
         </div>
     </a>
 
-    <div class="producto-whiskey">
-        <div class="producto-whiskey-contenido">
+    <div class="product-detail">
+        <div class="product-detail-container">
 
-        <img 
-            src="<%= product.img || '/img/products/placeholder.webp' %>" 
-            alt="<%= product.name %>" 
-            class="producto-img"
-            onerror="this.onerror=null; this.src='/img/products/placeholder.webp';">
+            <img 
+                src="<%= product.img || '/img/products/placeholder.webp' %>" 
+                alt="<%= product.name %>" 
+                class="product-image"
+                onerror="this.onerror=null; this.src='/img/products/placeholder.webp';">
 
-            <div class="producto-whiskey-contenido-descripcion">
+            <div class="product-info">
+
                 <h2>
                     <%= product.name %> <br>
-                    <span style="font-size: 40px;">
+                    <span class="product-price">
                         $ <%= product.price.toLocaleString() %>
                     </span>
-                    <span style="color: gray; font-size: 15px;">PUNTOS</span>
+                    <span class="product-points">PUNTOS</span>
                 </h2>
 
-        <form action="/cart/add/<%= product.id %>" method="POST">
-            
-            <% if (product.stock === 0) { %>
+                <form action="/cart/add/<%= product.id %>" method="POST">
 
-                <button type="button" class="sesion" disabled>
-                    Sin stock
-                </button>
+                    <% if (product.stock === 0) { %>
 
-            <% } else { %>
+                        <button type="button" class="btn" disabled>
+                            Sin stock
+                        </button>
 
-                <button type="submit" class="sesion">
-                    Agregar al carrito
-                </button>
+                    <% } else { %>
 
-            <% } %>
+                        <button type="submit" class="btn">
+                            Agregar al carrito
+                        </button>
 
-        </form>
+                    <% } %>
 
-                <br>
+                </form>
 
-                <p style="font-size: 15px; color: rgb(54, 54, 54);">
+                <p class="product-description">
                     <%= product.description %>
                 </p>
+
             </div>
 
         </div>
     </div>
 
-    <h2 class="subtitulo">Productos relacionados</h2>
+    <h2 class="section-title">Productos relacionados</h2>
 
     <% if (relatedProducts.length > 0) { %>
 
-        <div class="cuerpo">
+        <div class="product-grid">
             <% relatedProducts.forEach(p => { %>
                 <%- include('../partials/productCard', { product: p }) %>
             <% }) %>

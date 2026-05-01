@@ -1,0 +1,93 @@
+/*--------PRODUCT DETAIL PAGE--------*/
+
+/* link volver */
+.back-link {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    margin-left: 21.6%;
+    margin-bottom: 1.1rem;
+}
+
+/* breadcrumb */
+.product-breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: rgb(75, 75, 75);
+}
+
+.product-breadcrumb img {
+    width: 20px;
+    height: auto;
+}
+
+/* contenedor principal */
+.product-detail {
+    width: 55rem;
+    padding: 0.4rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.35);
+    border-radius: 1rem;
+    display: flex;
+    margin: 0 auto;
+    min-height: 300px;
+    margin-bottom: 5rem;
+}
+
+.product-detail-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/* imagen */
+.product-image {
+    width: 500px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+/* info */
+.product-info {
+    background-color: rgb(246, 246, 246);
+    border: 0.1rem solid rgb(199, 199, 199);
+    border-radius: 1rem;
+    padding: 0.2rem 1rem 1rem 1rem;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+/* precio */
+.product-price {
+    font-size: 40px;
+}
+
+.product-points {
+    color: gray;
+    font-size: 15px;
+}
+
+/* descripción */
+.product-description {
+    font-size: 15px;
+    color: rgb(54, 54, 54);
+}
+
+/* botones reutilizados
+.btn {
+    ya existe en login/cart → no tocar diseño 
+}
+*/
+/* sección */
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}

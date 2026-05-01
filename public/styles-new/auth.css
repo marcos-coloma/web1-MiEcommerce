@@ -1,0 +1,102 @@
+/*--------AUTH (LOGIN / REGISTER)--------*/
+
+/* Contenedor principal de auth */
+.auth-container {
+    padding: 5rem 0rem;
+    background-color: var(--primary-color);
+    margin-bottom: 8rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* Card del formulario */
+.auth-card {
+    padding: 3.5rem 2rem;
+    background-color: white;
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    min-width: 300px;
+    margin-bottom: -12rem;
+}
+
+/* Título */
+.auth-title {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 2rem;
+    text-align: start;
+}
+
+/* Inputs */
+.auth-input {
+    font-size: .6rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 2rem;
+    border: 0.1rem solid gray;
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.auth-input::placeholder {
+    font-size: 13px;
+}
+
+/* Botón */
+.auth-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    background-color: rgb(77, 77, 77);
+    color: white;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.auth-button:hover {
+    background-color: var(--primary-color);
+}
+
+/* Link inferior */
+.auth-footer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12rem;
+    font-size: 15px;
+}
+
+/* Link registro/login */
+.auth-link {
+    color: gray !important;
+    text-decoration: underline !important;
+}
+
+/* Link dentro del botón (caso login viejo) */
+.auth-button a {
+    color: white !important;
+}
+
+/* Errores */
+.auth-errors {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.auth-errors li {
+    background-color: #ffe5e5;
+    color: #b30000;
+    padding: 8px 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    border-left: 4px solid red;
+}

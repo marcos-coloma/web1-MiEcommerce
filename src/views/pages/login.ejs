@@ -13,28 +13,28 @@
 
         <main>
 
-            <div class="main-login">
-                <div class="formulario">
-                    <span class="Hola">¡Hola!</span>
+            <div class="auth-container">
+                <div class="auth-card">
+                    <span class="auth-title">¡Hola!</span>
+
                     <form action="/">
-                        <ul id="errors"></ul>
+                        <ul id="auth-errors"></ul>
 
-                        <input id="username" type="text" placeholder="Tu nombre de usuario" class="input">
-                        <input id="password" type="password" placeholder="Tu contraseña" class="input">
+                        <input id="username" type="text" placeholder="Tu nombre de usuario" class="auth-input">
+                        <input id="password" type="password" placeholder="Tu contraseña" class="auth-input">
 
-                        <button type="submit" class="sesion">
+                        <button type="submit" class="auth-button">
                             Crear Cuenta
                         </button>
-                        
+
                     </form>
                 </div>
             </div>
-            <div class="register"> 
-                <span>¿No tienes una cuenta?&nbsp;</span>
-                <a href="/register" class="register-link">registrate</a>
-            </div>
-        
 
+            <div class="auth-footer"> 
+                <span>¿No tienes una cuenta?&nbsp;</span>
+                <a href="/register" class="auth-link">registrate</a>
+            </div>
 
         </main>
 

@@ -1,0 +1,36 @@
+/*--------404 PAGE--------*/
+
+/* contenedor general */
+.error-container {
+    width: 55rem;
+    padding: 0.4rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.35);
+    border-radius: 1rem;
+    display: flex;
+    margin: 0 auto;
+    min-height: 300px;
+    margin-bottom: 5rem;
+}
+
+/* contenido centrado */
+.error-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* caja */
+.error-box {
+    background-color: rgb(246, 246, 246);
+    border: 0.1rem solid rgb(199, 199, 199);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* número */
+.error-code {
+    font-size: 80px;
+    margin: 0;
+}
