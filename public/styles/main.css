@@ -361,6 +361,10 @@
                 padding: 4px 8px;
                 border-radius: 6px;
             }
+            button:disabled {
+                opacity: 0.8;
+                cursor: not-allowed;
+            }
             /*Pie de Pagina*/
             footer {
                 background-color: rgb(238, 238, 238);
@@ -396,10 +400,7 @@
                 align-items: center;
                 gap: 8px;
             }
-            button:disabled {
-                opacity: 0.8;
-                cursor: not-allowed;
-            }
+
 
 
         /* LOGIN.HTML y REGISTER.HTML*/

@@ -1,0 +1,37 @@
+.category-wrapper,
+.category-wrapper-alt {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.category-wrapper-alt {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+/* GRID */
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* ITEMS */
+.category-item,
+.category-item-single {
+    width: 25%;
+    min-width: 120px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #777;
+}
+
+/* QUITAR BORDE DERECHO CADA 4 ELEMENTOS */
+.category-item:nth-child(4n),
+.category-item-single:nth-child(4n) {
+    border-right: none;
+}
+
+/* QUITAR BORDE INFERIOR ÚLTIMA FILA */
+.category-list li:nth-last-child(-n+4) {
+    border-bottom: none;
+}
