@@ -266,7 +266,7 @@
                 margin-bottom: 2rem;
             }
 
-        /*Imagenes de la fila del whisky y las 2 filas de coca cola*/
+        /*Imagenes de las Product Cards*/
             .cuerpo {
                 display: flex;
                 justify-content: center;
@@ -282,7 +282,8 @@
                 margin: 3rem auto;
             }
             .contenedor-cuerpo {
-            background: #ededed;
+                position: relative;
+                background: #ededed;
                 padding: 0.45rem;
                 width: 13rem;
                 border-radius: 15px;
@@ -328,7 +329,16 @@
                 background-color: gray;
                 transform: translateX(-50%);
             }
-
+            .sin-stock {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                background: #e74c3c;
+                color: white;
+                font-size: 15px;
+                padding: 4px 8px;
+                border-radius: 6px;
+            }
             /*Pie de Pagina*/
             footer {
                 background-color: rgb(238, 238, 238);
@@ -364,7 +374,10 @@
                 align-items: center;
                 gap: 8px;
             }
-
+            button:disabled {
+                opacity: 0.8;
+                cursor: not-allowed;
+            }
 
 
         /* LOGIN.HTML y REGISTER.HTML*/
@@ -793,6 +806,7 @@
         font-size: 12px;
     }
 
+
 /*--------PRODUCTOS------------*/
     .producto-whiskey {
         width: 90%;
@@ -824,6 +838,7 @@
         text-align: center;
         display: block;
     }
+
 
 
 /*--------CARRITO------------*/
