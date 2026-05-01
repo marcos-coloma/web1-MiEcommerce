@@ -15,6 +15,17 @@ app.use(session({
     saveUninitialized: true
 }));
 
+// CART COUNT
+app.use((req, res, next) => {
+    const cart = req.session.cart || [];
+    const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+    res.locals.cartCount = cartCount;
+
+    next();
+});
+
+
 //  STATIC
 app.use(express.static("public"));
 
