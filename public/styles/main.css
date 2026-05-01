@@ -1,3 +1,5 @@
+/*
+
 :root {
     --color-primario: rgb(136, 91, 182);
 }
@@ -66,7 +68,7 @@
 
 
     /*INDEX.HTML*/
-        /*Encabezado*/
+        /*Encabezado
             .encabezado {
                 background-color: rgb(238, 238, 238);
                 display: flex;
@@ -163,8 +165,8 @@
             align-items: center;
             gap: 15px;
             }
-
-        /*botones del contenedor negro*/
+*/
+        /*botones del contenedor negro
             .recuadro,
             .recuadro-2 {
                 background-color: rgb(40, 40, 40);
@@ -217,7 +219,7 @@
             .texto {
                 color: white;
             }
-
+*/
         /*Las dos imagenes principales*/
             .recuadro-principal {
                 background-color: var(--color-primario);

@@ -11,52 +11,57 @@
 
 <%- include('../partials/categories', { recuadroClass: 'recuadro' }) %>
 
-        <div class="recuadro-principal">
-            <ul class="desordenada-principal">
-                <li class="lista-imagen-principal">
-                    <div class="contenedor-imagen">
-                            <img src="/img/ui/Imagen grande de la Izquierda.png" alt="imagen-grande1" class="imagen-principal-izquierda">
-                        <div class="info-superpuesta">
-                            <img src="/img/ui/icono1.jpg" alt="icono" class="icono">
-                            <ul>
-                                <li class="descripcion">50% OFF en Combo Plus</li>
-                                <li class="descripcion-2">Canjeando 50.000 puntos MiEcommerce</li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                <li class="lista-imagen-principal"> 
-                    <div class="contenedor-imagen">
-                            <img src="/img/ui/Imagen grande de la derecha.png" alt="imagen-grande2" class="imagen-principal-derecha">
-                        <div class="info-superpuesta">
-                            <img src="/img/ui/icono2.jpg" alt="icono" class="icono">
-                            <ul>
-                                <li class="descripcion">50% OFF en Combo Plus</li>
-                                <li class="descripcion-2">Canjeando 50.000 puntos MiEcommerce</li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+<div class="home-hero">
+    <ul class="home-hero-list">
+        <li class="home-hero-item">
+            <div class="home-hero-container">
+                <img src="/img/ui/Imagen grande de la Izquierda.png" alt="imagen-grande1" class="home-hero-image">
 
-        <h2 class="subtitulo">Te puede interesar</h2>
+                <div class="home-hero-overlay">
+                    <img src="/img/ui/icono1.jpg" alt="icono" class="home-icon">
 
-        <div class="cuerpo">
-            <% suggested.forEach(product => { %>
-                <%- include('../partials/productCard', { product }) %>
-            <% }) %>
-        </div>
+                    <ul>
+                        <li class="home-hero-title">50% OFF en Combo Plus</li>
+                        <li class="home-hero-subtitle">Canjeando 50.000 puntos MiEcommerce</li>
+                    </ul>
+                </div>
+            </div>
+        </li>
 
-        <h2 class="subtitulo">Lo más pedido</h2>
+        <li class="home-hero-item">
+            <div class="home-hero-container">
+                <img src="/img/ui/Imagen grande de la derecha.png" alt="imagen-grande2" class="home-hero-image">
 
-        <div class="cuerpo-2">
-            <% popularProducts.forEach(product => { %>
-                <%- include('../partials/productCard', { product }) %>
-            <% }) %>
-        </div>
+                <div class="home-hero-overlay">
+                    <img src="/img/ui/icono2.jpg" alt="icono" class="home-icon">
 
-        <%- include('../partials/categories', { recuadroClass: 'recuadro-2' }) %>
+                    <ul>
+                        <li class="home-hero-title">50% OFF en Combo Plus</li>
+                        <li class="home-hero-subtitle">Canjeando 50.000 puntos MiEcommerce</li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<h2 class="home-subtitle">Te puede interesar</h2>
+
+<div class="product-grid">
+    <% suggested.forEach(product => { %>
+        <%- include('../partials/productCard', { product }) %>
+    <% }) %>
+</div>
+
+<h2 class="home-subtitle">Lo más pedido</h2>
+
+<div class="product-grid-alt">
+    <% popularProducts.forEach(product => { %>
+        <%- include('../partials/productCard', { product }) %>
+    <% }) %>
+</div>
+
+<%- include('../partials/categories', { categoryWrapperClass: 'category-wrapper' }) %>
     </main>
 
 <%- include('../partials/footer') %>
