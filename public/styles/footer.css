@@ -1,0 +1,43 @@
+.footer {
+    background-color: rgb(238, 238, 238);
+    padding: 10px 100px;
+    border-top: 1px solid rgb(111, 111, 111);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* GRUPOS */
+.footer-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.footer-group-center p {
+    color: gray;
+    margin: 0;
+}
+
+/* IMAGENES */
+.footer-img {
+    height: 40px;
+}
+
+/* DESCRIPCIONES */
+.footer-text {
+    color: gray;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+/* BOTONES / APP */
+.footer-app-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

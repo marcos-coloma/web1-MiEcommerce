@@ -4,37 +4,37 @@
     <%- include('../partials/head', { title: 'Login' }) %>
 
     <body>
-        <header class="encabezado-login">
+        <header class="header-login">
             <a href="/">
-                <span class="Logo"><strong>Mi</strong>Ecommerce</span>
+                <span class="logo"><strong>Mi</strong>Ecommerce</span>
             </a>
         </header>
 
 
         <main>
 
-            <div class="main-login">
-                <div class="formulario">
-                    <span class="Hola">¡Hola!</span>
+            <div class="auth-container">
+                <div class="auth-card">
+                    <span class="auth-title">¡Hola!</span>
+
                     <form action="/">
-                        <ul id="errors"></ul>
+                        <ul id="auth-errors"></ul>
 
-                        <input id="username" type="text" placeholder="Tu nombre de usuario" class="input">
-                        <input id="password" type="password" placeholder="Tu contraseña" class="input">
+                        <input id="username" type="text" placeholder="Tu nombre de usuario" class="auth-input">
+                        <input id="password" type="password" placeholder="Tu contraseña" class="auth-input">
 
-                        <button type="submit" class="sesion">
-                            Crear Cuenta
+                        <button type="submit" class="auth-button">
+                            Iniciar Sesión
                         </button>
-                        
+
                     </form>
                 </div>
             </div>
-            <div class="register"> 
-                <span>¿No tienes una cuenta?&nbsp;</span>
-                <a href="/register" class="register-link">registrate</a>
-            </div>
-        
 
+            <div class="auth-footer"> 
+                <span>¿No tienes una cuenta?&nbsp;</span>
+                <a href="/register" class="auth-link">registrate</a>
+            </div>
 
         </main>
 

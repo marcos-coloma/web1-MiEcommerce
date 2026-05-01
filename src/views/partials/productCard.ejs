@@ -1,22 +1,22 @@
 <a href="/products/<%= product.id %>">
-    <div class="contenedor-cuerpo">
+    <div class="product-card">
 
         <img 
             src="<%= product.img || '/img/products/placeholder.webp' %>" 
             alt="<%= product.name %>" 
-            class="imagen-cuerpo"
+            class="product-card-image"
             onerror="this.onerror=null; this.src='/img/products/placeholder.webp';">
 
-        <div class="info-wrapper">
-            <div class="info-imagen">
+        <div class="product-info-wrapper">
+            <div class="product-info">
 
-                <div class="texto-izq">
+                <div class="product-text-left">
                     <%= product.name %>
                 </div>
 
-                <div class="linea-vertical"></div>
+                <div class="product-divider"></div>
 
-                <div class="texto-der">
+                <div class="product-text-right">
                     $ <%= product.price.toLocaleString() %>
                 </div>
 
@@ -24,7 +24,7 @@
         </div>
 
         <% if (product.stock === 0) { %>
-            <div class="sin-stock">Sin stock</div>
+            <div class="product-out-of-stock">Sin stock</div>
         <% } %>
 
     </div>

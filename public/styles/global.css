@@ -1,0 +1,28 @@
+:root {
+    --primary-color: rgb(136, 91, 182);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+main {
+    flex: 1;
+}
+
+a,
+a:visited,
+a:hover,
+a:focus {
+    text-decoration: none;
+    color: inherit;
+}

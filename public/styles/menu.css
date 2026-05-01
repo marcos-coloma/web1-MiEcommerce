@@ -1,0 +1,58 @@
+/*--------MENU SIDEBAR--------*/
+
+/* Contenedor principal del menú */
+.menu {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 250px;
+}
+
+/* Línea separadora del menú */
+.menu-divider {
+    border: none;
+    height: 3px;
+    background-color: var(--primary-color);
+    width: 100%;
+    margin: 8px 0;
+}
+
+/* Sección de perfil */
+.menu-profile {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 10px;
+}
+
+/* Imagen de perfil */
+.menu-profile-img {
+    background-color: var(--primary-color);
+    width: 65px;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* Texto del perfil */
+.menu-profile-text {
+    font-size: 1.7rem;
+    margin: 0;
+    font-weight: 600;
+    color: rgb(50, 50, 50);
+}
+
+/* Links del menú */
+.menu a {
+    text-decoration: none;
+    color: black;
+    padding: 6px 10px;
+    display: block;
+    border-radius: 4px;
+}
+
+/* Hover de links */
+.menu a:hover {
+    background-color: var(--primary-color);
+    color: white;
+}

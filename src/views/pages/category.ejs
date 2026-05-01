@@ -7,29 +7,24 @@
 
 <%- include('../partials/header', { perfilLink: '/login' }) %>
 
-
-
-
 <main>
-    <h1 class="subtitulo"><%= category.charAt(0).toUpperCase() + category.slice(1) %></h1>
 
-    <a href="/" class="volver-listado">
-        <div class="subtitulo-2">
+    <h1 class="product-grid">
+        <%= category.charAt(0).toUpperCase() + category.slice(1) %>
+    </h1>
+
+    <a href="/" class="back-to-list">
+        <div class="breadcrumb-wrapper">
             <img src="/img/ui/flecha-izquierda.png" alt="<-">
-            <span>Volver al inicio</span>
-
+            <span>Volver al listado</span>
             <img src="/img/ui/flecha-derecha.png" alt="->">
-
-            <span>
-                <%= category.charAt(0).toUpperCase() + category.slice(1) %>
-            </span>
-
+            <span><%= category.charAt(0).toUpperCase() + category.slice(1) %></span>
         </div>
     </a>
 
     <% if (products.length > 0) { %>
 
-        <div class="cuerpo">
+        <div class="product-grid">
             <% products.forEach(product => { %>
                 <%- include('../partials/productCard', { product }) %>
             <% }) %>
@@ -37,7 +32,9 @@
 
     <% } else { %>
 
-        <p>No hay productos en esta categoría.</p>
+        <p style="text-align:center; margin-top:2rem;">
+            No hay productos en esta categoría.
+        </p>
 
     <% } %>
 

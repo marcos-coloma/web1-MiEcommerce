@@ -4,40 +4,37 @@
 <%- include('../partials/head', { title: 'Register' }) %>
 
     <body>
-        <header class="encabezado-login">
+        <header class="header-login">
             <a href="/">
-                <span class="Logo"><strong>Mi</strong>Ecommerce</span>
+                <span class="logo"><strong>Mi</strong>Ecommerce</span>
             </a>
         </header>
 
 
         <main>
 
-            <div class="main-login">
-                <div class="formulario">
-                    <span class="Hola">¡Hola!</span>
+            <div class="auth-container">
+                <div class="auth-card">
+                    <span class="auth-title">¡Hola!</span>
 
                     <form action="/login">
-                        <ul id="errors"></ul>
+                        <ul id="auth-errors"></ul>
 
-                        <input id="email" type="text" placeholder="Tu email" class="input">
-                        <input id="password" type="password" placeholder="Tu contraseña" class="input">
-                        <input id="repeatPassword" type="password" placeholder="Repite tu contraseña" class="input">
+                        <input id="email" type="text" placeholder="Tu email" class="auth-input">
+                        <input id="password" type="password" placeholder="Tu contraseña" class="auth-input">
+                        <input id="repeatPassword" type="password" placeholder="Repite tu contraseña" class="auth-input">
 
-                        <button type="submit" class="sesion">
+                        <button type="submit" class="auth-button">
                             Crear Cuenta
                         </button>
-
                     </form>
                 </div>
             </div>
-            <div class="register"> 
+
+            <div class="auth-footer"> 
                 <span>¿Ya tienes una cuenta?&nbsp;</span>
-                <a href="/login" class="register-link">inicia sesión</a>
+                <a href="/login" class="auth-link">inicia sesión</a>
             </div>
-        
-
-
 
         </main>
 

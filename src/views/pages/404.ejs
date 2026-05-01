@@ -7,30 +7,31 @@
 
     <%- include('../partials/header', { perfilLink: '/login' }) %>
 
-    <main>
+<main>
 
-        <div class="producto-whiskey">
-            <div class="producto-whiskey-contenido" style="justify-content: center; text-align: center;">
+    <div class="error-container">
+        <div class="error-content">
 
-                <div class="producto-whiskey-contenido-descripcion">
+            <div class="error-box">
 
-                    <h1 style="font-size: 80px;">404</h1>
+                <h1 class="error-code">404</h1>
 
-                    <h2>Página no encontrada</h2>
+                <h2>Página no encontrada</h2>
 
-                    <p>La URL que ingresaste no existe o fue movida.</p>
+                <p>La URL que ingresaste no existe o fue movida.</p>
 
-                    <a href="/">
-                        <div class="sesion">
-                            Volver al inicio
-                        </div>
-                    </a>
-
-                </div>
+                <a href="/">
+                    <div class="btn">
+                        Volver al inicio
+                    </div>
+                </a>
 
             </div>
+
         </div>
-    </main>
+    </div>
+
+</main>
 
     <%- include('../partials/footer') %>
 

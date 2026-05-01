@@ -1,93 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<%- include('../partials/head', { title: 'Cart' }) %>
+<%- include('../partials/head', { title: 'Carrito' }) %>
 
 <body>
 
     <%- include('../partials/header', { perfilLink: '/login' }) %>
 
     <main>
-        <a href="/" class="volver-listado">
-            <div class="subtitulo-2">
+        <a href="/" class="back-link">
+            <div class="subtitle-2">
                 <img src="/img/ui/flecha-izquierda.png" alt="<-">
                 <span>Volver</span>
             </div>
         </a>
         
-        <div class="subtitulo-3">
+        <div class="subtitle-3">
             <h2>Productos en tu Carrito</h2>
         </div>
 
-
         <% if (cart.length === 0) { %>
-
-            <div class="carrito-vacio">
+            <div class="cart-empty">
                 <p>No hay productos en tu carrito</p>
                 <a href="/">Ver productos</a>
             </div>
-
         <% } else { %>
 
             <% cart.forEach(product => { %>
+                <div class="cart-box">
+                    <div class="box-1">
+                        <img src="<%= product.img || '/img/placeholder.jpg' %>" 
+                            class="cart-image">
+                        <p class="text-size-p"><%= product.name %></p>
+                    </div>
 
-        <div class="carrito-caja">
-            <div class="caja-1">
-                <img src="<%= product.img || '/img/placeholder.jpg' %>" 
-                    class="imagen-carrito">
+                    <div class="box-2">
+                        <form action="/cart/remove/<%= product.id %>" method="POST">
+                            <button type="submit" class="session session-margin">
+                                Quitar
+                            </button>
+                        </form>
 
-                <p class="tamaño-p"><%= product.name %></p>
-            </div>
+                        <div class="quantity">
+                            <form action="/cart/decrease/<%= product.id %>" method="POST" style="display:inline;">
+                                <button type="submit">-</button>
+                            </form>
 
-        <div class="caja-2">
+                            <span><%= product.quantity %></span>
 
+                            <form action="/cart/increase/<%= product.id %>" method="POST" style="display:inline;">
+                                <button type="submit">+</button>
+                            </form>
+                        </div>
+                    </div>
 
-        <form action="/cart/remove/<%= product.id %>" method="POST">
-            <button type="submit" class="sesion sesion-margen">
-                Quitar
-            </button>
-        </form>
-
-        <div class="cantidad">
-
-            <form action="/cart/decrease/<%= product.id %>" method="POST" style="display:inline;">
-                <button type="submit">-</button>
-            </form>
-
-            <span><%= product.quantity %></span>
-
-            <form action="/cart/increase/<%= product.id %>" method="POST" style="display:inline;">
-                <button type="submit">+</button>
-            </form>
-
-        </div>
-
-    </div>
-
-                    <span class="puntos"><%= product.subtotal %></span>
+                    <span class="points"><%= product.subtotal %></span>
                 </div>
-            </div>
-
             <% }) %>
 
         <% } %>
 
-        <div class="Total">
-            <p class="puntos">Total de puntos: <span style="font-size: 1.8rem;"><%= total %></span></p>
+<div class="cart-total">
+            <p class="points">Total de puntos: <span style="font-size: 1.8rem;"><%= total %></span></p>
         </div>
 
-
-        <% if (cart.length > 0) { %>
-            <div class="sesion sesion-3">
-                <a href="/checkout">Ir a Pagar</a>
-            </div>
-        <% } else { %>
-            <div class="sesion sesion-3">
-                <a href="#" style="opacity: 0.8; pointer-events: none; text-align: center;">
-                    Carrito vacío
+        <div class="session-3">
+            <% if (cart.length > 0) { %>
+                <a href="/checkout" class="session">
+                    Ir a Pagar
                 </a>
-            </div>
-        <% } %>
+            <% } else { %>
+                <div class="session" style="opacity: 0.5; cursor: not-allowed;">
+                    Carrito vacío
+                </div>
+            <% } %>
+        </div>
 
     </main>
 
