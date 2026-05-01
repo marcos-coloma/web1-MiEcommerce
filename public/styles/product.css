@@ -91,3 +91,9 @@
     text-align: center;
     margin-bottom: 2rem;
 }
+
+/* Botones deshabilitados */
+button:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+}

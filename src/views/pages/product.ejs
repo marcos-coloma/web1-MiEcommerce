@@ -32,7 +32,7 @@
                 <h2>
                     <%= product.name %> <br>
                     <span class="product-price">
-                        $ <%= product.price.toLocaleString() %>
+                        $ <%= (product.price || 0).toLocaleString() %>
                     </span>
                     <span class="product-points">PUNTOS</span>
                 </h2>
@@ -80,7 +80,7 @@
 
     <% } %>
 
-    <%- include('../partials/categories', { recuadroClass: 'recuadro-2' }) %>
+<%- include('../partials/categories', { categoryWrapperClass: 'category-wrapper-alt' }) %>
 
 </main>
 

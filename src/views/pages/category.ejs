@@ -7,14 +7,15 @@
 
 <%- include('../partials/header', { perfilLink: '/login' }) %>
 
-
-
-
 <main>
-    <h1 class="subtitulo"><%= category.charAt(0).toUpperCase() + category.slice(1) %></h1>
+
+    <h1 class="subtitulo">
+        <%= category.charAt(0).toUpperCase() + category.slice(1) %>
+    </h1>
 
     <a href="/" class="volver-listado">
         <div class="subtitulo-2">
+
             <img src="/img/ui/flecha-izquierda.png" alt="<-">
             <span>Volver al inicio</span>
 
@@ -37,7 +38,9 @@
 
     <% } else { %>
 
-        <p>No hay productos en esta categoría.</p>
+        <p style="text-align:center; margin-top:2rem;">
+            No hay productos en esta categoría.
+        </p>
 
     <% } %>
 

@@ -8,11 +8,18 @@
     gap: 25px;
 }
 
-/* Variante de grid con wrap */
 .product-grid-alt {
     flex-wrap: wrap;
     max-width: 70rem;
     margin: 3rem auto;
+}
+
+/* Enlaces de la card */
+.product-grid a, 
+.product-grid-alt a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 /* Contenedor de la card */
@@ -42,24 +49,24 @@
     align-items: flex-end;
 }
 
-/* Contenedor de info inferior */
+/* Contenedor de info inferior - CORREGIDO */
 .product-info {
     position: relative;
     display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     margin-top: 8px;
 }
 
-/* Texto izquierdo y derecho */
+/* Texto izquierdo y derecho - CORREGIDO */
 .product-text-left,
 .product-text-right {
     font-size: 14px;
     word-break: break-word;
     width: 45%;
     text-align: center;
-    align-items: start;
     font-weight: bold;
 }
 
@@ -86,8 +93,3 @@
     border-radius: 6px;
 }
 
-/* Botones deshabilitados */
-button:disabled {
-    opacity: 0.8;
-    cursor: not-allowed;
-}
