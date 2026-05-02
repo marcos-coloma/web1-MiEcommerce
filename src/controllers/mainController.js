@@ -16,6 +16,8 @@ const mainController = {
         .slice(0, 10);
 
         res.render("pages/home", { 
+            title: "Home",
+            perfilLink: "/menu",
             products,
             suggested,
             popularProducts
@@ -23,9 +25,10 @@ const mainController = {
     },
 
     menu: (req, res) => {
-        res.render("pages/menu", { 
+        res.render("pages/menu", {            
+            layout: false, 
             title: "Menu"
-        });
+            });
     }
 };
 

@@ -27,7 +27,8 @@ const cartController = {
 
         const total = cartDetailed.reduce((acc, item) => acc + item.subtotal, 0);
 
-        res.render("pages/cart", { 
+        res.render("pages/Cart", { 
+            title: "cart",
             cart: cartDetailed,
             total: total
         });
@@ -131,7 +132,8 @@ const cartController = {
 
         res.render("pages/checkout", { 
             title: "Checkout",
-            perfilLink: "/login"
+            perfilLink: "/login",
+            mainClass: "checkout-container"
         });
     }
 };

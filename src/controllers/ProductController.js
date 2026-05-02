@@ -30,6 +30,7 @@ const productController = {
         }
 
         res.render("pages/product", {
+            title:"Product",
             product,
             relatedProducts
         });
