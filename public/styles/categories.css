@@ -4,20 +4,20 @@
 .category-wrapper,
 .category-wrapper-alt {
     background-color: rgb(40, 40, 40);
-    border-radius: 30px;
-    width: 90%;
-    max-width: 900px;
+    border-radius: 32px;
+    width: 92%;
+    max-width: 1050px;
     overflow: hidden;
 }
 
 /* variantes de margen */
 .category-wrapper {
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 .category-wrapper-alt {
-    margin: 7rem auto;
+    margin: 8rem auto;
 }
 
 /* lista */
@@ -36,9 +36,8 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 100px;
-    padding: 0.5rem;
-    padding-bottom: 0;
+    width: 120px;
+    padding: 0.7rem 0.5rem 0.3rem;
 }
 
 /* separación entre items */
@@ -57,13 +56,90 @@
 
 /* imagen */
 .category-image {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     object-fit: contain;
-    margin-top: 4px;
+    margin-top: 6px;
 }
 
 /* texto */
 .category-text {
     color: white;
+    font-size: 1.05rem;
+}
+
+/*--- RESPONSIVE ---*/
+
+@media (max-width: 1000px) and (min-width: 500px) {
+
+    .category-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 0;
+        margin: 0;
+    }
+
+    .category-item,
+    .category-item-single {
+        width: 100%;
+    }
+
+    .category-item:not(:last-child),
+    .category-item-single:not(:last-child) {
+        border-right: none;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .category-wrapper,
+    .category-wrapper-alt {
+        width: 80%;
+        padding: 0;
+    }
+
+    .category-list {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+
+    .category-item,
+    .category-item-single {
+        width: 100%;
+        border-radius: 10px;
+        transition: background 0.2s ease;
+    }
+
+    .category-item:hover,
+    .category-item-single:hover {
+        background-color: var(--primary-color);
+    }
+
+    .category-item a,
+    .category-item-single a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .category-image {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+    }
+
+    .category-text {
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+        line-height: 1;
+        margin: 0;
+    }
 }

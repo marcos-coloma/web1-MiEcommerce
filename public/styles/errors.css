@@ -1,15 +1,14 @@
-/*--------ERRORS PAGE--------*/
-
-/* contenedor general */
 .error-container {
-    width: 55rem;
-    padding: 0.4rem;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.35);
+    width: 90%;
+    max-width: 55rem;
+    padding: 1rem;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
     border-radius: 1rem;
     display: flex;
     margin: 0 auto;
     min-height: 300px;
     margin-bottom: 5rem;
+    background: white;
 }
 
 /* contenido centrado */
@@ -25,12 +24,42 @@
     background-color: rgb(246, 246, 246);
     border: 0.1rem solid rgb(199, 199, 199);
     border-radius: 1rem;
-    padding: 2rem;
+    padding: clamp(1.2rem, 3vw, 2.5rem);
     text-align: center;
+    width: 100%;
 }
 
 /* número */
 .error-code {
-    font-size: 80px;
+    font-size: clamp(3rem, 10vw, 6rem);
     margin: 0;
+    font-weight: 800;
+    color: rgb(40, 40, 40);
+}
+
+
+.error-box p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: rgb(80, 80, 80);
+    margin-top: 1rem;
+}
+
+/* Botón */
+.auth-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    background-color: rgb(77, 77, 77);
+    color: white;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    display: block;
+    margin: 1rem auto 0 auto;
+    text-align: center;
+    width: fit-content;
+}
+
+.auth-button:hover {
+    background-color: var(--primary-color);
 }

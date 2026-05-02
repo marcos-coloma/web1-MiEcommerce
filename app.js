@@ -51,14 +51,14 @@ app.use((req, res, next) => {
 // IMPORTAR RUTAS
 const mainRoutes = require("./src/routes/mainRoutes");
 const authRoutes = require("./src/routes/authRoutes");
-const productRoutes = require("./src/routes/productRoutes");
+const productDetailsRoutes = require("./src/routes/productDetailsRoutes");
 const cartRoutes = require("./src/routes/cartRoutes");
 const productsRoutes = require('./src/routes/productsRoutes');
 
 //  RUTAS
 app.use("/", mainRoutes);
 app.use("/", authRoutes);
-app.use("/", productRoutes);
+app.use("/", productDetailsRoutes);
 app.use("/", cartRoutes);
 app.use('/', productsRoutes);
 

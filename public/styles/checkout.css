@@ -81,3 +81,57 @@
 .checkout-button:hover {
     background-color: var(--primary-color);
 }
+
+
+@media (max-width: 1000px) {
+
+    /* layout general: columna */
+    .checkout-container {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem;
+        align-items: center;
+    }
+
+    /* opciones + summary ocupan ancho completo */
+    .checkout-options,
+    .checkout-summary {
+        width: 90%;
+        max-width: 650px;
+    }
+
+    /* opción más compacta */
+    .checkout-option {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+        padding: 1rem;
+    }
+
+    .checkout-left,
+    .checkout-right {
+        width: 90%;
+    }
+
+    /* radio + texto más ordenado */
+    .checkout-left {
+        align-items: flex-start;
+    }
+
+    /* texto un poco más chico */
+    .checkout-text {
+        font-size: 1rem;
+    }
+
+    /* botón más usable en mobile */
+    .checkout-button {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    /* centrado del summary */
+    .checkout-summary {
+        margin: 0 auto;
+    }
+}
+
