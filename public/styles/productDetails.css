@@ -81,7 +81,6 @@
 
 @media (max-width: 1000px) {
 
-    /* BACK LINK */
     .back-to-list {
         margin-left: 0;
         display: flex;
@@ -95,7 +94,6 @@
         text-align: center;
     }
 
-    /* CARD PRINCIPAL → Pasa a columna */
     .product-detail-card {
         width: 70%;
         flex-direction: column;
@@ -107,7 +105,7 @@
         align-items: center;
     }
 
-    /* IMAGEN ARRIBA */
+
     .product-detail-img {
         width: 75%;
         max-width: 500px;
@@ -115,30 +113,29 @@
         margin-bottom: 1rem;
     }
 
-    /* INFO ABAJO */
     .product-detail-info {
         margin-left: 0;
         width: 100%;
     }
 
-    /* TÍTULO Y PRECIO */
+
     .product-detail-info h2 {
         text-align: center;
         font-size: 1.6rem;
     }
 
-    /* BOTÓN */
+
     .product-detail-info form {
         display: flex;
         justify-content: center;
     }
 
-    /* DESCRIPCIÓN */
+
     .product-detail-info p {
         text-align: center;
     }
 
-    /* RELACIONADOS */
+
     .product-grid {
         justify-content: center;
     }
@@ -146,12 +143,12 @@
 
 @media (max-width: 500px) {
 
-    /* CARD MÁS ANCHA PARA EVITAR "ACHICAMIENTO VISUAL" */
+
     .product-detail-card {
         width: 90%;
     }
 
-    /* IMAGEN MÁS GRANDE RELATIVA */
+
     .product-detail-img {
         width: 100%;
         max-width: 100%;
@@ -159,18 +156,18 @@
         object-fit: contain;
     }
 
-    /* TÍTULO MÁS LEGIBLE */
+
     .product-detail-info h2 {
         font-size: 1.3rem;
     }
 
-    /* DESCRIPCIÓN MÁS COMPACTA PERO LEGIBLE */
+
     .product-detail-info p {
         font-size: 1rem;
         line-height: 1.5;
     }
 
-    /* BOTÓN OCUPA BIEN EL ANCHO */
+
     .product-detail-info form {
         width: 100%;
     }

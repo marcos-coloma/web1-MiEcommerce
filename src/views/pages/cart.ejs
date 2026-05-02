@@ -36,15 +36,15 @@
                                 <button type="submit">-</button>
                             </form>
 
-                            <span><%= product.quantity %></span>
+                            <span style="font-size: 20px; font-weight: 500;"><%= product.quantity %></span>
 
                             <form action="/cart/increase/<%= product.id %>" method="POST" style="display:inline;">
                                 <button type="submit">+</button>
                             </form>
                         </div>
+                                            <span class="points"><%= product.subtotal %></span>
                     </div>
 
-                    <span class="points"><%= product.subtotal %></span>
                 </div>
             <% }) %>
 
