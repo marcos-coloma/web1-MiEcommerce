@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
 
-<%- include('../partials/head', { title: product.name }) %>
-
-<body>
-    
-<%- include('../partials/header', { perfilLink: '/login' }) %>
-
-<main>
     <a href="/" class="back-to-list">
         <div class="breadcrumb-wrapper">
             <img src="/img/ui/flecha-izquierda.png" alt="<-">
@@ -63,9 +54,3 @@
     <% } %>
 
 <%- include('../partials/categories', { categoryWrapperClass: 'category-wrapper-alt' }) %>
-</main>
-
-<%- include('../partials/footer') %>
-
-</body>
-</html>

@@ -1,5 +1,6 @@
-const session = require("express-session");
 const express = require("express");
+const session = require("express-session");
+const expressLayouts = require('express-ejs-layouts');
 const path = require("path");
 const app = express();
 const PORT = 3000;
@@ -32,6 +33,20 @@ app.use(express.static("public"));
 // CONFIG EJS
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "src", "views"));
+
+// CONFIG LAYOUTS
+app.use(expressLayouts);
+app.set('layout', 'layouts/main');
+
+// DEFAULT
+app.use((req, res, next) => {
+    res.locals.title = "MiEcommerce";
+    res.locals.perfilLink = "/login";
+    res.locals.mainClass = '';
+
+    next();
+});
+
 
 // IMPORTAR RUTAS
 const mainRoutes = require("./src/routes/mainRoutes");

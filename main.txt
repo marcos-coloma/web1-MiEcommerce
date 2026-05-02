@@ -1,4 +1,4 @@
-/*
+/* tuve que cambiar esta garompa
 
 :root {
     --color-primario: rgb(136, 91, 182);

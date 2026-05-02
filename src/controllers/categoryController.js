@@ -15,6 +15,7 @@ const categoryController = {
         console.log(filteredProducts);
         
         return res.render('pages/category', {
+            title:"Category",
             category,
             products: filteredProducts
         });
