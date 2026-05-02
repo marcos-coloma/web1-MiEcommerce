@@ -1,7 +1,7 @@
 const productsService = require("../services/productsService");
 const normalizeId = require("../helpers/normalizeId");
 
-const productController = {
+const productDetailsController = {
 
 detail: (req, res) => {
     try {
@@ -14,7 +14,7 @@ detail: (req, res) => {
 
         const relatedProducts = productsService.getRelated(product);
 
-        res.render("pages/product", {
+        res.render("pages/productDetails", {
             title: "Product",
             product,
             relatedProducts
@@ -28,4 +28,4 @@ detail: (req, res) => {
 
 };
 
-module.exports = productController;
+module.exports = productDetailsController;
