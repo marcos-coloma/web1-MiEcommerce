@@ -46,9 +46,25 @@ const productsService = {
             )
             .sort(() => 0.5 - Math.random())
             .slice(0, 4);
-    }
-}
+    },
 
+
+    sortByPrice: (order = "asc") => {
+        const products = Product.getAll();
+
+        return products.sort((a, b) => {
+            return order === "asc"
+                ? a.price - b.price
+                : b.price - a.price;
+        });
+    }
+
+
+
+
+
+    
+}
 
 
 module.exports = productsService;

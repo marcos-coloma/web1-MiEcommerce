@@ -1,0 +1,16 @@
+<h1 class="section-title">Productos relacionados</h1>
+
+<% if (relatedProducts.length > 0) { %>
+
+    <div class="product-grid">
+        <% relatedProducts.forEach(p => { %>
+            <%- include('../partials/productCard', { product: p }) %>
+        <% }) %>
+    </div>
+
+<% } else { %>
+
+    <p>No hay productos relacionados disponibles.</p>
+
+<% } %>
+
