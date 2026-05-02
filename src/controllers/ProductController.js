@@ -15,7 +15,7 @@ const productController = {
         const allProducts = Product.getAll();
 
         if (!product) {
-            return res.status(404).render("pages/404");
+            return res.status(404).render("errors/404");
         }
 
         let relatedProducts = [];

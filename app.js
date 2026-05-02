@@ -47,9 +47,13 @@ app.use("/", productRoutes);
 app.use("/", cartRoutes);
 app.use('/', categoryRoutes);
 
-app.use((req, res, next) => {
-    res.status(404).render("pages/404");
-});
+
+const notFound = require('./src/middlewares/notFound');
+app.use(notFound);
+
+const errorHandler = require('./src/middlewares/errorHandler');
+app.use(errorHandler);
+
 
 // INICIAR SERVIDOR
 
