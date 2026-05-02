@@ -23,26 +23,29 @@
     </a>
 
     <div class="products-filters">
-
-        <input 
-            type="text" 
-            placeholder="Buscar productos..."
-            class="products-search"
-        >
+<form action="/products" method="GET">
+    <input 
+        type="text" 
+        name="search"
+        placeholder="Buscar productos..."
+        class="products-search"
+        value="<%= search || '' %>"
+    >
+</form>
 
 <select class="products-sort" onchange="location = this.value">
 
     <option value="">Ordenar por</option>
 
     <option 
-        value="/products?order=asc<%= category ? `&category=${category}` : '' %>"
+        value="/products?order=asc<%= category ? `&category=${category}` : '' %><%= search ? `&search=${search}` : '' %>"
         <%= order === 'asc' ? 'selected' : '' %>
     >
         Precio: menor a mayor
     </option>
 
     <option 
-        value="/products?order=desc<%= category ? `&category=${category}` : '' %>"
+        value="/products?order=desc<%= category ? `&category=${category}` : '' %><%= search ? `&search=${search}` : '' %>"
         <%= order === 'desc' ? 'selected' : '' %>
     >
         Precio: mayor a menor
