@@ -3,14 +3,6 @@ const normalizeId = require("../helpers/normalizeId");
 
 const productController = {
 
-    list: (req, res) => {
-        const products = productsService.getAll();
-
-        res.render("pages/products", {
-            products
-        });
-    },
-
 detail: (req, res) => {
     try {
         const id = normalizeId(req.params.id);

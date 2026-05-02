@@ -75,10 +75,57 @@
     list-style: none;
 }
 
-/*--------SUBTÍTULOS DE HOME--------*/
+/*Subtitulos de home*/
 
 .home-subtitle {
-    text-align: center;
-    margin-right: 45%;
-    margin-bottom: 2rem;
+    width: fit-content;
+    margin: 3rem auto 2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+
+    position: relative;
+    left: -20rem;
 }
+
+
+
+.home-products-link {
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0;
+}
+
+.home-products-link a {
+    background-color: rgb(40, 40, 40);
+    color: #fff;
+
+    padding: 1.3rem 3.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    text-decoration: none;
+    border-radius: 16px;
+
+    letter-spacing: 0.8px;
+
+    transition: all 0.25s ease;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.home-products-link a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.home-products-link a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
