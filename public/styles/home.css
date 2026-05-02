@@ -1,0 +1,207 @@
+/*--------HOME HERO SECTION--------*/
+
+/* Contenedor principal del hero */
+.home-hero {
+    background-color: var(--primary-color);
+    margin: 125px 0 75px 0;
+    position: relative;
+}
+
+/* Lista principal del hero */
+.home-hero-list {
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
+    justify-content: center;
+    gap: 60px;
+}
+
+/* Items del hero */
+.home-hero-item {
+    list-style: none;
+    padding: 0.3rem 0.7rem;
+}
+
+/* Imagen principal del hero */
+.home-hero-image {
+    width: 100%;
+    height: 320px;
+    border-radius: 2.5rem;
+    box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.4);
+}
+
+/* Contenedor de la imagen */
+.home-hero-container {
+    position: relative;
+    display: inline-block;
+    width: 525px;
+}
+
+/* Overlay de información */
+.home-hero-overlay {
+    position: absolute;
+    width: 85%;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    background-color: rgba(97, 97, 97, 0.6);
+    padding: 12px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Icono del overlay */
+.home-icon {
+    height: 100px;
+    width: 140px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* Texto principal del banner */
+.home-hero-title {
+    font-size: 22px;
+    color: #ffffff;
+    font-weight: bold;
+    list-style: none;
+}
+
+/* Texto secundario del banner */
+.home-hero-subtitle {
+    font-size: 16px;
+    color: #ffffff;
+    list-style: none;
+}
+
+
+.home-hero-container {
+    transition: transform 0.4s ease;
+    will-change: transform;
+}
+
+.home-hero-container:hover {
+    transform: scale(1.01);
+}
+
+/*Subtitulos de home*/
+
+.home-subtitle {
+    width: fit-content;
+    margin: 3rem auto 2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+
+    position: relative;
+    left: -20rem;
+}
+
+
+
+.home-products-link {
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0;
+}
+
+.home-products-link a {
+    background-color: rgb(40, 40, 40);
+    color: #fff;
+
+    padding: 1.3rem 3.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    text-decoration: none;
+    border-radius: 16px;
+
+    letter-spacing: 0.8px;
+
+    transition: all 0.25s ease;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.home-products-link a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.home-products-link a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/*--- RESPONSIVE ---*/
+
+@media (max-width: 1200px) {
+
+    .home-hero {
+        margin: 80px 0 50px 0;
+    }
+
+    .home-hero-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .home-hero-container {
+        width: 100%;
+        max-width: 700px;
+    }
+
+    .home-hero-image {
+        height: auto;
+        width: 100%;
+    }
+
+.home-hero-overlay {
+    width: 90%;
+    bottom: 15px;
+    padding: 0.5rem;
+}
+
+    .home-icon {
+        height: clamp(4rem, 8vw, 7.5rem);
+        width: clamp(5rem, 10vw, 9.375rem);
+    }
+
+    .home-hero-title {
+        font-size: clamp(1.2rem, 2.5vw, 2.125rem);
+    }
+
+    .home-hero-subtitle {
+        font-size: clamp(1rem, 2vw, 1.75rem);
+    }
+
+    /*--------------------------*/
+
+.home-subtitle {
+    width: 100%;
+    text-align: center;
+    margin: 3rem 0 2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    position: static;
+}
+
+
+}
+
+@media (max-width: 500px) {
+
+    .home-products-link a {
+        padding: 1.1rem 2.5rem;
+        font-size: 1.2rem;
+        font-weight: 650;
+    }
+
+}

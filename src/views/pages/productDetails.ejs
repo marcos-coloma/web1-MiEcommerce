@@ -1,0 +1,56 @@
+
+    <a href="/products" class="back-to-list">
+        <div class="breadcrumb-wrapper">
+            <img src="/img/ui/flecha-izquierda.png" alt="<-">
+            <span>Volver al listado</span>
+            <img src="/img/ui/flecha-derecha.png" alt="->">
+            <span><%= product.category.charAt(0).toUpperCase() + product.category.slice(1) %></span>
+        </div>
+    </a>
+
+    <div class="product-detail-card">
+        <div class="product-detail-flex">
+            <img 
+                src="<%= product.img || '/img/products/placeholder.webp' %>" 
+                alt="<%= product.name %>" 
+                class="product-detail-img"
+                onerror="this.onerror=null; this.src='/img/products/placeholder.webp';">
+
+            <div class="product-detail-info">
+                <h2>
+                    <span style="font-size: 28px;";><%= product.name %></span> <br>
+                    <span style="font-size: 37px;">
+                        $ <%= product.price.toLocaleString() %>
+                    </span>
+                    <span style="color: gray; font-size: 18px;">PUNTOS</span>
+                </h2>
+
+                <form action="/cart/add/<%= product.id %>" method="POST">
+                    <% if (product.stock === 0) { %>
+                        <button type="button" class="auth-button" disabled>Sin stock</button>
+                    <% } else { %>
+                        <button type="submit" class="auth-button">Agregar al carrito</button>
+                    <% } %>
+                </form>
+
+                <br>
+                <p style="font-size: 18px; color: rgb(77, 77, 77);">
+                    <%= product.description %>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title">Productos relacionados</h2>
+
+    <% if (relatedProducts.length > 0) { %>
+        <div class="product-grid"> <!-- Usamos la clase global que ya tenías -->
+            <% relatedProducts.forEach(p => { %>
+                <%- include('../partials/productCard', { product: p }) %>
+            <% }) %>
+        </div>
+    <% } else { %>
+        <p>No hay productos relacionados disponibles.</p>
+    <% } %>
+
+<%- include('../partials/categories', { categoryWrapperClass: 'category-wrapper-alt' }) %>

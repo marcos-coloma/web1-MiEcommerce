@@ -1,0 +1,17 @@
+@import "./global.css";
+
+@import "./menu.css";
+@import "./home.css";
+@import "./cart.css";
+@import "./checkout.css";
+@import "./productDetails.css";
+@import "./products.css";
+@import "./auth.css";
+
+
+@import "./errors.css";
+
+@import "./header.css";
+@import "./categories.css";
+@import "./productCard.css";
+@import "./footer.css";

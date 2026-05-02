@@ -1,0 +1,77 @@
+<div class="products-page">
+
+<h1 class="section-title">
+    <%= category 
+        ? category.charAt(0).toUpperCase() + category.slice(1)
+        : "Todos los productos" %>
+</h1>
+
+
+<%- include('../partials/categories', { categoryWrapperClass: 'category-wrapper' }) %>
+
+
+<div class="products-toolbar">
+
+    <a href="/" class="back-to-list">
+        <div class="breadcrumb-wrapper">
+            <img src="/img/ui/flecha-izquierda.png" alt="<-">
+            <span>Volver al listado</span>
+
+            <% if (category) { %>
+                <img src="/img/ui/flecha-derecha.png" alt="->">
+                <span>
+                    <%= category.charAt(0).toUpperCase() + category.slice(1) %>
+                </span>
+            <% } %>
+        </div>
+    </a>
+
+    <div class="products-filters">
+
+
+<select class="products-sort" onchange="location = this.value">
+
+    <option value="">Ordenar por</option>
+
+    <option 
+        value="/products?order=asc<%= category ? `&category=${category}` : '' %><%= search ? `&search=${search}` : '' %>"
+        <%= order === 'asc' ? 'selected' : '' %>
+    >
+        Precio: menor a mayor
+    </option>
+
+    <option 
+        value="/products?order=desc<%= category ? `&category=${category}` : '' %><%= search ? `&search=${search}` : '' %>"
+        <%= order === 'desc' ? 'selected' : '' %>
+    >
+        Precio: mayor a menor
+    </option>
+
+</select>
+
+    </div>
+
+</div>
+
+
+
+
+
+<% if (products.length > 0) { %>
+
+    <div class="product-grid">
+        <% products.forEach(product => { %>
+            <%- include('../partials/productCard', { product }) %>
+        <% }) %>
+    </div>
+
+<% } else { %>
+
+    <p style="text-align:center; margin-top:2rem;">
+        No hay productos disponibles.
+    </p>
+
+<% } %>
+
+
+</div>

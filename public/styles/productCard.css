@@ -1,0 +1,121 @@
+/*--------PRODUCT CARDS--------*/
+
+/* Grid de productos */
+.product-grid,
+.product-grid-alt {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 5rem;
+}
+
+.product-grid-alt {
+    flex-wrap: wrap;
+    max-width: 70rem;
+    margin: 3rem auto;
+}
+
+/* Enlaces de la card */
+.product-grid a, 
+.product-grid-alt a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* Contenedor de la card */
+.product-card {
+    position: relative;
+    background: #ededed;
+    padding: 0.45rem;
+    width: 13rem;
+    height: 17rem;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Imagen del producto */
+.product-card-image {
+    width: 100%;
+    height: 12rem;
+    object-fit: contain;
+    border-radius: 25px;
+    flex-shrink: 0;
+}
+
+.product-info-wrapper {
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Contenedor de info inferio*/
+.product-info {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Texto izquierdo y derecho */
+.product-text-left {
+    font-size: 13px;
+    word-break: break-word;
+    width: 45%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.product-text-right {
+    font-size: 16px;
+    word-break: break-word;
+    width: 45%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.product-divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background-color: gray;
+    transform: translateX(-50%);
+}
+
+/* Etiqueta de sin stock */
+.product-out-of-stock {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #e74c3c;
+    color: white;
+    font-size: 15px;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.product-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform;
+}
+
+.product-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}

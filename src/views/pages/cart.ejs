@@ -1,0 +1,68 @@
+        <a href="/" class="back-to-list">
+            <div class="subtitle-2">
+                <img src="/img/ui/flecha-izquierda.png" alt="<-">
+                <span>Volver</span>
+            </div>
+        </a>
+        
+        <div class="subtitle-3">
+            <h2>Productos en tu Carrito</h2>
+        </div>
+
+        <% if (cart.length === 0) { %>
+            <div class="cart-empty">
+                <p>No hay productos en tu carrito</p>
+                <a href="/">Ver productos</a>
+            </div>
+        <% } else { %>
+
+            <% cart.forEach(product => { %>
+                <div class="cart-box">
+                    <div class="box-1">
+                        <img src="<%= product.img || '/img/placeholder.jpg' %>" 
+                            class="cart-image">
+                        <p class="text-size-p"><%= product.name %></p>
+                    </div>
+
+                    <div class="box-2">
+                        <form action="/cart/remove/<%= product.id %>" method="POST">
+                            <button type="submit" class="session session-margin">
+                                Quitar
+                            </button>
+                        </form>
+
+                        <div class="quantity">
+                            <form action="/cart/decrease/<%= product.id %>" method="POST" style="display:inline;">
+                                <button type="submit">-</button>
+                            </form>
+
+                            <span style="font-size: 20px; font-weight: 500;"><%= product.quantity %></span>
+
+                            <form action="/cart/increase/<%= product.id %>" method="POST" style="display:inline;">
+                                <button type="submit">+</button>
+                            </form>
+                        </div>
+                                            <span class="points"><%= product.subtotal %></span>
+                    </div>
+
+                </div>
+            <% }) %>
+
+        <% } %>
+
+<div class="cart-total">
+            <p class="points">Total de puntos: <span style="font-size: 1.8rem;"><%= total %></span></p>
+        </div>
+
+        <div class="session-3">
+            <% if (cart.length > 0) { %>
+                <a href="/checkout" class="session">
+                    Ir a Pagar
+                </a>
+            <% } else { %>
+                <div class="session" style="opacity: 0.5; cursor: not-allowed;">
+                    Carrito vacío
+                </div>
+            <% } %>
+        </div>
+
