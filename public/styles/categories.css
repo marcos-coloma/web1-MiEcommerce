@@ -80,27 +80,16 @@
         margin: 0;
     }
 
-    /* mantenemos el item igual, solo aseguramos que ocupe su celda */
     .category-item,
     .category-item-single {
         width: 100%;
     }
 
-    /* eliminamos separaciones verticales/visuales si estorban en grid */
     .category-item:not(:last-child),
     .category-item-single:not(:last-child) {
         border-right: none;
     }
 }
-
-
-
-
-
-
-
-
-
 
 @media (max-width: 500px) {
 
