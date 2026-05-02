@@ -119,12 +119,11 @@
         padding: 15px;
     }
 
-    /* 🔝 LOGO */
     .logo {
         order: 1;
     }
 
-    /* 🛒 ACCIONES */
+
     .header-actions {
         order: 2;
         display: flex;
@@ -132,7 +131,6 @@
         gap: 10px;
     }
 
-    /* 🔍 SEARCH ABAJO */
     .search-bar {
         order: 3;
         width: 100%;
