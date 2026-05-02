@@ -108,7 +108,7 @@
 
 /*--- RESPONSIVE ---*/
 
-@media (max-width: 1000px) {
+@media (max-width: 650px) {
 
     .header {
         display: flex;
