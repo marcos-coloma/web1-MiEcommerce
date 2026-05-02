@@ -1,9 +1,9 @@
-const Product = require("../models/Product");
+const productsService = require("../services/productsService");
 
 const productController = {
 
     list: (req, res) => {
-        const products = Product.getAll();
+        const products = productsService.getAll();
 
         res.render("pages/products", {
             products
@@ -11,26 +11,16 @@ const productController = {
     },
 
     detail: (req, res) => {
-        const product = Product.getById(req.params.id);
-        const allProducts = Product.getAll();
+        const product = productsService.getById(req.params.id);
 
         if (!product) {
             return res.status(404).render("errors/404");
         }
 
-        let relatedProducts = [];
-
-        if (product.category) {
-            relatedProducts = allProducts.filter(p => 
-                p.category === product.category && p.id != product.id
-            );
-
-            relatedProducts = relatedProducts.sort(() => 0.5 - Math.random());
-            relatedProducts = relatedProducts.slice(0, 4);
-        }
+        const relatedProducts = productsService.getRelated(product);
 
         res.render("pages/product", {
-            title:"Product",
+            title: "Product",
             product,
             relatedProducts
         });

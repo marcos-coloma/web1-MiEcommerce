@@ -1,4 +1,5 @@
 const Product = require('../models/Product');
+const productsService = require("../services/productsService");
 
 const categoryController = {
     listByCategory: (req, res) => {
