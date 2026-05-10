@@ -35,3 +35,7 @@ products.forEach(p => {
         categoryMap[p.category]
     );
 });
+
+console.log(
+    db.prepare("SELECT COUNT(*) as count FROM products").get()
+);

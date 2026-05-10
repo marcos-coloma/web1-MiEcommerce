@@ -1,23 +1,21 @@
-const products = require("../data/products");
-const stockMap = {};
+const db = require("../../db/database");
 
 const Product = {
     getAll: () => {
-        return products.map(p => {
-            if (stockMap[p.id] === undefined) {
-                stockMap[p.id] = Math.random() > 0.9 ? 0 : Math.floor(Math.random() * 10) + 1;
-            }
-
-            return {
-                ...p,
-                stock: stockMap[p.id]
-            };
-        });
+        return db.prepare(`
+            SELECT products.*, categories.name as category
+            FROM products
+            JOIN categories ON products.category_id = categories.id
+        `).all();
     },
 
     getById: (id) => {
-        const all = Product.getAll();
-        return all.find(p => p.id === Number(id));
+        return db.prepare(`
+            SELECT products.*, categories.name as category
+            FROM products
+            JOIN categories ON products.category_id = categories.id
+            WHERE products.id = ?
+        `).get(Number(id));
     }
 };
 
