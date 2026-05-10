@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS products (
     img TEXT NOT NULL,
     popular INTEGER NOT NULL DEFAULT 0,
     category_id INTEGER NOT NULL,
+    stock INTEGER NOT NULL DEFAULT 0,
 
     FOREIGN KEY (category_id) REFERENCES categories(id)
 );
