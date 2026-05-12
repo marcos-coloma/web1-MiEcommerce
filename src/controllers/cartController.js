@@ -1,5 +1,4 @@
 const cartService = require("../services/cartService");
-const normalizeId = require("../helpers/normalizeId");
 
 const cartController = {
 
@@ -20,19 +19,15 @@ const cartController = {
     },
 
     add: (req, res) => {
-        
+
         if (!req.session.cart) {
             req.session.cart = [];
         }
 
-        const productId = normalizeId(req.params.id);
+        const product = req.product;
 
-        const result = cartService.addProduct(req.session.cart, productId);
+        const result = cartService.addProduct(req.session.cart, product.id);
 
-        if (result.error === "not_found") {
-            return res.status(404).send("Producto no encontrado");
-        }
-        
         if (result.error === "no_stock") {
             return res.status(400).send("Producto sin stock");
         }
@@ -46,9 +41,9 @@ const cartController = {
             req.session.cart = [];
         }
 
-        const productId = normalizeId(req.params.id);
+        const product = req.product;
 
-        cartService.increase(req.session.cart, productId);
+        cartService.increase(req.session.cart, product.id);
 
         res.redirect("/cart");
     },
@@ -59,9 +54,9 @@ const cartController = {
             req.session.cart = [];
         }
 
-        const productId = normalizeId(req.params.id);
+        const product = req.product;
 
-        req.session.cart = cartService.decrease(req.session.cart, productId);
+        req.session.cart = cartService.decrease(req.session.cart, product.id);
 
         res.redirect("/cart");
     },
@@ -72,9 +67,9 @@ const cartController = {
             req.session.cart = [];
         }
 
-        const productId = normalizeId(req.params.id);
+        const product = req.product;
 
-        req.session.cart = cartService.remove(req.session.cart, productId);
+        req.session.cart = cartService.remove(req.session.cart, product.id);
 
         res.redirect("/cart");
     },

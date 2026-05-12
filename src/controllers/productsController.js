@@ -13,7 +13,6 @@ const productsController = {
 
         // category
         if (category) {
-            console.log(products[0]);
             products = products.filter(
                 p => p.category.toLowerCase() === category
             );
