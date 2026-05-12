@@ -6,9 +6,16 @@ const productsService = {
 
     getById: (id) => Product.getById(id),
 
-    getByCategory: (categoryId) => Product.getByCategory(categoryId),
+    getByCategory: (categoryId, excludeId) => 
+        Product.getByCategory(categoryId, excludeId),
 
-    search: (query) => Product.search(query),
+    search: (products, query) => {
+        if (!query) return products;
+
+        return products.filter(p =>
+            p.name.toLowerCase().includes(query.toLowerCase())
+        );
+    },
 
     sortByPrice: (products, order = "asc") => {
         return [...products].sort((a, b) =>

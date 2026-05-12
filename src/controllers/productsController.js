@@ -9,9 +9,11 @@ const productsController = {
         const search = req.query.search?.toLowerCase();
 
         let products = Product.getAll();
-        console.log(products);
+
+
         // category
         if (category) {
+            console.log(products[0]);
             products = products.filter(
                 p => p.category.toLowerCase() === category
             );

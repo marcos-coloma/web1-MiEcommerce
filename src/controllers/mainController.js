@@ -11,7 +11,7 @@ const mainController = {
             title: "Home",
             perfilLink: "/menu",
             suggested,
-            popularProducts
+            popularProducts,
         });
     },
 

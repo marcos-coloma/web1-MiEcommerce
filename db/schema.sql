@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS categories (
 
 CREATE TABLE IF NOT EXISTS products (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
+    name TEXT NOT NULL UNIQUE,
     price REAL NOT NULL,
     description TEXT NOT NULL,
     img TEXT NOT NULL,
