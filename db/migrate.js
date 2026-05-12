@@ -63,19 +63,3 @@ products.forEach(p => {
     );
 });
 
-const result = db.prepare(`
-    SELECT COUNT(*) as count FROM products
-`).get();
-
-const test = db.prepare(`
-    SELECT 
-        products.id AS product_id, 
-        products.category_id, 
-        categories.id AS category_id_real
-    FROM products
-    LEFT JOIN categories 
-    ON products.category_id = categories.id
-`).all();
-
-console.log(test.slice(0, 5));
-
