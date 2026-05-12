@@ -4,7 +4,10 @@ const Product = {
 
     getAll: () => {
         return db.prepare(`
-            SELECT products.*, categories.name AS category
+            SELECT 
+                products.*,
+                categories.name AS category,
+                categories.id AS category_id
             FROM products
             JOIN categories ON products.category_id = categories.id
         `).all();
@@ -12,26 +15,37 @@ const Product = {
 
     getById: (id) => {
         return db.prepare(`
-            SELECT products.*, categories.name AS category
+            SELECT 
+                products.*,
+                categories.name AS category,
+                categories.id AS category_id
             FROM products
             JOIN categories ON products.category_id = categories.id
             WHERE products.id = ?
         `).get(Number(id));
     },
 
-    getByCategory: (categoryId) => {
+    getByCategory: (categoryId, excludeId) => {
         return db.prepare(`
-            SELECT products.*, categories.name AS category
+            SELECT 
+                products.*,
+                categories.name AS category,
+                categories.id AS category_id
             FROM products
-            WHERE category_id = ?
-        `).all(categoryId);
+            JOIN categories ON products.category_id = categories.id
+            WHERE products.category_id = ?
+            AND products.id != ?
+        `).all(categoryId, excludeId);
     },
 
     search: (query) => {
         if (!query) return [];
 
         return db.prepare(`
-            SELECT products.*, categories.name AS category
+            SELECT 
+                products.*,
+                categories.name AS category,
+                categories.id AS category_id
             FROM products
             JOIN categories ON products.category_id = categories.id
             WHERE LOWER(products.name) LIKE LOWER(?)
@@ -40,7 +54,10 @@ const Product = {
 
     getPopular: () => {
         return db.prepare(`
-            SELECT products.*, categories.name AS category
+            SELECT 
+                products.*,
+                categories.name AS category,
+                categories.id AS category_id
             FROM products
             JOIN categories ON products.category_id = categories.id
             WHERE popular = 1
@@ -51,7 +68,10 @@ const Product = {
 
     getRandom: (limit = 5) => {
         return db.prepare(`
-            SELECT products.*, categories.name AS category
+            SELECT 
+                products.*,
+                categories.name AS category,
+                categories.id AS category_id
             FROM products
             JOIN categories ON products.category_id = categories.id
             ORDER BY RANDOM()
