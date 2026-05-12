@@ -4,16 +4,14 @@ const mainController = {
 
     home: (req, res) => {
 
-        const products = productsService.getAll();
         const suggested = productsService.getSuggested();
         const popularProducts = productsService.getPopular();
 
         res.render("pages/home", { 
             title: "Home",
             perfilLink: "/menu",
-            products,
             suggested,
-            popularProducts
+            popularProducts,
         });
     },
 

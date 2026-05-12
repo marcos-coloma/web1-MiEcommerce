@@ -1,12 +1,12 @@
-// src/services/cartService.js
-
 const Product = require("../models/Product");
 
 const cartService = {
 
     getDetailedCart: (cart) => {
         return cart.map(item => {
-            const product = Product.getById(item.productId);
+            const product = Product.getById(Number(item.productId));
+
+            if (!product) return null;
 
             return {
                 id: product.id,
@@ -16,7 +16,7 @@ const cartService = {
                 quantity: item.quantity,
                 subtotal: product.price * item.quantity
             };
-        });
+        }).filter(Boolean);
     },
 
     getTotal: (cartDetailed) => {
@@ -24,18 +24,23 @@ const cartService = {
     },
 
     addProduct: (cart, productId) => {
-        const product = Product.getById(productId);
+        const id = Number(productId);
+        const product = Product.getById(id);
 
         if (!product) return { error: "not_found" };
-        if (product.stock === 0) return { error: "no_stock" };
+        if (product.stock <= 0) return { error: "no_stock" };
 
-        const existingProduct = cart.find(p => p.productId === productId);
+        const existingProduct = cart.find(p => p.productId === id);
 
         if (existingProduct) {
             existingProduct.quantity++;
+
+            if (existingProduct.quantity > product.stock) {
+                existingProduct.quantity = product.stock;
+            }
         } else {
             cart.push({
-                productId,
+                productId: id,
                 quantity: 1
             });
         }
@@ -44,18 +49,24 @@ const cartService = {
     },
 
     increase: (cart, productId) => {
-        const item = cart.find(p => p.productId === productId);
-        if (item) item.quantity++;
+        const id = Number(productId);
+        const item = cart.find(p => p.productId === id);
+        const product = Product.getById(id);
+
+        if (item && product && item.quantity < product.stock) {
+            item.quantity++;
+        }
     },
 
     decrease: (cart, productId) => {
-        const item = cart.find(p => p.productId === productId);
+        const id = Number(productId);
+        const item = cart.find(p => p.productId === id);
 
         if (item) {
             item.quantity--;
 
             if (item.quantity <= 0) {
-                return cart.filter(p => p.productId !== productId);
+                return cart.filter(p => p.productId !== id);
             }
         }
 
@@ -63,8 +74,10 @@ const cartService = {
     },
 
     remove: (cart, productId) => {
-        return cart.filter(p => p.productId !== productId);
+        const id = Number(productId);
+        return cart.filter(p => p.productId !== id);
     }
+
 };
 
 module.exports = cartService;

@@ -10,6 +10,7 @@ const productsController = {
 
         let products = Product.getAll();
 
+
         // category
         if (category) {
             products = products.filter(

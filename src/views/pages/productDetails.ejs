@@ -25,6 +25,17 @@
                     <span style="color: gray; font-size: 18px;">PUNTOS</span>
                 </h2>
 
+                <p style="font-size: 20px; margin-top: 5px;">
+                    <% if (product.stock === 0) { %>
+                        <span style="color: red;">Sin stock</span>
+                    <% } else if (product.stock <= 5) { %>
+                        <span style="color: orange;">¡Últimas unidades! (<%= product.stock %>)</span>
+                    <% } else { %>
+                        <span style="color: green;">En stock (<%= product.stock %>)</span>
+                    <% } %>
+                </p>
+
+
                 <form action="/cart/add/<%= product.id %>" method="POST">
                     <% if (product.stock === 0) { %>
                         <button type="button" class="auth-button" disabled>Sin stock</button>

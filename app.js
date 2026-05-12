@@ -64,9 +64,9 @@ app.use('/', productsRoutes);
 
 
 const notFound = require('./src/middlewares/notFound');
-app.use(notFound);
-
 const errorHandler = require('./src/middlewares/errorHandler');
+
+app.use(notFound);
 app.use(errorHandler);
 
 
