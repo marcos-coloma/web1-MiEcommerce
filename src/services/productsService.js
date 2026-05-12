@@ -4,60 +4,42 @@ const productsService = {
 
     getAll: () => Product.getAll(),
 
-    getSuggested: () => {
-        const products = Product.getAll();
-        return [...products]
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 5);
-    },
-
-    getPopular: () => {
-        const products = Product.getAll();
-        return products
-            .filter(p => p.popular)
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 10);
-    },
-
-    getByCategory: (category) => {
-        const products = Product.getAll();
-        return products.filter(
-            p => p.category.toLowerCase() === category.toLowerCase()
-        );
-    },
-
     getById: (id) => Product.getById(id),
 
-    getRelated: (product) => {
-        const products = Product.getAll();
+    getByCategory: (categoryId) => Product.getByCategory(categoryId),
 
-        if (!product || !product.category) return [];
+    search: (query) => Product.search(query),
 
-        return products
-            .filter(p => 
-                p.category === product.category && p.id != product.id
-            )
-            .sort(() => 0.5 - Math.random())
-            .slice(0, 4);
-    },
-
-    sortByPrice: (order = "asc") => {
-        const products = Product.getAll();
-
-        return products.sort((a, b) =>
+    sortByPrice: (products, order = "asc") => {
+        return [...products].sort((a, b) =>
             order === "asc"
                 ? a.price - b.price
                 : b.price - a.price
         );
     },
 
-    search: (products, query) => {
-        if (!query) return products;
+    getSuggested: () => {
+        return Product.getRandom(5);
+    },
 
-        return products.filter(p =>
-            p.name.toLowerCase().includes(query.toLowerCase())
-        );
+    getPopular: () => {
+        return Product.getPopular();
+    },
+
+    getRelated: (product) => {
+        if (!product || !product.category_id) return [];
+
+        const all = Product.getAll();
+
+        return all
+            .filter(p =>
+                p.category_id === product.category_id &&
+                p.id !== product.id
+            )
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 4);
     }
+
 };
 
 module.exports = productsService;

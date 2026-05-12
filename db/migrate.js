@@ -1,5 +1,4 @@
 const db = require('./database');
-const products = require('../src/data/products');
 
 const rows = db.prepare(`
     SELECT id, name FROM categories
@@ -33,4 +32,3 @@ const result = db.prepare(`
     SELECT COUNT(*) as count FROM products
 `).get();
 
-console.log("Productos en DB:", result.count);
