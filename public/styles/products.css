@@ -30,7 +30,7 @@
 
 
 
-.breadcrumb-wrapper {
+.products-context {
     display: flex;
     align-items: center;
     gap: 0.6rem;
@@ -42,13 +42,13 @@
     padding: 0;
 }
 
-.breadcrumb-wrapper img {
+.products-context img {
     width: 18px;
     opacity: 0.7;
     transition: opacity 0.2s ease;
 }
 
-.breadcrumb-wrapper img:hover {
+.products-context img:hover {
     opacity: 1;
 }
 

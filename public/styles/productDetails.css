@@ -8,7 +8,7 @@
     margin-bottom: 1.1rem;
 }
 
-.breadcrumb-wrapper {
+.products-context {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,7 +19,7 @@
     color: rgb(75, 75, 75);
 }
 
-.breadcrumb-wrapper img {
+.products-context img {
     width: 20px;
     height: auto;
 }
@@ -87,7 +87,7 @@
         justify-content: center;
     }
 
-    .breadcrumb-wrapper {
+    .products-context {
         font-size: 1rem;
         flex-wrap: wrap;
         justify-content: center;
