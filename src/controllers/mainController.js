@@ -17,7 +17,6 @@ const mainController = {
 
     menu: (req, res) => {
         res.render("pages/menu", {            
-            layout: false, 
             title: "Menu"
         });
     }
