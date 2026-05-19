@@ -1,6 +1,92 @@
 :root {
-    --primary-color: rgb(136, 91, 182);
+/*nota: no uso todas las variables*/
+
+    --primary-color: rgb(37, 107, 212);
+    --primary-accent: rgb(0, 89, 255);
+    --hover-primary: rgb(41, 110, 220);
+
+    /* BACKGROUNDS */
+    --bg-main: rgb(253, 253, 253);
+    --bg-light: rgb(250, 250, 250);
+    --bg-soft: rgb(235, 235, 235);
+    --bg-card: rgb(255, 255, 255);
+    --bg-header: rgb(238, 238, 238);
+
+    /* SURFACES */
+    --bg-elevated: rgb(250, 250, 250);
+    --bg-hover: rgb(230, 230, 230);
+
+    /* TEXT */
+    --text-main: rgb(33, 33, 33);
+    --text-muted: rgb(102, 102, 102);
+    --text-soft: rgb(140, 140, 140);
+    --text-inverse: rgb(255, 255, 255);
+
+    /* BORDERS */
+    --border-color: rgb(220, 220, 220);
+    --border-soft: rgb(235, 235, 235);
+
+    /* BUTTONS */
+    --bg-dark: rgb(39, 39, 39);
+    --bg-medium: rgb(73, 73, 73);
+
+    /* STATES --no uso todos por ahora*/
+    --error-color: rgb(229, 57, 53);
+    --success-color: rgb(46, 125, 50);
+    --warning-color: rgb(251, 140, 0);
+    --badge-color: rgb(229, 57, 53);
+
+    /* SHADOWS */
+    --shadow-strong: rgba(0, 0, 0, 0.18);
+    --shadow-medium: rgba(0, 0, 0, 0.12);
+    --shadow-soft: rgba(0, 0, 0, 0.06);
+
+    /* =========================
+        GRADIENT LIGHT MODE
+    ========================= */
+    --bg-gradient: linear-gradient(
+        to bottom,
+        rgba(37, 107, 212, 0.06) 0%,
+        rgb(250, 251, 253) 30%,
+        rgb(248, 250, 252) 70%,
+        rgba(37, 107, 212, 0.05) 100%
+    );
 }
+
+/* =========================
+    DARK MODE OVERRIDE
+========================= */
+body.dark {
+
+    --bg-main: rgb(18, 18, 18);
+    --bg-light: rgb(25, 25, 25);
+    --bg-soft: rgb(30, 30, 30);
+    --bg-card: rgb(28, 28, 28);
+    --bg-header: rgb(22, 22, 22);
+
+    --bg-elevated: rgb(35, 35, 35);
+    --bg-hover: rgb(45, 45, 45);
+
+    --text-main: rgb(240, 240, 240);
+    --text-muted: rgb(170, 170, 170);
+    --text-soft: rgb(140, 140, 140);
+
+    --border-color: rgb(60, 60, 60);
+    --border-soft: rgb(45, 45, 45);
+
+    /* DARK GRADIENT */
+    --bg-gradient: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.35) 0%,
+        rgb(18, 18, 18) 30%,
+        rgb(20, 20, 20) 70%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+}
+
+/* =========================
+    BASE RESET
+========================= */
 
 html, body {
     height: 100%;
@@ -8,16 +94,29 @@ html, body {
     padding: 0;
 }
 
+/* =========================
+    BODY
+========================= */
+
 body {
+    background: var(--bg-gradient);
+    background-color: var(--bg-main);
+    background-attachment: fixed;
+
     display: flex;
     flex-direction: column;
-    background-color: white;
+
+    color: var(--text-main);
     font-family: 'Montserrat', sans-serif;
 }
 
 main {
     flex: 1;
 }
+
+/* =========================
+    LINKS
+========================= */
 
 a,
 a:visited,

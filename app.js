@@ -2,10 +2,15 @@ const express = require("express");
 const session = require("express-session");
 const expressLayouts = require('express-ejs-layouts');
 const path = require("path");
+const helmet = require("helmet");
+
 const app = express();
 const PORT = 3000;
 
-//  MIDDLEWARES BASE
+// SEGURIDAD
+app.use(helmet({ contentSecurityPolicy: false }));
+
+// PARSERS
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

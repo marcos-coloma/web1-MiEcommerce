@@ -1,14 +1,20 @@
 /*-------- PRODUCT DETAIL PAGE --------*/
 
-.back-to-list {
-    display: inline-block;
+.product-detail-page .back-to-list {
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
-    color: inherit;
-    margin-left: 21.6%;
+    color: var(--text-muted);
+    margin-left: clamp(1rem, 8vw, 12rem);
     margin-bottom: 1.1rem;
+    transition: transform 0.2s ease;
 }
 
-.breadcrumb-wrapper {
+.back-to-list:hover {
+    transform: translateX(-4px);
+}
+
+.products-context {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,44 +22,54 @@
     font-weight: 500;
     font-size: 1.1rem;
     cursor: pointer;
-    color: rgb(75, 75, 75);
+    color: var(--text-muted);
 }
 
-.breadcrumb-wrapper img {
+
+.products-context img {
     width: 20px;
     height: auto;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
 }
+
+.products-context img:hover {
+    opacity: 1;
+}
+
+/* CARD */
 
 .product-detail-card {
     width: 55rem;
-    padding: 0.4rem;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.35);
+    padding: 0.8rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 25px var(--shadow-medium);
     border-radius: 1rem;
     display: flex;
     margin: 0 auto;
-    min-height: 300px;
+    min-height: 320px;
     margin-bottom: 5rem;
 }
 
 .product-detail-flex {
     display: flex;
-    height: 100%;
     width: 100%;
+    height: 100%;
 }
 
 .product-detail-img {
     width: 500px;
-    height: auto;
     max-height: 500px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 1rem;
 }
 
 .product-detail-info {
-    background-color: rgb(246, 246, 246);
-    border: 0.1rem solid rgb(199, 199, 199);
+    background-color: var(--bg-elevated);
+    border: 1px solid var(--border-soft);
     border-radius: 1rem;
-    padding: 0.2rem 1rem 1rem 1rem;
+    padding: 1rem;
     margin-left: 1rem;
     display: flex;
     flex-direction: column;
@@ -62,15 +78,36 @@
 }
 
 
-/* Botón de acción */
-.btn-cart {
+/* BOTÓN */
+.product-detail-info .auth-button {
+    background-color: var(--bg-dark);
+    color: #fff;
+
+    border: none;
+    border-radius: 12px;
+
+    padding: 0.9rem 1.4rem;
+    font-size: 1rem;
+    font-weight: 500;
+
     cursor: pointer;
+
+    display: inline-block;
+}
+.product-detail-info form {
+    display: flex;
+    justify-content: center;
+}
+.product-detail-info .auth-button:hover {
+    background-color: var(--hover-primary);
 }
 
-.btn-cart:disabled {
+.auth-button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
+
+/* TITLE */
 
 .section-title {
     text-align: center;
@@ -83,28 +120,20 @@
 
     .back-to-list {
         margin-left: 0;
+        justify-content: center;
         display: flex;
-        justify-content: center;
-    }
-
-    .breadcrumb-wrapper {
-        font-size: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
     }
 
     .product-detail-card {
         width: 70%;
         flex-direction: column;
-        padding: 1rem 1rem 0 1rem;
+        padding: 1rem;
     }
 
     .product-detail-flex {
         flex-direction: column;
         align-items: center;
     }
-
 
     .product-detail-img {
         width: 75%;
@@ -118,61 +147,23 @@
         width: 100%;
     }
 
-
-    .product-detail-info h2 {
-        text-align: center;
-        font-size: 1.6rem;
-    }
-
-
-    .product-detail-info form {
-        display: flex;
-        justify-content: center;
-    }
-
-
+    .product-detail-info h2,
     .product-detail-info p {
         text-align: center;
-    }
-
-
-    .product-grid {
-        justify-content: center;
     }
 }
 
 @media (max-width: 500px) {
 
-
     .product-detail-card {
         width: 90%;
     }
 
-
     .product-detail-img {
         width: 100%;
-        max-width: 100%;
         max-height: 280px;
-        object-fit: contain;
     }
 
-
-    .product-detail-info h2 {
-        font-size: 1.3rem;
-    }
-
-
-    .product-detail-info p {
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-
-
-    .product-detail-info form {
-        width: 100%;
-    }
-
-    .btn-cart,
     .auth-button {
         width: 100%;
     }
