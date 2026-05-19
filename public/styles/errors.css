@@ -34,7 +34,7 @@
     font-size: clamp(3rem, 10vw, 6rem);
     margin: 0;
     font-weight: 800;
-    color: var(--text-strong);
+    color: var(--text-main);
 }
 
 .error-box p {
@@ -47,8 +47,8 @@
 .auth-button {
     font-size: 1rem;
     padding: 0.8rem 1.5rem;
-    background-color: var(--btn-bg);
-    color: var(--btn-text);
+    background-color: var(--bg-medium);
+    color: var(--text-inverse);
     border-radius: 2rem;
     cursor: pointer;
     transition: background-color 0.3s;

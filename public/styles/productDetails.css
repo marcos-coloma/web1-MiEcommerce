@@ -1,11 +1,11 @@
 /*-------- PRODUCT DETAIL PAGE --------*/
 
-.back-to-list {
+.product-detail-page .back-to-list {
     display: inline-flex;
     align-items: center;
     text-decoration: none;
     color: var(--text-muted);
-    margin-left: 21.6%;
+    margin-left: clamp(1rem, 8vw, 12rem);
     margin-bottom: 1.1rem;
     transition: transform 0.2s ease;
 }
@@ -76,23 +76,29 @@
     min-width: 0;
 }
 
+
 /* BOTÓN */
-.auth-button {
+.product-detail-info .auth-button {
     background-color: var(--bg-dark);
     color: #fff;
+
     border: none;
-    border-radius: 2rem;
-    padding: 0.8rem 1.5rem;
-    cursor: pointer;
-    transition: background-color 0.25s ease, transform 0.2s ease;
-    display: inline-block;
-    text-align: center;
+    border-radius: 12px;
+
+    padding: 0.9rem 1.4rem;
     font-size: 1rem;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    display: inline-block;
 }
-.auth-button:hover {
-    background-color: var(--primary-color);
-    transform: translateY(-2px);
-    color: #fff;
+.product-detail-info form {
+    display: flex;
+    justify-content: center;
+}
+.product-detail-info .auth-button:hover {
+    background-color: var(--hover-primary);
 }
 
 .auth-button:disabled {
