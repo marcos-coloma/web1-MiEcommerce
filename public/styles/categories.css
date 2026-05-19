@@ -3,7 +3,7 @@
 /* wrapper general */
 .category-wrapper,
 .category-wrapper-alt {
-    background-color: rgb(40, 40, 40);
+    background-color: var(--bg-dark);
     border-radius: 32px;
     width: 92%;
     max-width: 1050px;
@@ -43,7 +43,7 @@
 /* separación entre items */
 .category-item:not(:last-child),
 .category-item-single:not(:last-child) {
-    border-right: 1px solid #777;
+    border-right: 1px solid var(--border-color);
 }
 
 /* hover */
@@ -64,7 +64,7 @@
 
 /* texto */
 .category-text {
-    color: white;
+    color: var(--bg-main);
     font-size: 1.05rem;
 }
 
