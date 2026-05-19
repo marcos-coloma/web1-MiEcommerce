@@ -64,7 +64,7 @@
 
 /* texto */
 .category-text {
-    color: var(--bg-main);
+    color: var(--text-inverse);
     font-size: 1.05rem;
 }
 
