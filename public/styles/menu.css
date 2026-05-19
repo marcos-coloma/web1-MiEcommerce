@@ -1,51 +1,124 @@
-/*--------MENU SIDEBAR--------*/
+.dashboard-page {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-main);
+}
+.dashboard-page.dark {
+    background: var(--bg-dark) !important;
+}
 
-.menu {
-    margin: 2rem;
+/* CONTENEDOR */
+.dashboard {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    width: 250px;
+    gap: 30px;
 }
 
-.menu-divider {
-    border: none;
-    height: 3px;
-    background-color: var(--primary-color);
-    width: 100%;
-    margin: 8px 0;
+/* HEADER */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px;
+
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: 16px;
+
+    box-shadow: 0 8px 20px var(--shadow-soft);
 }
 
-.menu-profile {
+.user {
     display: flex;
     align-items: center;
-    gap: 24px;
-    margin-bottom: 10px;
+    gap: 12px;
 }
 
-.menu-profile-img {
-    background-color: var(--primary-color);
-    width: 65px;
-    height: auto;
+.user img {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    background-color: var(--bg-medium);
 }
 
-.menu-profile-text {
-    font-size: 1.7rem;
+.user h2 {
     margin: 0;
-    font-weight: 600;
-    color: var(--text-strong);
+    font-size: 1.2rem;
 }
 
-.menu a {
+.user p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* GRID */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+/* CARDS */
+.card {
     text-decoration: none;
-    color: var(--text-strong);
-    padding: 6px 10px;
-    display: block;
-    border-radius: 4px;
+
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: 16px;
+
+    padding: 20px;
+
+    transition: 0.2s ease;
+    box-shadow: 0 6px 16px var(--shadow-soft);
 }
 
-.menu a:hover {
-    background-color: var(--primary-color);
-    color: var(--text-inverse);
+.card h3 {
+    margin: 0 0 6px 0;
+    font-size: 1.1rem;
+}
+
+.card p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    background: var(--bg-hover);
+}
+
+/* FOOTER */
+.dashboard-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard-footer a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* THEME BUTTON */
+.theme-btn {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border-soft);
+
+    text-decoration: none;
+    color: var(--primary-color);
+
+    transition: 0.2s;
+}
+
+.theme-btn:hover {
+    background: var(--bg-hover);
 }

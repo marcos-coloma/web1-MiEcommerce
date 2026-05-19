@@ -3,38 +3,57 @@
 
 <%- include('../partials/head', { title: 'Menu' }) %>
 
+<body class="dashboard-page">
 
-<body  class="bg">
-    <header class="margen-main">
+    <main class="dashboard">
 
+        <!-- HEADER CONTEXTUAL -->
+        <section class="dashboard-header">
+            <div class="user">
+                <img src="/img/ui/imagen de perfil.png" alt="perfil">
+                <div>
+                    <h2>Bienvenido</h2>
+                    <p>Accedé a tu panel</p>
+                </div>
+            </div>
 
-<header class="margen-main">
-    <div class="menu">
+            <a href="javascript:void(0)" id="themeToggle" class="theme-btn">
+                Cambiar tema
+            </a>
+        </section>
 
-        <div class="menu-profile">
-            <img src="/img/ui/imagen de perfil.png" class="menu-profile-img" alt="imagen-de-perfil">
-            <p class="menu-profile-text">Perfil</p>
-        </div>   
+        <!-- GRID PRINCIPAL -->
+        <section class="dashboard-grid">
 
-        <hr class="menu-divider">
+            <a class="card" href="/">
+                <h3>Inicio</h3>
+                <p>Explorar productos</p>
+            </a>
 
-        <a href="/">Inicio</a>
-        <a href="/cart">Mis Compras</a>
-        <a href="/product2">Favoritos</a>
-        <a href="/">Historial</a>
+            <a class="card" href="/cart">
+                <h3>Mis compras</h3>
+                <p>Carrito y pedidos</p>
+            </a>
 
-        <hr class="menu-divider">
+            <!--estos dos no estan implementados-->
+            <a class="card" href="/#">
+                <h3>Favoritos</h3>
+                <p>Productos guardados</p>
+            </a>
 
-        <a href="#">Cambiar a Tema Oscuro</a>
-        <a href="/login">Cambiar de usuario</a>
+            <a class="card" href="/#">
+                <h3>Historial</h3>
+                <p>Actividad anterior</p>
+            </a>
 
-    </div>
+        </section>
 
+        <!-- ACCIONES SECUNDARIAS -->
+        <section class="dashboard-footer">
+            <a href="/login">Cambiar de usuario</a>
+        </section>
 
-</header>
+    </main>
 
-
-</header>
-    <main style="background-color: var(--primary-color);"></main>
 </body>
-</html>        
+</html>

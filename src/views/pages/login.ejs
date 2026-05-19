@@ -1,46 +1,24 @@
-<!DOCTYPE html>
-<html lang="es">
+<div class="auth-container">
+    <div class="auth-card">
+        <span class="auth-title">¡Hola!</span>
 
-    <%- include('../partials/head', { title: 'Login' }) %>
+        <form id="login-form" action="/login" method="POST">
+            <ul id="auth-errors"></ul>
 
-    <body>
-        <header class="header-login">
-            <a href="/">
-                <span class="logo"><strong>Mi</strong>Ecommerce</span>
-            </a>
-        </header>
+            <input id="username" name="username" type="text" placeholder="Tu nombre de usuario" class="auth-input">
+            <input id="password" name="password" type="password" placeholder="Tu contraseña" class="auth-input">
 
+            <button type="submit" class="auth-button">
+                Iniciar Sesión
+            </button>
+        </form>
+    </div>
+</div>
 
-        <main>
+<div class="auth-footer"> 
+    <span>¿No tienes una cuenta?&nbsp;</span>
+    <a href="/register" class="auth-link">registrate</a>
+</div>
 
-            <div class="auth-container">
-                <div class="auth-card">
-                    <span class="auth-title">¡Hola!</span>
-
-                    <form action="/">
-                        <ul id="auth-errors"></ul>
-
-                        <input id="username" type="text" placeholder="Tu nombre de usuario" class="auth-input">
-                        <input id="password" type="password" placeholder="Tu contraseña" class="auth-input">
-
-                        <button type="submit" class="auth-button">
-                            Iniciar Sesión
-                        </button>
-
-                    </form>
-                </div>
-            </div>
-
-            <div class="auth-footer"> 
-                <span>¿No tienes una cuenta?&nbsp;</span>
-                <a href="/register" class="auth-link">registrate</a>
-            </div>
-
-        </main>
-
-        <%- include('../partials/footer') %>
-
-        <script src="/js/validations.js"></script>
-        <script src="/js/loginValidation.js"></script>
-    </body>
-</html>
+<script src="/js/validations.js" defer></script>
+<script src="/js/loginValidation.js" defer></script>
