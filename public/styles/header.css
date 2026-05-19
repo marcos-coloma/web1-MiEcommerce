@@ -1,10 +1,10 @@
 .header {
-    background-color: rgb(238, 238, 238);
+    background-color: var(--bg-header);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    border-bottom: 1px solid rgb(111, 111, 111);
+    border-bottom: 1px solid var(--border-color);
     margin-bottom: 50px;
 }
 
@@ -12,7 +12,7 @@
 .logo {
     display: flex;
     color: var(--primary-color);
-    font-size: 24px;
+    font-size: 28px;
 }
 
 /* BUSQUEDA */
@@ -20,15 +20,16 @@
     flex-grow: 1;
     max-width: 700px;
     margin: 0 20px;
+    margin-left: 8px;
 }
 
 .search-bar form {
     display: flex;
     align-items: center;
-    background: white;
+    background: var(--bg-main);
     border-radius: 30px;
     padding: 5px 15px;
-    border: 1px solid gray;
+    border: 1px solid var(--border-color);
     height: 24px;
 }
 
@@ -39,6 +40,8 @@
     padding: 5px;
     font-size: 16.8px;
     border-radius: 30px;
+    background: transparent;
+    color: var(--text-main);
 }
 
 .search-bar button {
@@ -55,7 +58,7 @@
     height: 24px;
 }
 
-/* ACTIONS (carrito + cuenta) */
+/* ACTIONS */
 .header-actions {
     display: flex;
     align-items: center;
@@ -69,18 +72,21 @@
 }
 
 .cart-link img {
-    height: 32px;
-    background-color: rgb(111, 111, 111);
+    height: 27px;
+    background-color: var(--bg-medium);
+    border: 2px solid var(--border-color);
     border-radius: 30%;
     display: flex;
+    padding: 6px;
+
 }
 
 .cart-badge {
     position: absolute;
     top: -6px;
     right: -6px;
-    background: red;
-    color: white;
+    background: var(--error-color);
+    color: #fff;
     font-size: 12px;
     width: 18px;
     height: 18px;
@@ -91,19 +97,23 @@
 }
 
 /* CUENTA */
-.account img {
-    height: 24px;
-    border-radius: 50%;
-}
-
 .account-full {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 5px 10px;
-    background-color: rgb(111, 111, 111);
-    border: 1px solid rgb(111, 111, 111);
+    padding: 8px 12px;
+    background-color: var(--bg-medium);
+    border: 2px solid var(--border-color);
     border-radius: 20px;
+}
+
+.account-full span {
+    color: #fff;
+}
+
+.account img {
+    height: 24px;
+    border-radius: 50%;
 }
 
 /*--- RESPONSIVE ---*/
@@ -122,7 +132,6 @@
     .logo {
         order: 1;
     }
-
 
     .header-actions {
         order: 2;

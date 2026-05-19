@@ -1,6 +1,5 @@
 /*--------MENU SIDEBAR--------*/
 
-/* Contenedor principal del menú */
 .menu {
     margin: 2rem;
     display: flex;
@@ -9,7 +8,6 @@
     width: 250px;
 }
 
-/* Línea separadora del menú */
 .menu-divider {
     border: none;
     height: 3px;
@@ -18,7 +16,6 @@
     margin: 8px 0;
 }
 
-/* Sección de perfil */
 .menu-profile {
     display: flex;
     align-items: center;
@@ -26,7 +23,6 @@
     margin-bottom: 10px;
 }
 
-/* Imagen de perfil */
 .menu-profile-img {
     background-color: var(--primary-color);
     width: 65px;
@@ -34,25 +30,22 @@
     border-radius: 50%;
 }
 
-/* Texto del perfil */
 .menu-profile-text {
     font-size: 1.7rem;
     margin: 0;
     font-weight: 600;
-    color: rgb(50, 50, 50);
+    color: var(--text-strong);
 }
 
-/* Links del menú */
 .menu a {
     text-decoration: none;
-    color: black;
+    color: var(--text-strong);
     padding: 6px 10px;
     display: block;
     border-radius: 4px;
 }
 
-/* Hover de links */
 .menu a:hover {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--text-inverse);
 }
