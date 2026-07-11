@@ -9,6 +9,20 @@ const productsService = {
     getByCategory: (categoryId, excludeId) => 
         Product.getByCategory(categoryId, excludeId),
 
+
+    create: (product) => {
+        return Product.create(product);
+    },
+
+    update: (id, product) => {
+        return Product.update(id, product);
+    },
+
+    remove: (id) => {
+        return Product.delete(id);
+    },
+
+
     search: (products, query) => {
         if (!query) return products;
 

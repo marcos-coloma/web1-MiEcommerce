@@ -2,6 +2,8 @@ const db = require("../../db/database");
 
 const Product = {
 
+    //------------LECTURA------------
+
     getAll: () => {
         return db.prepare(`
             SELECT 
@@ -77,6 +79,63 @@ const Product = {
             ORDER BY RANDOM()
             LIMIT ?
         `).all(limit);
+    },
+
+
+    //------------MODIFICACION------------
+
+    create: (product) => {
+        return db.prepare(`
+            INSERT INTO products (
+                name,
+                price,
+                img,
+                description,
+                popular,
+                stock,
+                category_id
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        `).run(
+            product.name,
+            product.price,
+            product.img,
+            product.description,
+            product.popular,
+            product.stock,
+            product.category_id
+        );
+    },
+
+    update: (id, product) => {
+        return db.prepare(`
+            UPDATE products
+            SET
+                name = ?,
+                price = ?,
+                img = ?,
+                description = ?,
+                popular = ?,
+                stock = ?,
+                category_id = ?
+            WHERE id = ?
+        `).run(
+            product.name,
+            product.price,
+            product.img,
+            product.description,
+            product.popular,
+            product.stock,
+            product.category_id,
+            id
+        );
+    },
+
+    delete: (id) => {
+        return db.prepare(`
+            DELETE FROM products
+            WHERE id = ?
+        `).run(id);
     }
 
 };

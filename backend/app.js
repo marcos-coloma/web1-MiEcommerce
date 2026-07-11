@@ -3,6 +3,8 @@ const session = require("express-session");
 const expressLayouts = require('express-ejs-layouts');
 const path = require("path");
 const helmet = require("helmet");
+const apiProductsRoutes = require('./src/routes/api/productsRoutes');
+
 
 const app = express();
 const PORT = 3000;
@@ -67,6 +69,7 @@ app.use("/", productDetailsRoutes);
 app.use("/", cartRoutes);
 app.use('/', productsRoutes);
 
+app.use('/api/products', apiProductsRoutes);
 
 const notFound = require('./src/middlewares/notFound');
 const errorHandler = require('./src/middlewares/errorHandler');
