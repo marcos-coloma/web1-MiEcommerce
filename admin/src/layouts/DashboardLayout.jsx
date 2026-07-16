@@ -2,8 +2,8 @@ import { Outlet } from "react-router-dom";
 import { useState } from "react";
 
 import Sidebar from "../components/Sidebar/Sidebar";
+import Header from "../components/Header/Header";
 import "./DashboardLayout.css";
-
 
 export default function DashboardLayout() {
 
@@ -26,14 +26,11 @@ export default function DashboardLayout() {
 
             <main className="main">
 
-                <button 
-                    className="menu-button"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    ☰
-                </button>
+                <Header onMenuClick={() => setIsOpen(!isOpen)} />
 
-                <Outlet />
+                <div className="content">
+                    <Outlet />
+                </div>
 
             </main>
 
