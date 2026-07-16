@@ -2,6 +2,9 @@
 
 import { Routes, Route } from "react-router-dom";
 
+// Layout
+import DashboardLayout from "./layouts/DashboardLayout";
+
 
 // Home
 import Home from "./pages/Home/Home";
@@ -24,23 +27,25 @@ import NotFound from "./errors/NotFound/NotFound";
 function App() {
   return (
     <div>
-      <h1>Admin Dashboard</h1>
-
       <Routes>
-        {/* Home */}
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<DashboardLayout />}>
+          
+          {/* Home */}
+          <Route index element={<Home />} />
 
-        {/* Products */}
-        <Route path="/products" element={<ProductsList />} />
-        <Route path="/products/:id" element={<ProductsView />} />
+          {/* Products */}
+          <Route path="products" element={<ProductsList />} />
+          <Route path="products/:id" element={<ProductsView />} />
 
-        {/* Categories */}
-        <Route path="/categories" element={<CategoriesList />} />
-        <Route path="/categories/:id" element={<CategoriesView />} />
+          {/* Categories */}
+          <Route path="categories" element={<CategoriesList />} />
+          <Route path="categories/:id" element={<CategoriesView />} />
 
-        {/* Users */}
-        <Route path="/users" element={<UsersList />} />
-        <Route path="/users/:id" element={<UsersView />} />
+          {/* Users */}
+          <Route path="users" element={<UsersList />} />
+          <Route path="users/:id" element={<UsersView />} />
+
+        </Route>
 
         {/* Errors */}
         <Route path="*" element={<NotFound />} />
