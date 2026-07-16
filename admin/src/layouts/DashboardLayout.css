@@ -1,15 +1,36 @@
 .layout {
     display: flex;
+    height: 100vh;
 }
 
-/* Main ocupa lo que queda */
+/* MAIN ahora es columna */
 .main {
+    display: flex;
+    flex-direction: column;
     width: calc(100% - 296px);
 }
 
-/* Botón oculto en desktop */
+/* HEADER (lo tenías separado antes) */
+.header {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid #ddd;
+    background: white;
+}
+
+/* CONTENT → acá vive el scroll */
+.content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+/* Botón (ahora vive en header) */
 .menu-button {
     display: none;
+    margin-right: 16px;
 }
 
 /* Overlay */
