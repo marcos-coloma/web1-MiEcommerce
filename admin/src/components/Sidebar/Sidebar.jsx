@@ -13,7 +13,7 @@ export default function Sidebar({ isOpen, onClose }) {
                 Home
                 </NavLink>
             </li>
-
+            
             <li>
                 <NavLink to="/products" onClick={onClose}>
                 Products
