@@ -1,6 +1,6 @@
-// src/pages/Users/UserView/UserView.jsx
+// src/pages/profile/ProfileView/ProfileView.jsx
 
-export default function UserView() {
+export default function ProfileView() {
     return (
         <div>
         <h1>Detalle de Usuario</h1>

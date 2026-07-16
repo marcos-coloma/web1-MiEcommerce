@@ -1,38 +1,37 @@
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
 
+const navItems = [
+    { path: "/", label: "Home" },
+    { path: "/products", label: "Products" },
+    { path: "/categories", label: "Categories" },
+    { path: "/profile", label: "Profile" },
+];
+
 export default function Sidebar({ isOpen, onClose }) {
     return (
         <aside className={`sidebar ${isOpen ? "open" : ""}`}>
-        <h2>Dashboard</h2>
+            <h2>Dashboard</h2>
 
-        <nav>
-            <ul>
-            <li>
-                <NavLink to="/" onClick={onClose}>
-                Home
-                </NavLink>
-            </li>
-            
-            <li>
-                <NavLink to="/products" onClick={onClose}>
-                Products
-                </NavLink>
-            </li>
+            <nav>
+                <ul>
 
-            <li>
-                <NavLink to="/categories" onClick={onClose}>
-                Categories
-                </NavLink>
-            </li>
+                    {navItems.map((item) => (
+                        <li key={item.path}>
+                            <NavLink
+                                to={item.path}
+                                onClick={onClose}
+                                className={({ isActive }) =>
+                                    isActive ? "active" : ""
+                                }
+                            >
+                                {item.label}
+                            </NavLink>
+                        </li>
+                    ))}
 
-            <li>
-                <NavLink to="/users" onClick={onClose}>
-                Users
-                </NavLink>
-            </li>
-            </ul>
-        </nav>
+                </ul>
+            </nav>
         </aside>
     );
 }
