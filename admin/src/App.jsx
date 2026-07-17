@@ -18,8 +18,8 @@ import CategoriesList from "./pages/Categories/CategoriesList/CategoriesList";
 import CategoriesView from "./pages/Categories/CategoriesView/CategoriesView";
 
 // Users
-import UsersList from "./pages/Users/UsersList/UsersList";
-import UsersView from "./pages/Users/UsersView/UsersView";
+import ProfileList from "./pages/profile/ProfileList/ProfileList";
+import ProfileView from "./pages/profile/ProfileView/ProfileView";
 
 // Errors
 import NotFound from "./errors/NotFound/NotFound";
@@ -42,8 +42,8 @@ function App() {
           <Route path="categories/:id" element={<CategoriesView />} />
 
           {/* Users */}
-          <Route path="users" element={<UsersList />} />
-          <Route path="users/:id" element={<UsersView />} />
+          <Route path="profile" element={<ProfileList />} />
+          <Route path="profile/:id" element={<ProfileView />} />
 
         </Route>
 

@@ -7,6 +7,10 @@
     transition: transform 0.3s ease;
 }
 
+.sidebar a.active {
+    font-weight: bold;
+    color: #ff0000;
+}
 
 /* Mobile */
 @media (max-width: 1024px) {
