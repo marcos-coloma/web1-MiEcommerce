@@ -4,13 +4,19 @@ const expressLayouts = require('express-ejs-layouts');
 const path = require("path");
 const helmet = require("helmet");
 const apiProductsRoutes = require('./src/routes/api/productsRoutes');
-
+const cors = require("cors");
 
 const app = express();
 const PORT = 3000;
 
-// SEGURIDAD
-app.use(helmet({ contentSecurityPolicy: false }));
+// SECURITY
+app.use(helmet({
+    contentSecurityPolicy: false,
+    crossOriginResourcePolicy: false
+}));
+
+// CORS
+app.use(cors());
 
 // PARSERS
 app.use(express.urlencoded({ extended: true }));

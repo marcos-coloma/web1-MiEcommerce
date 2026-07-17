@@ -1,0 +1,38 @@
+.products {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+/* LISTA */
+
+.products__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+/* STATES */
+
+.products__loading {
+    text-align: center;
+    margin-top: 40px;
+    color: #777;
+}
+
+.products__empty {
+    text-align: center;
+    margin-top: 40px;
+    color: #999;
+}
+
+.products__error {
+    text-align: center;
+    margin-top: 40px;
+    color: red;
+}
