@@ -8,20 +8,38 @@ export default function ProductsHeader({ onAdd, search, setSearch }) {
                 Productos
             </h1>
 
+
             <div className="products-header__actions">
 
-                <input
-                    className="products-header__search"
-                    placeholder="Buscar producto..."
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                />
+                <div className="products-header__search-container">
+
+                    <span className="search-icon">
+                        🔍
+                    </span>
+
+                    <input
+                        className="products-header__search"
+                        placeholder="Buscar producto..."
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
+
+                </div>
+
 
                 <button
                     className="products-header__add"
                     onClick={onAdd}
                 >
-                    Agregar Producto
+
+                    <span className="add-text">
+                        Agregar Producto
+                    </span>
+
+                    <span className="add-icon">
+                        +
+                    </span>
+
                 </button>
 
             </div>
