@@ -35,6 +35,7 @@ export default function ProductsList() {
                 }
 
                 const data = await response.json();
+                                
                 setProducts(data);
 
             } catch (error) {
