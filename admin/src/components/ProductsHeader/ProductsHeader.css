@@ -1,0 +1,36 @@
+.products-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+}
+
+.products-header__title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.products-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.products-header__search {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    min-width: 200px;
+}
+
+.products-header__add {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+
+    background-color: #222;
+    color: white;
+
+    cursor: pointer;
+}
