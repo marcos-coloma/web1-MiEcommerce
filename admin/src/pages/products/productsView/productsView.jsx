@@ -1,13 +1,14 @@
 // src/pages/Products/ProductView/ProductView.jsx
 
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import "./ProductsView.css";
 
 export default function ProductView() {
 
     const { id } = useParams();
+    const navigate = useNavigate();
 
     const [product, setProduct] = useState(null);
     const [formData, setFormData] = useState(null);
@@ -22,7 +23,8 @@ export default function ProductView() {
         price: Number.isInteger(Number(product.price)) ? String(product.price) : "0",
         stock: Number.isInteger(Number(product.stock)) ? String(product.stock) : "0",
         img: product.img || "",
-        store_name: product.store_name || ""
+        store_name: product.store_name || "",
+        store_profile_url: product.store_profile_url || ""
     });
 
 
@@ -177,12 +179,31 @@ export default function ProductView() {
         ? product.img
         : `http://localhost:3000${product.img}`;
 
+    const storeProfileUrl = product.store_profile_url?.trim();
+
 
     return (
         <div className="product-view">
 
             <header className="product-view__header">
-                <h1>Productos &gt; #{product.id}</h1>
+                <div className="product-view__title-group">
+                    <button
+                        type="button"
+                        className="product-view__back-button"
+                        onClick={() => navigate("/products")}
+                    >
+                        Volver
+                    </button>
+
+                    <h1>Productos &gt; #{product.id}</h1>
+                </div>
+
+                <button
+                    type="button"
+                    className="product-view__delete-button"
+                >
+                    Eliminar
+                </button>
             </header>
 
             <section className="product-summary">
@@ -225,6 +246,17 @@ export default function ProductView() {
                         </div>
 
                     </dl>
+
+                    {storeProfileUrl && (
+                        <a
+                            className="product-summary__store-link"
+                            href={storeProfileUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            Ver tienda
+                        </a>
+                    )}
 
                 </div>
 
@@ -303,6 +335,16 @@ export default function ProductView() {
                             type="text"
                             name="store_name"
                             value={formData.store_name}
+                            onChange={handleInputChange}
+                        />
+                    </label>
+
+                    <label className="product-form__field">
+                        <span>URL perfil de tienda</span>
+                        <input
+                            type="text"
+                            name="store_profile_url"
+                            value={formData.store_profile_url}
                             onChange={handleInputChange}
                         />
                     </label>

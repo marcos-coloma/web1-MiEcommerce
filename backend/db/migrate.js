@@ -46,6 +46,48 @@ const categoryMap = Object.fromEntries(
     rows.map(row => [row.name, row.id])
 );
 
+const getStoreByCategory = (category) => {
+    const stores = {
+        electronica: {
+            name: 'Mercado Libre',
+            url: 'https://www.mercadolibre.com.ar'
+        },
+        alimentos: {
+            name: 'Carrefour',
+            url: 'https://www.carrefour.com.ar'
+        },
+        bebidas: {
+            name: 'Coto',
+            url: 'https://www.cotodigital3.com.ar'
+        },
+        indumentaria: {
+            name: 'Dafiti',
+            url: 'https://www.dafiti.com.ar'
+        },
+        juegos: {
+            name: 'Amazon',
+            url: 'https://www.amazon.com'
+        },
+        automotor: {
+            name: 'Norauto',
+            url: 'https://www.norauto.com.ar'
+        },
+        hogar: {
+            name: 'Sodimac',
+            url: 'https://www.sodimac.com.ar'
+        },
+        otros: {
+            name: 'Easy',
+            url: 'https://www.easy.com.ar'
+        }
+    };
+
+    return stores[category] || {
+        name: 'Mercado Libre',
+        url: 'https://www.mercadolibre.com.ar'
+    };
+};
+
 
 const insertProduct = db.prepare(`
     INSERT INTO products (
@@ -54,13 +96,15 @@ const insertProduct = db.prepare(`
 `);
 
 products.forEach(p => {
+    const store = getStoreByCategory(p.category);
+
     insertProduct.run(
         p.name,
         p.price,
         p.img,
         p.description,
-        p.store_name || 'MiEcommerce',
-        p.store_profile_url || '',
+        p.store_name || store.name,
+        p.store_profile_url || store.url,
         p.popular ? 1 : 0,
         Math.random() < 0.1 ? 0 : Math.floor(Math.random() * 10) + 1,
         categoryMap[p.category]
