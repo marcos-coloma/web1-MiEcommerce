@@ -3,7 +3,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+
+import ProductViewForm from "./components/ProductViewForm/ProductViewForm";
+import ProductViewHeader from "./components/ProductViewHeader/ProductViewHeader";
+import ProductViewSummary from "./components/ProductViewSummary/ProductViewSummary";
+
 import "./ProductsView.css";
+
 
 export default function ProductView() {
 
@@ -295,226 +301,28 @@ export default function ProductView() {
     return (
         <div className="product-view">
 
-            <header className="product-view__header">
-                <div className="product-view__title-group">
-                    <button
-                        type="button"
-                        className="product-view__back-button"
-                        onClick={() => navigate("/products")}
-                    >
-                        Volver
-                    </button>
+            <ProductViewHeader
+                productId={product.id}
+                onBack={() => navigate("/products")}
+                onDelete={handleDelete}
+                deleting={deleting}
+                saving={saving}
+            />
 
-                    <h1>Productos &gt; #{product.id}</h1>
-                </div>
+            <ProductViewSummary product={product} />
 
-                <button
-                    type="button"
-                    className="product-view__delete-button"
-                    onClick={handleDelete}
-                    disabled={deleting || saving}
-                >
-                    {deleting ? "Eliminando..." : "Eliminar"}
-                </button>
-            </header>
-
-            <section className="product-summary">
-
-                <div className="product-summary__image-container">
-                    <img
-                        className="product-summary__image"
-                        src={imageSrc}
-                        alt={product.name}
-                    />
-                </div>
-
-                <div className="product-summary__content">
-
-                    <div>
-                        <span className="product-summary__label">Nombre</span>
-                        <h2 className="product-summary__name">{product.name}</h2>
-                    </div>
-
-                    <dl className="product-summary__details">
-
-                        <div>
-                            <dt>Identificador</dt>
-                            <dd>#{product.id}</dd>
-                        </div>
-
-                        <div>
-                            <dt>Stock</dt>
-                            <dd>{product.stock}</dd>
-                        </div>
-
-                        <div>
-                            <dt>Precio</dt>
-                            <dd>${product.price}</dd>
-                        </div>
-
-                        <div>
-                            <dt>Tienda</dt>
-                            <dd>{product.store_name || "No disponible"}</dd>
-                        </div>
-
-                    </dl>
-
-                    {storeProfileUrl && (
-                        <a
-                            className="product-summary__store-link"
-                            href={storeProfileUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            Ver tienda
-                        </a>
-                    )}
-
-                </div>
-
-            </section>
-
-            <form className="product-form" onSubmit={handleSubmit}>
-
-                <div className="product-form__header">
-                    <h2>Editar producto</h2>
-                </div>
-
-                <div className="product-form__grid">
-
-                    <label className="product-form__field">
-                        <span>Nombre</span>
-                        <input
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleInputChange}
-                        />
-                        {formErrors.name && (
-                            <small>{formErrors.name}</small>
-                        )}
-                    </label>
-
-                    <label className="product-form__field">
-                        <span>Precio</span>
-                        <input
-                            type="text"
-                            inputMode="numeric"
-                            name="price"
-                            value={formData.price}
-                            onChange={handleInputChange}
-                        />
-                        {formErrors.price && (
-                            <small>{formErrors.price}</small>
-                        )}
-                    </label>
-
-                    <label className="product-form__field">
-                        <span>Stock</span>
-                        <div className="product-form__stock-control">
-                            <button
-                                type="button"
-                                onClick={() => handleStockChange(-1)}
-                                aria-label="Disminuir stock"
-                            >
-                                -
-                            </button>
-
-                            <input
-                                type="text"
-                                inputMode="numeric"
-                                name="stock"
-                                value={formData.stock}
-                                onChange={handleInputChange}
-                            />
-
-                            <button
-                                type="button"
-                                onClick={() => handleStockChange(1)}
-                                aria-label="Aumentar stock"
-                            >
-                                +
-                            </button>
-                        </div>
-                        {formErrors.stock && (
-                            <small>{formErrors.stock}</small>
-                        )}
-                    </label>
-
-                    <label className="product-form__field">
-                        <span>Tienda</span>
-                        <input
-                            type="text"
-                            name="store_name"
-                            value={formData.store_name}
-                            onChange={handleInputChange}
-                        />
-                    </label>
-
-                    <label className="product-form__field">
-                        <span>URL perfil de tienda</span>
-                        <input
-                            type="text"
-                            name="store_profile_url"
-                            value={formData.store_profile_url}
-                            onChange={handleInputChange}
-                        />
-                    </label>
-
-                    <label className="product-form__field product-form__field--full">
-                        <span>URL de imagen</span>
-                        <input
-                            type="text"
-                            name="img"
-                            value={formData.img}
-                            onChange={handleInputChange}
-                        />
-                    </label>
-
-                    <label className="product-form__field product-form__field--full">
-                        <span>Descripcion</span>
-                        <textarea
-                            name="description"
-                            rows="4"
-                            value={formData.description}
-                            onChange={handleInputChange}
-                        />
-                    </label>
-
-                </div>
-
-                <div className="product-form__actions">
-                    {actionMessage && (
-                        <p className="product-form__message">
-                            {actionMessage}
-                        </p>
-                    )}
-
-                    {actionError && (
-                        <p className="product-form__message product-form__message--error">
-                            {actionError}
-                        </p>
-                    )}
-
-                    <button
-                        type="button"
-                        className="product-form__button product-form__button--secondary"
-                        onClick={handleCancel}
-                        disabled={saving || deleting}
-                    >
-                        Cancelar
-                    </button>
-
-                    <button
-                        type="submit"
-                        className="product-form__button product-form__button--primary"
-                        disabled={saving || deleting}
-                    >
-                        {saving ? "Guardando..." : "Guardar"}
-                    </button>
-                </div>
-
-            </form>
+            <ProductViewForm
+                formData={formData}
+                formErrors={formErrors}
+                onChange={handleInputChange}
+                onSubmit={handleSubmit}
+                onCancel={handleCancel}
+                onStockChange={handleStockChange}
+                saving={saving}
+                deleting={deleting}
+                message={actionMessage}
+                error={actionError}
+            />
 
         </div>
     );
