@@ -16,9 +16,12 @@ export default function ProductViewSummary({ product }) {
 
             <div className="product-summary__image-container">
                 <img
-                    className="product-summary__image"
-                    src={imageSrc}
-                    alt={product.name}
+                className="product-summary__image"
+                src={imageSrc}
+                alt={product.name}
+                onError={(e) => {
+                    e.target.src = "/img/products/placeholder.webp";
+                }}
                 />
             </div>
 

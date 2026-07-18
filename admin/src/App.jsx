@@ -5,17 +5,12 @@ import { Routes, Route } from "react-router-dom";
 // Layout
 import DashboardLayout from "./layouts/DashboardLayout";
 
-
 // Home
 import Home from "./pages/Home/Home";
 
 // Products
 import ProductsList from "./pages/Products/ProductsList/ProductsList";
 import ProductsView from "./pages/Products/ProductsView/ProductsView";
-
-// Categories
-import CategoriesList from "./pages/Categories/CategoriesList/CategoriesList";
-import CategoriesView from "./pages/Categories/CategoriesView/CategoriesView";
 
 // Users
 import ProfileList from "./pages/profile/ProfileList/ProfileList";
@@ -36,10 +31,6 @@ function App() {
           {/* Products */}
           <Route path="products" element={<ProductsList />} />
           <Route path="products/:id" element={<ProductsView />} />
-
-          {/* Categories */}
-          <Route path="categories" element={<CategoriesList />} />
-          <Route path="categories/:id" element={<CategoriesView />} />
 
           {/* Users */}
           <Route path="profile" element={<ProfileList />} />
