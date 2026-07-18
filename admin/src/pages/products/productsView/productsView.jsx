@@ -15,6 +15,10 @@ export default function ProductView() {
     const [formErrors, setFormErrors] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [actionMessage, setActionMessage] = useState("");
+    const [actionError, setActionError] = useState("");
+    const [saving, setSaving] = useState(false);
+    const [deleting, setDeleting] = useState(false);
 
 
     const buildFormData = (product) => ({
@@ -47,6 +51,19 @@ export default function ProductView() {
         return errors;
 
     };
+
+
+    const buildProductPayload = () => ({
+        name: formData.name.trim(),
+        price: Number(formData.price || 0),
+        img: formData.img.trim() || "/img/products/placeholder.webp",
+        description: formData.description,
+        store_name: formData.store_name.trim() || "MiEcommerce",
+        store_profile_url: formData.store_profile_url.trim(),
+        popular: product.popular ?? 0,
+        stock: Number(formData.stock || 0),
+        category_id: product.category_id
+    });
 
 
     useEffect(() => {
@@ -99,12 +116,17 @@ export default function ProductView() {
             [name]: undefined
         }));
 
+        setActionMessage("");
+        setActionError("");
+
     };
 
 
     const handleCancel = () => {
         setFormData(buildFormData(product));
         setFormErrors({});
+        setActionMessage("");
+        setActionError("");
     };
 
 
@@ -128,16 +150,104 @@ export default function ProductView() {
             stock: undefined
         }));
 
+        setActionMessage("");
+        setActionError("");
+
     };
 
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
 
         event.preventDefault();
 
         const errors = validateForm(formData);
 
         setFormErrors(errors);
+
+        if (Object.keys(errors).length > 0) {
+            return;
+        }
+
+        setSaving(true);
+        setActionMessage("");
+        setActionError("");
+
+        try {
+
+            const payload = buildProductPayload();
+
+            const response = await fetch(
+                `http://localhost:3000/api/products/${id}/edit`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(payload)
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("Error al guardar el producto");
+            }
+
+            const updatedProduct = {
+                ...product,
+                ...payload
+            };
+
+            setProduct(updatedProduct);
+            setFormData(buildFormData(updatedProduct));
+            setActionMessage("Producto guardado correctamente");
+
+        } catch (error) {
+
+            setActionError(error.message);
+
+        } finally {
+
+            setSaving(false);
+
+        }
+
+    };
+
+
+    const handleDelete = async () => {
+
+        const confirmed = window.confirm(
+            "Estas seguro de que queres eliminar este producto?"
+        );
+
+        if (!confirmed) {
+            return;
+        }
+
+        setDeleting(true);
+        setActionMessage("");
+        setActionError("");
+
+        try {
+
+            const response = await fetch(
+                `http://localhost:3000/api/products/${id}/delete`,
+                {
+                    method: "DELETE"
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("Error al eliminar el producto");
+            }
+
+            navigate("/products");
+
+        } catch (error) {
+
+            setActionError(error.message);
+            setDeleting(false);
+
+        }
 
     };
 
@@ -201,8 +311,10 @@ export default function ProductView() {
                 <button
                     type="button"
                     className="product-view__delete-button"
+                    onClick={handleDelete}
+                    disabled={deleting || saving}
                 >
-                    Eliminar
+                    {deleting ? "Eliminando..." : "Eliminar"}
                 </button>
             </header>
 
@@ -372,10 +484,23 @@ export default function ProductView() {
                 </div>
 
                 <div className="product-form__actions">
+                    {actionMessage && (
+                        <p className="product-form__message">
+                            {actionMessage}
+                        </p>
+                    )}
+
+                    {actionError && (
+                        <p className="product-form__message product-form__message--error">
+                            {actionError}
+                        </p>
+                    )}
+
                     <button
                         type="button"
                         className="product-form__button product-form__button--secondary"
                         onClick={handleCancel}
+                        disabled={saving || deleting}
                     >
                         Cancelar
                     </button>
@@ -383,8 +508,9 @@ export default function ProductView() {
                     <button
                         type="submit"
                         className="product-form__button product-form__button--primary"
+                        disabled={saving || deleting}
                     >
-                        Guardar
+                        {saving ? "Guardando..." : "Guardar"}
                     </button>
                 </div>
 
