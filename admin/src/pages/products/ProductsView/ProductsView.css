@@ -1,0 +1,18 @@
+.product-view {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.product-view__loading,
+.product-view__error {
+    margin: 0;
+    padding: 16px;
+    background: white;
+    border-radius: 8px;
+}
+
+.product-view__error {
+    color: #b42318;
+}

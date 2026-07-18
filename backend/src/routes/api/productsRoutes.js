@@ -14,9 +14,11 @@ router.get("/:id", productsController.detail);
 router.post("/", productsController.create);
 
 // EDITAR
+router.put("/:id/edit", productsController.update);
 router.put("/:id", productsController.update);
 
 // ELIMINAR
+router.delete("/:id/delete", productsController.delete);
 router.delete("/:id", productsController.delete);
 
 

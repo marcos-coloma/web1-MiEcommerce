@@ -22,6 +22,10 @@ const productsService = {
         return Product.delete(id);
     },
 
+    delete: (id) => {
+        return Product.delete(id);
+    },
+
 
     search: (products, query) => {
         if (!query) return products;

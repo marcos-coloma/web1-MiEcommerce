@@ -91,16 +91,20 @@ const Product = {
                 price,
                 img,
                 description,
+                store_name,
+                store_profile_url,
                 popular,
                 stock,
                 category_id
             )
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         `).run(
             product.name,
             product.price,
             product.img,
             product.description,
+            product.store_name || "MiEcommerce",
+            product.store_profile_url || "",
             product.popular,
             product.stock,
             product.category_id
@@ -115,6 +119,8 @@ const Product = {
                 price = ?,
                 img = ?,
                 description = ?,
+                store_name = ?,
+                store_profile_url = ?,
                 popular = ?,
                 stock = ?,
                 category_id = ?
@@ -124,6 +130,8 @@ const Product = {
             product.price,
             product.img,
             product.description,
+            product.store_name || "MiEcommerce",
+            product.store_profile_url || "",
             product.popular,
             product.stock,
             product.category_id,
