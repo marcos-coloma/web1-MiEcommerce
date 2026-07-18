@@ -78,6 +78,30 @@
 }
 
 
+/* CATEGORY */
+
+.products-header__category {
+
+    padding: 8px 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    background-color: white;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+.products-header__category:focus {
+
+    outline: none;
+
+    border-color: #222;
+}
+
 
 /* MOBILE */
 
@@ -152,3 +176,4 @@
     }
 
 }
+

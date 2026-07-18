@@ -1,6 +1,14 @@
 import "./ProductsHeader.css";
 
-export default function ProductsHeader({ onAdd, search, setSearch }) {
+export default function ProductsHeader({
+    onAdd,
+    search,
+    setSearch,
+    categories,
+    category,
+    setCategory
+}) {
+
     return (
         <div className="products-header">
 
@@ -11,11 +19,13 @@ export default function ProductsHeader({ onAdd, search, setSearch }) {
 
             <div className="products-header__actions">
 
+
                 <div className="products-header__search-container">
 
                     <span className="search-icon">
                         🔍
                     </span>
+
 
                     <input
                         className="products-header__search"
@@ -25,6 +35,35 @@ export default function ProductsHeader({ onAdd, search, setSearch }) {
                     />
 
                 </div>
+
+
+
+                <select
+                    className="products-header__category"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                >
+
+                    <option value="">
+                        Todas las categorías
+                    </option>
+
+
+                    {categories.map((category) => (
+
+                        <option
+                            key={category}
+                            value={category}
+                        >
+                            {category}
+                        </option>
+
+                    ))}
+
+
+                </select>
+
+
 
 
                 <button
@@ -41,6 +80,7 @@ export default function ProductsHeader({ onAdd, search, setSearch }) {
                     </span>
 
                 </button>
+
 
             </div>
 
