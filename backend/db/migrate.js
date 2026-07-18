@@ -18,6 +18,8 @@ CREATE TABLE IF NOT EXISTS products (
     price REAL,
     img TEXT,
     description TEXT,
+    store_name TEXT,
+    store_profile_url TEXT,
     popular INTEGER,
     stock INTEGER,
     category_id INTEGER,
@@ -47,8 +49,8 @@ const categoryMap = Object.fromEntries(
 
 const insertProduct = db.prepare(`
     INSERT INTO products (
-        name, price, img, description, popular, stock, category_id
-    ) VALUES (?, ?, ?, ?, ?, ?, ?)
+        name, price, img, description, store_name, store_profile_url, popular, stock, category_id
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
 
 products.forEach(p => {
@@ -57,6 +59,8 @@ products.forEach(p => {
         p.price,
         p.img,
         p.description,
+        p.store_name || 'MiEcommerce',
+        p.store_profile_url || '',
         p.popular ? 1 : 0,
         Math.random() < 0.1 ? 0 : Math.floor(Math.random() * 10) + 1,
         categoryMap[p.category]
