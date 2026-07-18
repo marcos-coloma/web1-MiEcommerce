@@ -10,8 +10,41 @@ export default function ProductView() {
     const { id } = useParams();
 
     const [product, setProduct] = useState(null);
+    const [formData, setFormData] = useState(null);
+    const [formErrors, setFormErrors] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+
+    const buildFormData = (product) => ({
+        name: product.name || "",
+        description: product.description || "",
+        price: Number.isInteger(Number(product.price)) ? String(product.price) : "0",
+        stock: Number.isInteger(Number(product.stock)) ? String(product.stock) : "0",
+        img: product.img || "",
+        store_name: product.store_name || ""
+    });
+
+
+    const validateForm = (values) => {
+
+        const errors = {};
+
+        if (!values.name.trim()) {
+            errors.name = "El nombre es requerido";
+        }
+
+        if (!Number.isInteger(Number(values.price))) {
+            errors.price = "El precio debe ser un numero entero";
+        }
+
+        if (!Number.isInteger(Number(values.stock))) {
+            errors.stock = "El stock debe ser un numero entero";
+        }
+
+        return errors;
+
+    };
 
 
     useEffect(() => {
@@ -31,6 +64,7 @@ export default function ProductView() {
                 const data = await response.json();
 
                 setProduct(data);
+                setFormData(buildFormData(data));
 
             } catch (error) {
 
@@ -47,6 +81,63 @@ export default function ProductView() {
         fetchProduct();
 
     }, [id]);
+
+
+    const handleInputChange = (event) => {
+
+        const { name, value } = event.target;
+
+        setFormData((currentData) => ({
+            ...currentData,
+            [name]: value
+        }));
+
+        setFormErrors((currentErrors) => ({
+            ...currentErrors,
+            [name]: undefined
+        }));
+
+    };
+
+
+    const handleCancel = () => {
+        setFormData(buildFormData(product));
+        setFormErrors({});
+    };
+
+
+    const handleStockChange = (amount) => {
+
+        setFormData((currentData) => {
+
+            const currentStock = Number.isInteger(Number(currentData.stock))
+                ? Number(currentData.stock)
+                : 0;
+
+            return {
+                ...currentData,
+                stock: String(Math.max(0, currentStock + amount))
+            };
+
+        });
+
+        setFormErrors((currentErrors) => ({
+            ...currentErrors,
+            stock: undefined
+        }));
+
+    };
+
+
+    const handleSubmit = (event) => {
+
+        event.preventDefault();
+
+        const errors = validateForm(formData);
+
+        setFormErrors(errors);
+
+    };
 
 
     if (loading) {
@@ -71,7 +162,7 @@ export default function ProductView() {
     }
 
 
-    if (!product) {
+    if (!product || !formData) {
 
         return (
             <div className="product-view">
@@ -138,6 +229,124 @@ export default function ProductView() {
                 </div>
 
             </section>
+
+            <form className="product-form" onSubmit={handleSubmit}>
+
+                <div className="product-form__header">
+                    <h2>Editar producto</h2>
+                </div>
+
+                <div className="product-form__grid">
+
+                    <label className="product-form__field">
+                        <span>Nombre</span>
+                        <input
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                        />
+                        {formErrors.name && (
+                            <small>{formErrors.name}</small>
+                        )}
+                    </label>
+
+                    <label className="product-form__field">
+                        <span>Precio</span>
+                        <input
+                            type="text"
+                            inputMode="numeric"
+                            name="price"
+                            value={formData.price}
+                            onChange={handleInputChange}
+                        />
+                        {formErrors.price && (
+                            <small>{formErrors.price}</small>
+                        )}
+                    </label>
+
+                    <label className="product-form__field">
+                        <span>Stock</span>
+                        <div className="product-form__stock-control">
+                            <button
+                                type="button"
+                                onClick={() => handleStockChange(-1)}
+                                aria-label="Disminuir stock"
+                            >
+                                -
+                            </button>
+
+                            <input
+                                type="text"
+                                inputMode="numeric"
+                                name="stock"
+                                value={formData.stock}
+                                onChange={handleInputChange}
+                            />
+
+                            <button
+                                type="button"
+                                onClick={() => handleStockChange(1)}
+                                aria-label="Aumentar stock"
+                            >
+                                +
+                            </button>
+                        </div>
+                        {formErrors.stock && (
+                            <small>{formErrors.stock}</small>
+                        )}
+                    </label>
+
+                    <label className="product-form__field">
+                        <span>Tienda</span>
+                        <input
+                            type="text"
+                            name="store_name"
+                            value={formData.store_name}
+                            onChange={handleInputChange}
+                        />
+                    </label>
+
+                    <label className="product-form__field product-form__field--full">
+                        <span>URL de imagen</span>
+                        <input
+                            type="text"
+                            name="img"
+                            value={formData.img}
+                            onChange={handleInputChange}
+                        />
+                    </label>
+
+                    <label className="product-form__field product-form__field--full">
+                        <span>Descripcion</span>
+                        <textarea
+                            name="description"
+                            rows="4"
+                            value={formData.description}
+                            onChange={handleInputChange}
+                        />
+                    </label>
+
+                </div>
+
+                <div className="product-form__actions">
+                    <button
+                        type="button"
+                        className="product-form__button product-form__button--secondary"
+                        onClick={handleCancel}
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        className="product-form__button product-form__button--primary"
+                    >
+                        Guardar
+                    </button>
+                </div>
+
+            </form>
 
         </div>
     );
