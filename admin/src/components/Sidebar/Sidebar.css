@@ -1,0 +1,33 @@
+.sidebar {
+    width: 296px;
+    height: 100vh;
+
+    background: white;
+
+    transition: transform 0.3s ease;
+}
+
+.sidebar a.active {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+/* Mobile */
+@media (max-width: 1024px) {
+
+    .sidebar {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        transform: translateX(-100%);
+
+        z-index: 1000;
+    }
+
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+}

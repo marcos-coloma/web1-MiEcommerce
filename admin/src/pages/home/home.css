@@ -1,0 +1,15 @@
+.home {
+    padding: 24px;
+}
+
+
+.home__title {
+    margin-bottom: 24px;
+}
+
+
+.home__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
