@@ -45,3 +45,35 @@ export const buildProductPayload = (formData, product) => ({
     stock: Number(formData.stock || 0),
     category_id: product.category_id
 });
+
+
+export const getCategories = (products) => {
+
+    return [
+        ...new Set(
+            products.map(product => product.category)
+        )
+    ];
+
+};
+
+
+export const filterProducts = (products, search, category) => {
+
+    return products.filter((product) => {
+
+        const matchesName = product.name
+            .toLowerCase()
+            .includes(search.trim().toLowerCase());
+
+
+        const matchesCategory =
+            category === "" ||
+            product.category === category;
+
+
+        return matchesName && matchesCategory;
+
+    });
+
+};

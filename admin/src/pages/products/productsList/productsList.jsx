@@ -1,10 +1,13 @@
-// src/pages/Products/ProductsList/ProductsList.jsx
-
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import ProductItem from "../../../components/ProductItem/ProductItem";
 import ProductsHeader from "../../../components/ProductsHeader/ProductsHeader";
+
+import {
+    filterProducts,
+    getCategories
+} from "../utils/productUtils";
 
 import "./ProductsList.css";
 
@@ -66,35 +69,14 @@ export default function ProductsList() {
 
 
 
-
-    const categories = [
-        ...new Set(
-            products.map(product => product.category)
-        )
-    ];
+    const categories = getCategories(products);
 
 
-
-
-    const filteredProducts = products.filter((product) => {
-
-
-        const matchesName = product.name
-            .toLowerCase()
-            .includes(search.trim().toLowerCase());
-
-
-
-        const matchesCategory =
-            category === "" ||
-            product.category === category;
-
-
-
-        return matchesName && matchesCategory;
-
-    });
-
+    const filteredProducts = filterProducts(
+        products,
+        search,
+        category
+    );
 
 
 
@@ -114,7 +96,6 @@ export default function ProductsList() {
 
 
 
-
     if (error) {
 
         return (
@@ -128,7 +109,6 @@ export default function ProductsList() {
         );
 
     }
-
 
 
 
@@ -152,7 +132,6 @@ export default function ProductsList() {
 
             <div className="products__list">
 
-
                 {
                     filteredProducts.length === 0 ? (
 
@@ -160,9 +139,7 @@ export default function ProductsList() {
                             No se encontraron productos
                         </p>
 
-
                     ) : (
-
 
                         filteredProducts.map((product) => (
 
@@ -175,7 +152,6 @@ export default function ProductsList() {
 
                     )
                 }
-
 
             </div>
 
