@@ -1,6 +1,6 @@
-import "./ProductViewForm.css";
+import "./ProductForm.css";
 
-export default function ProductViewForm({
+export default function ProductForm({
     formData,
     formErrors,
     onChange,
@@ -10,14 +10,19 @@ export default function ProductViewForm({
     saving,
     deleting,
     message,
-    error
+    error,
+    children,
+    categories = []
 }) {
+
+
+
     return (
 
         <form className="product-form" onSubmit={onSubmit}>
 
             <div className="product-form__header">
-                <h2>Editar producto</h2>
+                {children}
             </div>
 
             <div className="product-form__grid">
@@ -73,6 +78,29 @@ export default function ProductViewForm({
                     </div>
 
                     {formErrors.stock && <small>{formErrors.stock}</small>}
+                </label>
+
+
+                <label className="product-form__field">
+                    <span>Categoria</span>
+
+                    <select
+                        name="category_id"
+                        value={formData.category_id}
+                        onChange={onChange}
+                    >
+                        <option value="">Seleccionar categoria</option>
+
+                        {categories.map((cat) => (
+                            <option key={cat.id} value={cat.id}>
+                                {cat.name}
+                            </option>
+                        ))}
+                    </select>
+
+                    {formErrors.category_id && (
+                        <small>{formErrors.category_id}</small>
+                    )}
                 </label>
 
                 <label className="product-form__field">

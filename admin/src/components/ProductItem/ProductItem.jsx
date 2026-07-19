@@ -8,6 +8,12 @@ export default function ProductItem({ product }) {
 
     const [imageLoading, setImageLoading] = useState(true);
 
+
+    const imageUrl = product.img.startsWith("http")
+        ? product.img
+        : `http://localhost:3000${product.img}`;
+
+
     return (
         <div
             className="product-item"
@@ -24,7 +30,7 @@ export default function ProductItem({ product }) {
 
                 <img
                     className="product-item__image"
-                    src={`http://localhost:3000${product.img}`}
+                    src={imageUrl}
                     alt={product.name}
                     onLoad={() => setImageLoading(false)}
                 />
