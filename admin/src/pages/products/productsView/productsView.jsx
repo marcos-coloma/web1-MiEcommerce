@@ -23,6 +23,7 @@ export default function ProductView() {
         setProduct,
         formData,
         setFormData,
+        categories,
         loading,
         error
     } = useProductData(id);
@@ -94,7 +95,7 @@ export default function ProductView() {
 
     }
 
-
+console.log("CATEGORIES:", categories);
     return (
         <div className="product-view">
 
@@ -127,6 +128,8 @@ export default function ProductView() {
 
                 message={actionMessage}
                 error={actionError}
+
+                categories={categories}
             >
                 <h2>Editar producto</h2>
             </ProductForm>

@@ -4,6 +4,7 @@ const expressLayouts = require('express-ejs-layouts');
 const path = require("path");
 const helmet = require("helmet");
 const apiProductsRoutes = require('./src/routes/api/productsRoutes');
+const apiCategoriesRoutes = require('./src/routes/api/categoriesRoutes');
 const cors = require("cors");
 
 const app = express();
@@ -76,6 +77,7 @@ app.use("/", cartRoutes);
 app.use('/', productsRoutes);
 
 app.use('/api/products', apiProductsRoutes);
+app.use('/api/categories', apiCategoriesRoutes);
 
 const notFound = require('./src/middlewares/notFound');
 const errorHandler = require('./src/middlewares/errorHandler');

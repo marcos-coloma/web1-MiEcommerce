@@ -11,8 +11,12 @@ export default function ProductForm({
     deleting,
     message,
     error,
-    children
+    children,
+    categories = []
 }) {
+
+
+
     return (
 
         <form className="product-form" onSubmit={onSubmit}>
@@ -74,6 +78,29 @@ export default function ProductForm({
                     </div>
 
                     {formErrors.stock && <small>{formErrors.stock}</small>}
+                </label>
+
+
+                <label className="product-form__field">
+                    <span>Categoria</span>
+
+                    <select
+                        name="category_id"
+                        value={formData.category_id}
+                        onChange={onChange}
+                    >
+                        <option value="">Seleccionar categoria</option>
+
+                        {categories.map((cat) => (
+                            <option key={cat.id} value={cat.id}>
+                                {cat.name}
+                            </option>
+                        ))}
+                    </select>
+
+                    {formErrors.category_id && (
+                        <small>{formErrors.category_id}</small>
+                    )}
                 </label>
 
                 <label className="product-form__field">

@@ -1,3 +1,5 @@
+// src/pages/Products/hooks/useProductForm.js
+
 import { useState } from "react";
 
 import {
@@ -7,7 +9,7 @@ import {
 } from "../utils/productUtils";
 
 
-export default function useProductView({
+export default function useProductForm({
     id,
     product,
     setProduct,
@@ -16,87 +18,119 @@ export default function useProductView({
     navigate
 }) {
 
+
     const [formErrors, setFormErrors] = useState({});
 
     const [actionMessage, setActionMessage] = useState("");
+
     const [actionError, setActionError] = useState("");
 
     const [saving, setSaving] = useState(false);
+
     const [deleting, setDeleting] = useState(false);
 
 
+
     const clearMessages = () => {
+
         setActionMessage("");
         setActionError("");
+
     };
+
 
 
     const handleInputChange = (event) => {
 
-        const { name, value } = event.target;
+        const {
+            name,
+            value
+        } = event.target;
 
-        setFormData((currentData) => ({
-            ...currentData,
+
+
+        setFormData((current) => ({
+            ...current,
             [name]: value
         }));
 
-        setFormErrors((currentErrors) => ({
-            ...currentErrors,
+
+        setFormErrors((current) => ({
+            ...current,
             [name]: undefined
         }));
+
 
         clearMessages();
 
     };
+
 
 
     const handleCancel = () => {
 
-        setFormData(buildFormData(product));
+        setFormData(
+            buildFormData(product)
+        );
+
         setFormErrors({});
+
         clearMessages();
 
     };
+
 
 
     const handleStockChange = (amount) => {
 
-        setFormData((currentData) => {
 
-            const currentStock = Number.isInteger(
-                Number(currentData.stock)
-            )
-                ? Number(currentData.stock)
-                : 0;
+        setFormData((current) => {
+
+
+            const stock = Number(current.stock) || 0;
 
 
             return {
-                ...currentData,
+
+                ...current,
+
                 stock: String(
-                    Math.max(0, currentStock + amount)
+                    Math.max(
+                        0,
+                        stock + amount
+                    )
                 )
+
             };
+
 
         });
 
 
-        setFormErrors((currentErrors) => ({
-            ...currentErrors,
+        setFormErrors((current) => ({
+            ...current,
             stock: undefined
         }));
+
 
         clearMessages();
 
     };
+
 
 
     const handleSubmit = async (event) => {
 
         event.preventDefault();
 
-        const errors = validateForm(formData);
+
+        const errors =
+            validateForm(formData);
+
+
 
         setFormErrors(errors);
+
 
 
         if (Object.keys(errors).length > 0) {
@@ -104,45 +138,68 @@ export default function useProductView({
         }
 
 
+
         setSaving(true);
+
         clearMessages();
+
 
 
         try {
 
-            const payload = buildProductPayload(
-                formData,
-                product
-            );
+
+            const payload =
+                buildProductPayload(
+                    formData,
+                    product
+                );
+
 
 
             const response = await fetch(
                 `http://localhost:3000/api/products/${id}/edit`,
                 {
+
                     method: "PUT",
+
                     headers: {
                         "Content-Type": "application/json"
                     },
+
                     body: JSON.stringify(payload)
+
                 }
             );
 
 
+
             if (!response.ok) {
+
                 throw new Error(
                     "Error al guardar el producto"
                 );
+
             }
 
 
+
             const updatedProduct = {
+
                 ...product,
+
                 ...payload
+
             };
 
 
+
             setProduct(updatedProduct);
-            setFormData(buildFormData(updatedProduct));
+
+
+            setFormData(
+                buildFormData(updatedProduct)
+            );
+
 
 
             setActionMessage(
@@ -150,9 +207,13 @@ export default function useProductView({
             );
 
 
-        } catch (error) {
 
-            setActionError(error.message);
+        } catch(error) {
+
+            setActionError(
+                error.message
+            );
+
 
         } finally {
 
@@ -163,11 +224,14 @@ export default function useProductView({
     };
 
 
+
     const handleDelete = async () => {
 
-        const confirmed = window.confirm(
-            "Estas seguro de que queres eliminar este producto?"
-        );
+
+        const confirmed =
+            window.confirm(
+                "Estas seguro de que queres eliminar este producto?"
+            );
 
 
         if (!confirmed) {
@@ -175,33 +239,47 @@ export default function useProductView({
         }
 
 
+
         setDeleting(true);
+
         clearMessages();
+
 
 
         try {
 
+
             const response = await fetch(
                 `http://localhost:3000/api/products/${id}/delete`,
                 {
-                    method: "DELETE"
+                    method:"DELETE"
                 }
             );
 
 
+
             if (!response.ok) {
+
                 throw new Error(
                     "Error al eliminar el producto"
                 );
+
             }
+
 
 
             navigate("/products");
 
 
-        } catch (error) {
 
-            setActionError(error.message);
+        } catch(error) {
+
+
+            setActionError(
+                error.message
+            );
+
+
             setDeleting(false);
 
         }
@@ -209,20 +287,28 @@ export default function useProductView({
     };
 
 
+
     return {
 
         formErrors,
 
         actionMessage,
+
         actionError,
 
         saving,
+
         deleting,
 
+
         handleInputChange,
+
         handleCancel,
+
         handleStockChange,
+
         handleSubmit,
+
         handleDelete
 
     };

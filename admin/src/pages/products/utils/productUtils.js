@@ -9,7 +9,8 @@ export const buildFormData = (product) => ({
         : "0",
     img: product.img || "",
     store_name: product.store_name || "",
-    store_profile_url: product.store_profile_url || ""
+    store_profile_url: product.store_profile_url || "",
+    category_id: product.category_id || ""
 });
 
 
@@ -29,12 +30,15 @@ export const validateForm = (values) => {
         errors.stock = "El stock debe ser un numero entero";
     }
 
-    return errors;
+    if (!values.category_id) {
+        errors.category_id = "La categoria es requerida";
+    }
 
+    return errors;
 };
 
 
-export const buildProductPayload = (formData, product) => ({
+export const buildProductPayload = (formData, product = {}) => ({
     name: formData.name.trim(),
     price: Number(formData.price || 0),
     img: formData.img.trim() || "/img/products/placeholder.webp",
@@ -43,18 +47,25 @@ export const buildProductPayload = (formData, product) => ({
     store_profile_url: formData.store_profile_url.trim(),
     popular: product.popular ?? 0,
     stock: Number(formData.stock || 0),
-    category_id: product.category_id
+    category_id: Number(formData.category_id)
 });
+
 
 
 export const getCategories = (products) => {
 
-    return [
-        ...new Set(
-            products.map(product => product.category)
-        )
-    ];
+    const map = new Map();
 
+    products.forEach((product) => {
+        if (!map.has(product.category_id)) {
+            map.set(product.category_id, {
+                id: product.category_id,
+                name: product.category
+            });
+        }
+    });
+
+    return Array.from(map.values());
 };
 
 
@@ -66,11 +77,9 @@ export const filterProducts = (products, search, category) => {
             .toLowerCase()
             .includes(search.trim().toLowerCase());
 
-
         const matchesCategory =
             category === "" ||
-            product.category === category;
-
+            product.category_id === Number(category);
 
         return matchesName && matchesCategory;
 
