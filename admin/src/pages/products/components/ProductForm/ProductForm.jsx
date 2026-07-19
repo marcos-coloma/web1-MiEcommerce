@@ -1,6 +1,6 @@
-import "./ProductViewForm.css";
+import "./ProductForm.css";
 
-export default function ProductViewForm({
+export default function ProductForm({
     formData,
     formErrors,
     onChange,
@@ -10,14 +10,15 @@ export default function ProductViewForm({
     saving,
     deleting,
     message,
-    error
+    error,
+    children
 }) {
     return (
 
         <form className="product-form" onSubmit={onSubmit}>
 
             <div className="product-form__header">
-                <h2>Editar producto</h2>
+                {children}
             </div>
 
             <div className="product-form__grid">

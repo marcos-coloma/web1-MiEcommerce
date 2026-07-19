@@ -2,12 +2,12 @@
 
 import { useNavigate, useParams } from "react-router-dom";
 
-import ProductViewForm from "./components/ProductViewForm/ProductViewForm";
-import ProductViewHeader from "./components/ProductViewHeader/ProductViewHeader";
-import ProductViewSummary from "./components/ProductViewSummary/ProductViewSummary";
+import ProductForm from "../components/ProductForm/ProductForm";
+import ProductHeader from "../components/ProductHeader/ProductHeader";
+import ProductSummary from "../components/ProductSummary/ProductSummary";
 
-import useProductData from "./hooks/useProductData";
-import useProductView from "./hooks/useProductView";
+import useProductData from "../hooks/useProductData";
+import useProductView from "../hooks/useProductForm";
 
 import "./ProductsView.css";
 
@@ -99,7 +99,7 @@ export default function ProductView() {
         <div className="product-view">
 
 
-            <ProductViewHeader
+            <ProductHeader
                 productId={product.id}
                 onBack={() => navigate("/products")}
                 onDelete={handleDelete}
@@ -108,12 +108,12 @@ export default function ProductView() {
             />
 
 
-            <ProductViewSummary
+            <ProductSummary
                 product={product}
             />
 
 
-            <ProductViewForm
+            <ProductForm
                 formData={formData}
                 formErrors={formErrors}
 
@@ -127,8 +127,9 @@ export default function ProductView() {
 
                 message={actionMessage}
                 error={actionError}
-            />
-
+            >
+                <h2>Editar producto</h2>
+            </ProductForm>
         </div>
     );
 

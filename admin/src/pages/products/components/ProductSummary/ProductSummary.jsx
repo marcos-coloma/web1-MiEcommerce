@@ -1,6 +1,6 @@
-import "./ProductViewSummary.css";
+import "./ProductSummary.css";
 
-export default function ProductViewSummary({ product }) {
+export default function ProductSummary({ product }) {
 
     const imageSrc = product?.img
     ? product.img.startsWith("http")

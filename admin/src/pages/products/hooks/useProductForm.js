@@ -4,7 +4,7 @@ import {
     buildFormData,
     validateForm,
     buildProductPayload
-} from "../utils/productViewUtils";
+} from "../utils/productUtils";
 
 
 export default function useProductView({

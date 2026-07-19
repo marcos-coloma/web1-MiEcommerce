@@ -1,6 +1,6 @@
-import "./ProductViewHeader.css";
+import "./ProductHeader.css";
 
-export default function ProductViewHeader({
+export default function ProductHeader({
     productId,
     onBack,
     onDelete,

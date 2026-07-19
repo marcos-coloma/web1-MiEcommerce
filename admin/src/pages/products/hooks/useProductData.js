@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { buildFormData } from "../utils/productViewUtils";
+import { buildFormData } from "../utils/productUtils";
 
 
 export default function useProductData(id) {
