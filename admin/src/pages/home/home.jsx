@@ -60,7 +60,7 @@ export default function Home() {
         <div className="home">
 
             <h1>
-                ¡Hola USERNAME!
+                ¡Hola Marcos!
             </h1>
 
 
