@@ -42,7 +42,7 @@ app.use((req, res, next) => {
 
 
 //  STATIC
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 // CONFIG EJS
 app.set("view engine", "ejs");

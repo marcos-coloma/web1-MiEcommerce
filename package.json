@@ -1,0 +1,25 @@
+{
+  "name": "web1-miecommerce",
+  "version": "1.0.0",
+  "description": "Aplicación web de ecommerce desarrollada como trabajo práctico individual para la materia **WEB1**, construida de forma incremental mediante distintos sprints, evolucionando desde un prototipo estático hasta una aplicación con arquitectura MVC, persistencia en base de datos y un dashboard administrativo en React.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"node backend/app.js\" \"npm run dev --prefix admin\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcos-coloma/web1-MiEcommerce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/marcos-coloma/web1-MiEcommerce/issues"
+  },
+  "homepage": "https://github.com/marcos-coloma/web1-MiEcommerce#readme",
+  "dependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
