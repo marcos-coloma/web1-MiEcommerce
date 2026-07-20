@@ -1,5 +1,5 @@
 const db = require('./database');
-const products = require('../products');
+const products = require('./seed');
 
 db.exec(`
 DROP TABLE IF EXISTS products;
