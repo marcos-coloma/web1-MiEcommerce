@@ -1,6 +1,6 @@
-import "./ProductsHeader.css";
+import "./ProductsListHeader.css";
 
-export default function ProductsHeader({
+export default function ProductsListHeader({
     onAdd,
     search,
     setSearch,
