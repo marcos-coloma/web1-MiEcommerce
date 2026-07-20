@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import ProductItem from "../../../components/ProductItem/ProductItem";
-import ProductsHeader from "../../../components/ProductsHeader/ProductsHeader";
+import ProductItem from "../components/ProductItem/ProductItem";
+import ProductsHeader from "../components/ProductsHeader/ProductsHeader";
 
 import {
     filterProducts,

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import DashboardCard from "../../components/DashboardCard/DashboardCard";
+import DashboardCard from "./components/DashboardCard/DashboardCard";
 import "./Home.css";
 
 import productsIcon from "../../assets/icons/products.svg";
