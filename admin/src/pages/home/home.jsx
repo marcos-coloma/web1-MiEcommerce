@@ -23,17 +23,28 @@ export default function Home() {
             ],
         },
         {
-            title: "Categorías",
-            icon: "📂",
+            title: "Usuarios",
+            icon: "👥",
             count: 0,
             buttons: [
                 {
                     label: "Ver Listado",
-                    path: "/categories",
+                    path: "/profile",
                 },
                 {
-                    label: "Agregar Categoría",
-                    path: "/categories/new",
+                    label: "Agregar Usuario",
+                    path: "/profile/new",
+                },
+            ],
+        },
+        {
+            title: "Estadísticas",
+            icon: "📊",
+            count: 0,
+            buttons: [
+                {
+                    label: "Ver analiticas",
+                    path: "/analytics",
                 },
             ],
         },

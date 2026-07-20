@@ -2,10 +2,10 @@ import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
 
 const navItems = [
-    { path: "/", label: "Home" },
-    { path: "/products", label: "Products" },
-    { path: "/categories", label: "Categories" },
-    { path: "/profile", label: "Profile" },
+    { path: "/", label: "Principal" },
+    { path: "/products", label: "Productos" },
+    { path: "/analytics", label: "Estadísticas" },
+    { path: "/profile", label: "Usuarios" },
 ];
 
 export default function Sidebar({ isOpen, onClose }) {
