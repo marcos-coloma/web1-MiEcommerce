@@ -21,7 +21,7 @@ export default function Sidebar({ isOpen, onClose }) {
         <aside className={`sidebar ${isOpen ? "open" : ""}`}>
 
             <div className="sidebar__header">
-                <h2>Dashboard</h2>
+                <h2>MiEccomerce</h2>
             </div>
 
 
