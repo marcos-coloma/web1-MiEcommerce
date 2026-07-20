@@ -7,9 +7,12 @@ export default function DashboardCard({ section, navigate }) {
 
             <div className="card__info">
 
-                <div className="card__icon">
-                    {section.icon}
-                </div>
+            <div className="card__icon">
+                <img 
+                    src={section.icon} 
+                    alt={section.title}
+                />
+            </div>
 
                 <div>
                     <h2>{section.title}</h2>

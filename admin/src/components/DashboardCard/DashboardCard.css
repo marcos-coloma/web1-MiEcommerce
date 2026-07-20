@@ -31,3 +31,9 @@
 .card__buttons button {
     cursor: pointer;
 }
+
+.card__icon img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}

@@ -2,6 +2,11 @@ import { useNavigate } from "react-router-dom";
 import DashboardCard from "../../components/DashboardCard/DashboardCard";
 import "./Home.css";
 
+import productsIcon from "../../assets/icons/products.svg";
+import usersIcon from "../../assets/icons/users.svg";
+import analyticsIcon from "../../assets/icons/analytics.svg";
+
+
 export default function Home() {
 
     const navigate = useNavigate();
@@ -9,7 +14,7 @@ export default function Home() {
     const sections = [
         {
             title: "Productos",
-            icon: "📦",
+            icon: productsIcon,
             count: 0,
             buttons: [
                 {
@@ -24,7 +29,7 @@ export default function Home() {
         },
         {
             title: "Usuarios",
-            icon: "👥",
+            icon: usersIcon,
             count: 0,
             buttons: [
                 {
@@ -39,7 +44,7 @@ export default function Home() {
         },
         {
             title: "Estadísticas",
-            icon: "📊",
+            icon: analyticsIcon,
             count: 0,
             buttons: [
                 {
