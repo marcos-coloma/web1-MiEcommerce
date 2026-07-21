@@ -17,6 +17,9 @@ import NewProduct from "./pages/Products/NewProduct/NewProduct";
 import ProfileList from "./pages/profile/ProfileList/ProfileList";
 import ProfileView from "./pages/profile/ProfileView/ProfileView";
 
+// Analytics
+import Analytics from "./pages/analytics/Analytics";
+
 // Errors
 import NotFound from "./errors/NotFound/NotFound";
 
@@ -37,6 +40,9 @@ function App() {
           {/* Users */}
           <Route path="profile" element={<ProfileList />} />
           <Route path="profile/:id" element={<ProfileView />} />
+
+          {/* Analytics */}
+          <Route path="analytics" element={<Analytics />} />
 
         </Route>
 

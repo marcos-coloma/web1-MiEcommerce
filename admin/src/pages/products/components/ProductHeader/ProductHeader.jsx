@@ -2,10 +2,7 @@ import "./ProductHeader.css";
 
 export default function ProductHeader({
     productId,
-    onBack,
-    onDelete,
-    deleting,
-    saving
+    onBack
 }) {
     return (
 
@@ -21,18 +18,11 @@ export default function ProductHeader({
                     Volver
                 </button>
 
-                <h1>Productos &gt; #{productId}</h1>
+                <h1>
+                    Productos &gt; #{productId}
+                </h1>
 
             </div>
-
-            <button
-                type="button"
-                className="product-view__delete-button"
-                onClick={onDelete}
-                disabled={deleting || saving}
-            >
-                {deleting ? "Eliminando..." : "Eliminar"}
-            </button>
 
         </header>
 

@@ -1,0 +1,192 @@
+.card {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: var(--spacing-lg);
+
+    background: var(--color-surface);
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-sm);
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+
+.card:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+
+
+/* Información */
+
+.card__info {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+
+.card__icon {
+
+    width: 72px;
+
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: var(--radius-md);
+
+    background: var(--color-primary-soft);
+}
+
+
+.card__icon img {
+
+    width: 42px;
+
+    height: 42px;
+
+    object-fit: contain;
+}
+
+
+
+.card h2 {
+
+    margin: 0 0 6px;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    color: var(--color-text);
+}
+
+
+
+.card p {
+
+    margin: 0;
+
+    color: var(--color-text-light);
+
+    font-size: 14px;
+}
+
+
+
+/* Botones */
+
+.card__buttons {
+
+    display: flex;
+
+    gap: 12px;
+}
+
+
+.card__buttons button {
+
+    padding: 10px 16px;
+
+    border: none;
+
+    border-radius: var(--radius-md);
+
+    background: var(--color-primary);
+
+    color: white;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+
+.card__buttons button:hover {
+
+    background: #1D4ED8;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .card {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 20px;
+
+    }
+
+
+    .card__info {
+
+        gap: 16px;
+
+    }
+
+
+    .card__icon {
+
+        width: 60px;
+
+        height: 60px;
+
+    }
+
+
+    .card__icon img {
+
+        width: 36px;
+
+        height: 36px;
+
+    }
+
+
+    .card__buttons {
+
+        width: 100%;
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+
+    .card__buttons button {
+
+        width: 100%;
+
+    }
+
+}

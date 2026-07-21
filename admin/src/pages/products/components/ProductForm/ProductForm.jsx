@@ -7,6 +7,7 @@ export default function ProductForm({
     onSubmit,
     onCancel,
     onStockChange,
+    onDelete,
     saving,
     deleting,
     message,
@@ -14,8 +15,6 @@ export default function ProductForm({
     children,
     categories = []
 }) {
-
-
 
     return (
 
@@ -27,6 +26,7 @@ export default function ProductForm({
 
             <div className="product-form__grid">
 
+                {/* Nombre */}
                 <label className="product-form__field">
                     <span>Nombre</span>
                     <input
@@ -38,6 +38,7 @@ export default function ProductForm({
                     {formErrors.name && <small>{formErrors.name}</small>}
                 </label>
 
+                {/* Precio */}
                 <label className="product-form__field">
                     <span>Precio</span>
                     <input
@@ -50,14 +51,12 @@ export default function ProductForm({
                     {formErrors.price && <small>{formErrors.price}</small>}
                 </label>
 
+                {/* Stock */}
                 <label className="product-form__field">
                     <span>Stock</span>
 
                     <div className="product-form__stock-control">
-                        <button
-                            type="button"
-                            onClick={() => onStockChange(-1)}
-                        >
+                        <button type="button" onClick={() => onStockChange(-1)}>
                             -
                         </button>
 
@@ -69,10 +68,7 @@ export default function ProductForm({
                             onChange={onChange}
                         />
 
-                        <button
-                            type="button"
-                            onClick={() => onStockChange(1)}
-                        >
+                        <button type="button" onClick={() => onStockChange(1)}>
                             +
                         </button>
                     </div>
@@ -80,16 +76,16 @@ export default function ProductForm({
                     {formErrors.stock && <small>{formErrors.stock}</small>}
                 </label>
 
-
+                {/* Categoria */}
                 <label className="product-form__field">
-                    <span>Categoria</span>
+                    <span>Categoría</span>
 
                     <select
                         name="category_id"
                         value={formData.category_id}
                         onChange={onChange}
                     >
-                        <option value="">Seleccionar categoria</option>
+                        <option value="">Seleccionar categoría</option>
 
                         {categories.map((cat) => (
                             <option key={cat.id} value={cat.id}>
@@ -103,6 +99,7 @@ export default function ProductForm({
                     )}
                 </label>
 
+                {/* Tienda */}
                 <label className="product-form__field">
                     <span>Tienda</span>
                     <input
@@ -113,6 +110,7 @@ export default function ProductForm({
                     />
                 </label>
 
+                {/* URL tienda */}
                 <label className="product-form__field">
                     <span>URL perfil de tienda</span>
                     <input
@@ -123,6 +121,7 @@ export default function ProductForm({
                     />
                 </label>
 
+                {/* Imagen */}
                 <label className="product-form__field product-form__field--full">
                     <span>URL de imagen</span>
                     <input
@@ -133,8 +132,9 @@ export default function ProductForm({
                     />
                 </label>
 
+                {/* Descripción */}
                 <label className="product-form__field product-form__field--full">
-                    <span>Descripcion</span>
+                    <span>Descripción</span>
                     <textarea
                         name="description"
                         rows="4"
@@ -145,36 +145,54 @@ export default function ProductForm({
 
             </div>
 
+            {/* ACCIONES */}
             <div className="product-form__actions">
 
-                {message && (
-                    <p className="product-form__message">
-                        {message}
-                    </p>
-                )}
+                <div className="product-form__actions-left">
+                    <button
+                        type="button"
+                        className="product-form__button product-form__button--danger"
+                        onClick={onDelete}
+                        disabled={saving || deleting}
+                    >
+                        {deleting ? "Eliminando..." : "Eliminar"}
+                    </button>
+                </div>
 
-                {error && (
-                    <p className="product-form__message product-form__message--error">
-                        {error}
-                    </p>
-                )}
+                <div className="product-form__actions-center">
+                    {message && (
+                        <p className="product-form__message">
+                            {message}
+                        </p>
+                    )}
 
-                <button
-                    type="button"
-                    className="product-form__button product-form__button--secondary"
-                    onClick={onCancel}
-                    disabled={saving || deleting}
-                >
-                    Cancelar
-                </button>
+                    {error && (
+                        <p className="product-form__message product-form__message--error">
+                            {error}
+                        </p>
+                    )}
+                </div>
 
-                <button
-                    type="submit"
-                    className="product-form__button product-form__button--primary"
-                    disabled={saving || deleting}
-                >
-                    {saving ? "Guardando..." : "Guardar"}
-                </button>
+                <div className="product-form__actions-right">
+
+                    <button
+                        type="button"
+                        className="product-form__button product-form__button--secondary"
+                        onClick={onCancel}
+                        disabled={saving || deleting}
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        className="product-form__button product-form__button--primary"
+                        disabled={saving || deleting}
+                    >
+                        {saving ? "Guardando..." : "Guardar"}
+                    </button>
+
+                </div>
 
             </div>
 

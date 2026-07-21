@@ -122,6 +122,7 @@ console.log("CATEGORIES:", categories);
                 onSubmit={handleSubmit}
                 onCancel={handleCancel}
                 onStockChange={handleStockChange}
+                onDelete={handleDelete}
 
                 saving={saving}
                 deleting={deleting}
