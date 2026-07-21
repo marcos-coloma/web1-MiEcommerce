@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import "./ProductItem.css";
+import "./ProductListItem.css";
 
-export default function ProductItem({ product }) {
+export default function ProductListItem({ product }) {
 
     const navigate = useNavigate();
 

@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import ProductItem from "../components/ProductItem/ProductItem";
-import ProductsHeader from "../components/ProductsListHeader/ProductsListHeader";
+import ProductListItem from "../components/ProductListItem/ProductListItem";
+import ProductsListHeader from "../components/ProductsListHeader/ProductsListHeader";
 
 import {
     filterProducts,
@@ -117,7 +117,7 @@ export default function ProductsList() {
         <div className="products">
 
 
-            <ProductsHeader
+            <ProductsListHeader
                 onAdd={() => navigate("/products/new")}
 
                 search={search}
@@ -143,7 +143,7 @@ export default function ProductsList() {
 
                         filteredProducts.map((product) => (
 
-                            <ProductItem
+                            <ProductListItem
                                 key={product.id}
                                 product={product}
                             />

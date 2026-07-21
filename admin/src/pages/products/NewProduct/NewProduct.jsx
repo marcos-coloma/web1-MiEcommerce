@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import ProductForm from "../components/ProductForm/ProductForm";
+import ProductHeader from "../components/ProductHeader/ProductHeader";
 
 import {
     validateForm,
@@ -16,7 +17,9 @@ import "./NewProduct.css";
 export default function NewProduct() {
 
     const navigate = useNavigate();
+
     const [categories, setCategories] = useState([]);
+
     const [formData, setFormData] = useState({
 
         name: "",
@@ -33,6 +36,7 @@ export default function NewProduct() {
 
     const [formErrors, setFormErrors] = useState({});
     const [saving, setSaving] = useState(false);
+
     const [actionMessage, setActionMessage] = useState("");
     const [actionError, setActionError] = useState("");
 
@@ -55,16 +59,26 @@ export default function NewProduct() {
                     );
                 }
 
+
                 const data = await response.json();
+
                 setCategories(data);
+
+
             } catch (error) {
 
                 setActionError(error.message);
+
             }
 
         };
+
+
         fetchCategories();
+
     }, []);
+
+
 
 
     const handleInputChange = (event) => {
@@ -97,9 +111,7 @@ export default function NewProduct() {
 
     const handleStockChange = (amount) => {
 
-
         setFormData((current) => {
-
 
             const stock =
                 Number(current.stock) || 0;
@@ -115,9 +127,14 @@ export default function NewProduct() {
                         stock + amount
                     )
                 )
+
             };
+
         });
+
     };
+
+
 
 
     const handleCancel = () => {
@@ -127,30 +144,38 @@ export default function NewProduct() {
     };
 
 
+
+
     const handleSubmit = async (event) => {
 
         event.preventDefault();
 
+
         const errors =
             validateForm(formData);
 
+
         setFormErrors(errors);
+
 
         if (Object.keys(errors).length > 0) {
             return;
         }
+
 
         setSaving(true);
 
         setActionMessage("");
         setActionError("");
 
+
+
         try {
 
             const payload =
-                buildProductPayload(
-                    formData
-                );
+                buildProductPayload(formData);
+
+
 
             const response = await fetch(
                 "http://localhost:3000/api/products",
@@ -168,6 +193,7 @@ export default function NewProduct() {
             );
 
 
+
             if (!response.ok) {
 
                 throw new Error(
@@ -176,9 +202,12 @@ export default function NewProduct() {
 
             }
 
+
+
             setActionMessage(
                 "Producto creado correctamente"
             );
+
 
 
             setTimeout(() => {
@@ -188,11 +217,13 @@ export default function NewProduct() {
             }, 1000);
 
 
+
         } catch (error) {
 
             setActionError(
                 error.message
             );
+
 
         } finally {
 
@@ -203,29 +234,45 @@ export default function NewProduct() {
     };
 
 
+
+
     return (
 
         <div className="product-view">
+
+
+            <ProductHeader
+                title="Nuevo producto"
+                onBack={() => navigate("/products")}
+            />
+
 
 
             <ProductForm
 
                 formData={formData}
                 formErrors={formErrors}
+
                 onChange={handleInputChange}
                 onSubmit={handleSubmit}
+
                 onCancel={handleCancel}
                 onStockChange={handleStockChange}
+
                 saving={saving}
                 deleting={false}
+
                 message={actionMessage}
                 error={actionError}
+
                 categories={categories}
+
             >
 
                 <h2>Nuevo producto</h2>
 
             </ProductForm>
+
 
         </div>
 
