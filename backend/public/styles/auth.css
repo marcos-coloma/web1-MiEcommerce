@@ -85,7 +85,7 @@
     text-decoration: underline !important;
 }
 
-/* Link dentro del botón (caso login viejo) */
+/* Link dentro del botón */
 .auth-button a {
     color: white !important;
 }

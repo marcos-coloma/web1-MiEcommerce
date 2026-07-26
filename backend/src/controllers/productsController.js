@@ -11,17 +11,16 @@ const productsController = {
         let products = Product.getAll();
 
 
-        // category
+
         if (category) {
             products = products.filter(
                 p => p.category.toLowerCase() === category
             );
         }
 
-        // search
         products = productsService.search(products, search);
 
-        // sort
+
         if (order === "asc") {
             products = products.sort((a, b) => a.price - b.price);
         }

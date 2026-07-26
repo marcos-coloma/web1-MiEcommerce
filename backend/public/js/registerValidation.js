@@ -19,10 +19,10 @@ window.addEventListener("load", function () {
         const passwordValue = password.value.trim();
         const repeatPasswordValue = repeatPassword.value.trim();
 
-        // Email
+
         errors.push(...validateEmail(emailValue, emailRegex));
 
-        // Password
+
         errors.push(...validateRegisterPassword(passwordValue, repeatPasswordValue, emailValue));
 
         if (errors.length > 0) {
