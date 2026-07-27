@@ -20,7 +20,7 @@
 }
 
 
-/* IMAGEN (más protagonista) */
+/* IMAGEN*/
 
 .product-item__image-container {
     width: 64px;
@@ -81,7 +81,7 @@
 }
 
 
-/* PRECIO (lado derecho limpio) */
+/* PRECIO */
 
 .product-item__price {
     font-size: 18px;

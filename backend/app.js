@@ -3,9 +3,9 @@ const session = require("express-session");
 const expressLayouts = require('express-ejs-layouts');
 const path = require("path");
 const helmet = require("helmet");
-const apiProductsRoutes = require('./src/routes/api/productsRoutes');
-const apiCategoriesRoutes = require('./src/routes/api/categoriesRoutes');
 const cors = require("cors");
+
+
 
 const app = express();
 const PORT = 3000;
@@ -17,18 +17,27 @@ app.use(helmet({
 }));
 
 // CORS
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:5173"
+}));
 
 // PARSERS
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
 //  SESSION
+
+const initCart = require('./src/middlewares/initCart');
+
 app.use(session({
     secret: "secreto",
     resave: false,
     saveUninitialized: true
 }));
+
+app.use(initCart);
+
 
 // CART COUNT
 app.use((req, res, next) => {
@@ -63,24 +72,32 @@ app.use((req, res, next) => {
 
 
 // IMPORTAR RUTAS
+const apiProductsRoutes = require('./src/routes/api/productsRoutes');
+const apiCategoriesRoutes = require('./src/routes/api/categoriesRoutes');
+const apiStatsRoutes = require('./src/routes/api/statsRoutes');
+
 const mainRoutes = require("./src/routes/mainRoutes");
 const authRoutes = require("./src/routes/authRoutes");
 const productDetailsRoutes = require("./src/routes/productDetailsRoutes");
 const cartRoutes = require("./src/routes/cartRoutes");
 const productsRoutes = require('./src/routes/productsRoutes');
 
-//  RUTAS
+// API
+app.use('/api/products', apiProductsRoutes);
+app.use('/api/categories', apiCategoriesRoutes);
+app.use('/api/stats', apiStatsRoutes);
+
+// WEB SSR
 app.use("/", mainRoutes);
 app.use("/", authRoutes);
 app.use("/", productDetailsRoutes);
 app.use("/", cartRoutes);
-app.use('/', productsRoutes);
+app.use("/", productsRoutes);
 
-app.use('/api/products', apiProductsRoutes);
-app.use('/api/categories', apiCategoriesRoutes);
 
 const notFound = require('./src/middlewares/notFound');
 const errorHandler = require('./src/middlewares/errorHandler');
+
 
 app.use(notFound);
 app.use(errorHandler);

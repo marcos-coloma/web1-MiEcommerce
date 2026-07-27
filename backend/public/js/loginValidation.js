@@ -15,15 +15,15 @@ window.addEventListener("load", function () {
         const usernameValue = username.value.trim();
         const passwordValue = password.value.trim();
 
-        // Espacios
+
         errors.push(...validateNoSpaces(username, password));
 
-        // Usuario obligatorio
+
         if (usernameValue === "") {
             errors.push("Usuario obligatorio");
         }
 
-        // Password
+
         errors.push(...validateLoginPassword(passwordValue));
 
         if (errors.length > 0) {

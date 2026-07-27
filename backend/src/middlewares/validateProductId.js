@@ -1,11 +1,12 @@
-const Product = require("../models/Product");
+const productsService = require("../services/productsService");
 const normalizeId = require("../helpers/normalizeId");
 
 const validateProductId = (req, res, next) => {
     try {
+
         const id = normalizeId(req.params.id);
 
-        const product = Product.getById(id);
+        const product = productsService.getById(id);
 
         if (!product) {
             const error = new Error("Product not found");
@@ -14,6 +15,7 @@ const validateProductId = (req, res, next) => {
         }
 
         req.product = product;
+
         next();
 
     } catch (error) {

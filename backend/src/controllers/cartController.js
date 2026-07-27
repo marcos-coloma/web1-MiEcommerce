@@ -4,10 +4,6 @@ const cartController = {
 
     cart: (req, res) => {
 
-        if (!req.session.cart) {
-            req.session.cart = [];
-        }
-
         const cartDetailed = cartService.getDetailedCart(req.session.cart);
         const total = cartService.getTotal(cartDetailed);
 
@@ -19,10 +15,6 @@ const cartController = {
     },
 
     add: (req, res) => {
-
-        if (!req.session.cart) {
-            req.session.cart = [];
-        }
 
         const product = req.product;
 
@@ -37,10 +29,6 @@ const cartController = {
 
     increase: (req, res) => {
 
-        if (!req.session.cart) {
-            req.session.cart = [];
-        }
-
         const product = req.product;
 
         cartService.increase(req.session.cart, product.id);
@@ -50,10 +38,6 @@ const cartController = {
 
     decrease: (req, res) => {
 
-        if (!req.session.cart) {
-            req.session.cart = [];
-        }
-
         const product = req.product;
 
         req.session.cart = cartService.decrease(req.session.cart, product.id);
@@ -62,10 +46,6 @@ const cartController = {
     },
 
     remove: (req, res) => {
-
-        if (!req.session.cart) {
-            req.session.cart = [];
-        }
 
         const product = req.product;
 
