@@ -18,10 +18,6 @@ const productsService = {
         return Product.update(id, product);
     },
 
-    remove: (id) => {
-        return Product.delete(id);
-    },
-
     delete: (id) => {
         return Product.delete(id);
     },
@@ -62,7 +58,7 @@ const productsService = {
     getRelated: (product) => {
         if (!product || !product.category_id) return [];
 
-        const all = Product.getAll();
+        const all = productsService.getAll();
 
         return all
             .filter(p =>
@@ -72,7 +68,6 @@ const productsService = {
             .sort(() => Math.random() - 0.5)
             .slice(0, 4);
     }
-
 };
 
 module.exports = productsService;

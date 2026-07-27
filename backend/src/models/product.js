@@ -1,4 +1,16 @@
 const db = require("../../db/database");
+const normalizeId = require("../helpers/normalizeId");
+
+const productFields = `
+    products.*,
+    categories.name AS category,
+    categories.id AS category_id
+`;
+
+const productJoin = `
+    FROM products
+    JOIN categories ON products.category_id = categories.id
+`;
 
 const Product = {
 
@@ -7,75 +19,69 @@ const Product = {
     getAll: () => {
         return db.prepare(`
             SELECT 
-                products.*,
-                categories.name AS category,
-                categories.id AS category_id
-            FROM products
-            JOIN categories ON products.category_id = categories.id
+                ${productFields}
+            ${productJoin}
         `).all();
     },
 
+
     getById: (id) => {
+
+        const productId = normalizeId(id);
+
         return db.prepare(`
             SELECT 
-                products.*,
-                categories.name AS category,
-                categories.id AS category_id
-            FROM products
-            JOIN categories ON products.category_id = categories.id
+                ${productFields}
+            ${productJoin}
             WHERE products.id = ?
-        `).get(Number(id));
+        `).get(productId);
     },
 
+
     getByCategory: (categoryId, excludeId) => {
+
         return db.prepare(`
             SELECT 
-                products.*,
-                categories.name AS category,
-                categories.id AS category_id
-            FROM products
-            JOIN categories ON products.category_id = categories.id
+                ${productFields}
+            ${productJoin}
             WHERE products.category_id = ?
             AND products.id != ?
         `).all(categoryId, excludeId);
     },
 
+
     search: (query) => {
+
         if (!query) return [];
 
         return db.prepare(`
             SELECT 
-                products.*,
-                categories.name AS category,
-                categories.id AS category_id
-            FROM products
-            JOIN categories ON products.category_id = categories.id
+                ${productFields}
+            ${productJoin}
             WHERE LOWER(products.name) LIKE LOWER(?)
         `).all(`%${query}%`);
     },
 
+
     getPopular: () => {
+
         return db.prepare(`
             SELECT 
-                products.*,
-                categories.name AS category,
-                categories.id AS category_id
-            FROM products
-            JOIN categories ON products.category_id = categories.id
+                ${productFields}
+            ${productJoin}
             WHERE popular = 1
             ORDER BY RANDOM()
             LIMIT 10
         `).all();
     },
 
+
     getRandom: (limit = 5) => {
+
         return db.prepare(`
             SELECT 
-                products.*,
-                categories.name AS category,
-                categories.id AS category_id
-            FROM products
-            JOIN categories ON products.category_id = categories.id
+                ${productFields}
+            ${productJoin}
             ORDER BY RANDOM()
             LIMIT ?
         `).all(limit);
@@ -85,6 +91,7 @@ const Product = {
     //------------MODIFICACION------------
 
     create: (product) => {
+
         return db.prepare(`
             INSERT INTO products (
                 name,
@@ -111,7 +118,11 @@ const Product = {
         );
     },
 
+
     update: (id, product) => {
+
+        const productId = normalizeId(id);
+
         return db.prepare(`
             UPDATE products
             SET
@@ -135,15 +146,19 @@ const Product = {
             product.popular,
             product.stock,
             product.category_id,
-            id
+            productId
         );
     },
 
+
     delete: (id) => {
+
+        const productId = normalizeId(id);
+
         return db.prepare(`
             DELETE FROM products
             WHERE id = ?
-        `).run(id);
+        `).run(productId);
     }
 
 };
