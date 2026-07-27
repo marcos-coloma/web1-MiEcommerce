@@ -20,90 +20,64 @@ export default function useProductForm({
 
 
     const [formErrors, setFormErrors] = useState({});
-
     const [actionMessage, setActionMessage] = useState("");
-
     const [actionError, setActionError] = useState("");
-
     const [saving, setSaving] = useState(false);
-
     const [deleting, setDeleting] = useState(false);
 
 
 
     const clearMessages = () => {
-
         setActionMessage("");
         setActionError("");
-
     };
 
 
 
     const handleInputChange = (event) => {
-
         const {
             name,
             value
         } = event.target;
-
-
 
         setFormData((current) => ({
             ...current,
             [name]: value
         }));
 
-
         setFormErrors((current) => ({
             ...current,
             [name]: undefined
         }));
 
-
         clearMessages();
-
     };
 
 
 
     const handleCancel = () => {
-
         setFormData(
             buildFormData(product)
         );
-
         setFormErrors({});
-
         clearMessages();
-
     };
 
 
 
     const handleStockChange = (amount) => {
-
-
         setFormData((current) => {
-
-
             const stock = Number(current.stock) || 0;
 
-
             return {
-
                 ...current,
-
                 stock: String(
                     Math.max(
                         0,
                         stock + amount
                     )
                 )
-
             };
-
-
         });
 
 
@@ -111,10 +85,7 @@ export default function useProductForm({
             ...current,
             stock: undefined
         }));
-
-
         clearMessages();
-
     };
 
 
@@ -122,42 +93,26 @@ export default function useProductForm({
     const handleSubmit = async (event) => {
 
         event.preventDefault();
-
-
-        const errors =
-            validateForm(formData);
-
-
+        const errors = validateForm(formData);
 
         setFormErrors(errors);
-
-
 
         if (Object.keys(errors).length > 0) {
             return;
         }
 
-
-
         setSaving(true);
-
         clearMessages();
 
-
-
         try {
-
-
             const payload =
                 buildProductPayload(
                     formData,
                     product
                 );
 
-
-
             const response = await fetch(
-                `http://localhost:3000/api/products/${id}/edit`,
+                `http://localhost:3000/api/products/${id}`,
                 {
 
                     method: "PUT",
@@ -167,96 +122,61 @@ export default function useProductForm({
                     },
 
                     body: JSON.stringify(payload)
-
                 }
             );
 
-
-
             if (!response.ok) {
-
                 throw new Error(
                     "Error al guardar el producto"
                 );
-
             }
 
-
-
             const updatedProduct = {
-
                 ...product,
-
                 ...payload
-
             };
 
-
-
             setProduct(updatedProduct);
-
 
             setFormData(
                 buildFormData(updatedProduct)
             );
 
-
-
             setActionMessage(
                 "Producto guardado correctamente"
             );
 
-
-
         } catch(error) {
-
             setActionError(
                 error.message
             );
-
-
         } finally {
-
             setSaving(false);
-
         }
-
     };
 
-
-
     const handleDelete = async () => {
-
 
         const confirmed =
             window.confirm(
                 "Estas seguro de que queres eliminar este producto?"
             );
 
-
         if (!confirmed) {
             return;
         }
 
-
-
         setDeleting(true);
-
         clearMessages();
-
-
 
         try {
 
-
             const response = await fetch(
-                `http://localhost:3000/api/products/${id}/delete`,
+                `http://localhost:3000/api/products/${id}`,
                 {
                     method:"DELETE"
                 }
             );
-
-
 
             if (!response.ok) {
 
@@ -265,8 +185,6 @@ export default function useProductForm({
                 );
 
             }
-
-
 
             navigate("/products");
 
