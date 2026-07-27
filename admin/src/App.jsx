@@ -9,9 +9,14 @@ import DashboardLayout from "./layouts/DashboardLayout";
 import Home from "./pages/Home/Home";
 
 // Products
-import ProductsList from "./pages/Products/ProductsList/ProductsList";
-import ProductsView from "./pages/Products/ProductsView/ProductsView";
-import NewProduct from "./pages/Products/NewProduct/NewProduct";
+import ProductsList from "./pages/products/ProductsList/ProductsList";
+import ProductsView from "./pages/products/ProductsView/ProductsView";
+import NewProduct from "./pages/products/NewProduct/NewProduct";
+
+// Categories
+import CategoriesList from "./pages/categories/CategoriesList/CategoriesList";
+import CategoriesView from "./pages/categories/CategoriesView/CategoriesView";
+import NewCategory from "./pages/categories/NewCategory/NewCategory";
 
 // Users
 import ProfileList from "./pages/profile/ProfileList/ProfileList";
@@ -28,7 +33,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<DashboardLayout />}>
-          
+
           {/* Home */}
           <Route index element={<Home />} />
 
@@ -36,6 +41,11 @@ function App() {
           <Route path="products" element={<ProductsList />} />
           <Route path="products/new" element={<NewProduct />} />
           <Route path="products/:id" element={<ProductsView />} />
+
+          {/* Categories */}
+          <Route path="categories" element={<CategoriesList />} />
+          <Route path="categories/new" element={<NewCategory />} />
+          <Route path="categories/:id" element={<CategoriesView />} />
 
           {/* Users */}
           <Route path="profile" element={<ProfileList />} />

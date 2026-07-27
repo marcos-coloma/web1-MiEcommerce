@@ -6,6 +6,7 @@ import "./Sidebar.css";
 const navItems = [
     { path: "/", label: "Principal" },
     { path: "/products", label: "Productos" },
+    { path: "/categories", label: "Categorías" },
     { path: "/analytics", label: "Estadísticas" },
 ];
 
