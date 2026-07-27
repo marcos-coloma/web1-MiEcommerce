@@ -48,7 +48,7 @@ const productsApiController = {
 
         if (result.changes === 0) {
             return res.status(404).json({
-                message: "Producto no encontrado"
+                error: "Producto no encontrado"
             });
         }
 
@@ -66,7 +66,7 @@ const productsApiController = {
 
         if (result.changes === 0) {
             return res.status(404).json({
-                message: "Producto no encontrado"
+                error: "Producto no encontrado"
             });
         }
 

@@ -43,6 +43,14 @@ const productsService = {
         );
     },
 
+    filterByCategory: (products, category) => {
+        if (!category) return products;
+
+        return products.filter(
+            p => p.category.toLowerCase() === category.toLowerCase()
+        );
+    },
+
     getSuggested: () => {
         return Product.getRandom(5);
     },

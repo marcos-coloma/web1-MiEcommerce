@@ -38,7 +38,6 @@ const authController = {
             return res.status(400).send("Las contraseñas no coinciden");
         }
 
-        console.log("Register:", req.body);
 
         res.redirect("/login");
     }

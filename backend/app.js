@@ -25,12 +25,19 @@ app.use(cors({
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
 //  SESSION
+
+const initCart = require('./src/middlewares/initCart');
+
 app.use(session({
     secret: "secreto",
     resave: false,
     saveUninitialized: true
 }));
+
+app.use(initCart);
+
 
 // CART COUNT
 app.use((req, res, next) => {
@@ -90,6 +97,7 @@ app.use("/", productsRoutes);
 
 const notFound = require('./src/middlewares/notFound');
 const errorHandler = require('./src/middlewares/errorHandler');
+
 
 app.use(notFound);
 app.use(errorHandler);
