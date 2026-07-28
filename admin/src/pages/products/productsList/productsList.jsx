@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+import PageTitle from "../../../components/PageTitle/PageTitle";
 import ProductListItem from "../components/ProductListItem/ProductListItem";
 import ProductsListHeader from "../components/ProductsListHeader/ProductsListHeader";
 
 import {
-    filterProducts,
-    getCategories
+    filterProducts
 } from "../utils/productUtils";
 
 import "./ProductsList.css";
@@ -19,8 +19,12 @@ export default function ProductsList() {
 
     const [products, setProducts] = useState([]);
 
+    const [categories, setCategories] = useState([]);
+
+
     const [search, setSearch] = useState("");
     const [category, setCategory] = useState("");
+
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -69,7 +73,42 @@ export default function ProductsList() {
 
 
 
-    const categories = getCategories(products);
+    useEffect(() => {
+
+        const fetchCategories = async () => {
+
+            try {
+
+                const response = await fetch(
+                    "http://localhost:3000/api/categories"
+                );
+
+
+                if (!response.ok) {
+                    throw new Error(
+                        "Error al obtener categorías"
+                    );
+                }
+
+
+                const data = await response.json();
+
+                setCategories(data);
+
+
+            } catch (error) {
+
+                console.error(error);
+
+            }
+
+        };
+
+
+        fetchCategories();
+
+    }, []);
+
 
 
     const filteredProducts = filterProducts(
@@ -116,6 +155,7 @@ export default function ProductsList() {
 
         <div className="products">
 
+        <PageTitle title="Products List | Admin" />
 
             <ProductsListHeader
                 onAdd={() => navigate("/products/new")}
@@ -123,9 +163,10 @@ export default function ProductsList() {
                 search={search}
                 setSearch={setSearch}
 
-                categories={categories}
                 category={category}
                 setCategory={setCategory}
+
+                categories={categories}
             />
 
 
@@ -159,4 +200,5 @@ export default function ProductsList() {
         </div>
 
     );
+
 }

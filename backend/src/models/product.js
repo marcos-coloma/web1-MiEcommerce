@@ -38,7 +38,7 @@ const Product = {
     },
 
 
-    getByCategory: (categoryId, excludeId) => {
+    getByCategory: (categoryId, excludeId = 0) => {
 
         return db.prepare(`
             SELECT 
@@ -51,8 +51,6 @@ const Product = {
 
 
     search: (query) => {
-
-        if (!query) return [];
 
         return db.prepare(`
             SELECT 
@@ -69,7 +67,7 @@ const Product = {
             SELECT 
                 ${productFields}
             ${productJoin}
-            WHERE popular = 1
+            WHERE products.popular = 1
             ORDER BY RANDOM()
             LIMIT 10
         `).all();
@@ -87,8 +85,15 @@ const Product = {
         `).all(limit);
     },
 
+    count: () => {
+        return db.prepare(`
+            SELECT COUNT(*) AS total
+            FROM products
+        `).get().total;
+    },
 
-    //------------MODIFICACION------------
+
+    //------------CREACION------------
 
     create: (product) => {
 
@@ -96,8 +101,8 @@ const Product = {
             INSERT INTO products (
                 name,
                 price,
-                img,
                 description,
+                img,
                 store_name,
                 store_profile_url,
                 popular,
@@ -108,16 +113,18 @@ const Product = {
         `).run(
             product.name,
             product.price,
-            product.img,
             product.description,
+            product.img,
             product.store_name || "MiEcommerce",
             product.store_profile_url || "",
-            product.popular,
-            product.stock,
+            product.popular ? 1 : 0,
+            product.stock || 0,
             product.category_id
         );
     },
 
+
+    //------------ACTUALIZACION------------
 
     update: (id, product) => {
 
@@ -128,8 +135,8 @@ const Product = {
             SET
                 name = ?,
                 price = ?,
-                img = ?,
                 description = ?,
+                img = ?,
                 store_name = ?,
                 store_profile_url = ?,
                 popular = ?,
@@ -139,17 +146,19 @@ const Product = {
         `).run(
             product.name,
             product.price,
-            product.img,
             product.description,
+            product.img,
             product.store_name || "MiEcommerce",
             product.store_profile_url || "",
-            product.popular,
-            product.stock,
+            product.popular ? 1 : 0,
+            product.stock || 0,
             product.category_id,
             productId
         );
     },
 
+
+    //------------ELIMINACION------------
 
     delete: (id) => {
 

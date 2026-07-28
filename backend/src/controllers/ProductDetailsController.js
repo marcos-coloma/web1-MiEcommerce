@@ -1,4 +1,5 @@
 const productsService = require("../services/productsService");
+const categoriesService = require("../services/api/categoriesService");
 
 const productDetailsController = {
 
@@ -8,11 +9,13 @@ const productDetailsController = {
             const product = req.product;
 
             const relatedProducts = productsService.getRelated(product);
+            const categories = categoriesService.getAll();
 
             res.render("pages/productDetails", {
                 title: "Product",
                 product,
-                relatedProducts
+                relatedProducts,
+                categories
             });
 
         } catch (err) {

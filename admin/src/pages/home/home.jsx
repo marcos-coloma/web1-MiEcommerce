@@ -2,10 +2,11 @@ import { useNavigate } from "react-router-dom";
 import DashboardCard from "./components/DashboardCard/DashboardCard";
 import "./Home.css";
 
+import PageTitle from "../../components/PageTitle/PageTitle";
 import productsIcon from "../../assets/icons/products.svg";
 import usersIcon from "../../assets/icons/users.svg";
 import analyticsIcon from "../../assets/icons/analytics.svg";
-
+import categoriesIcon from "../../assets/icons/categories.svg";
 
 export default function Home() {
 
@@ -27,6 +28,23 @@ export default function Home() {
                 },
             ],
         },
+
+        {
+            title: "Categorías",
+            icon: categoriesIcon,
+            count: 0,
+            buttons: [
+                {
+                    label: "Ver Listado",
+                    path: "/categories",
+                },
+                {
+                    label: "Agregar Categoría",
+                    path: "/categories/new",
+                },
+            ],
+        },
+
         {
             title: "Usuarios",
             icon: usersIcon,
@@ -42,13 +60,14 @@ export default function Home() {
                 },
             ],
         },
+
         {
             title: "Estadísticas",
             icon: analyticsIcon,
             count: 0,
             buttons: [
                 {
-                    label: "Ver analiticas",
+                    label: "Ver Analíticas",
                     path: "/analytics",
                 },
             ],
@@ -58,6 +77,8 @@ export default function Home() {
 
     return (
         <div className="home">
+
+        <PageTitle title="Home | Admin" />
 
             <h1>
                 ¡Hola Marcos!

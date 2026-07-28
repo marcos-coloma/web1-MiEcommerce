@@ -10,9 +10,9 @@ export default function ProductsListHeader({
     onAdd,
     search,
     setSearch,
-    categories,
     category,
-    setCategory
+    setCategory,
+    categories
 }) {
 
     const [showCategory, setShowCategory] = useState(false);

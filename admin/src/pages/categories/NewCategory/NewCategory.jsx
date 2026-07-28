@@ -1,0 +1,84 @@
+import { useNavigate } from "react-router-dom";
+
+import useCategories from "../hooks/useCategories";
+import CategoryForm from "../components/CategoryForm/CategoryForm";
+import PageTitle from "../../../components/PageTitle/PageTitle";
+
+import "./NewCategory.css";
+
+
+export default function NewCategory() {
+
+    const navigate = useNavigate();
+
+
+    const {
+        createCategory,
+        loading,
+        error
+    } = useCategories();
+
+
+
+    const handleCreate = async (data) => {
+
+        const created = await createCategory(data);
+
+
+        if (created) {
+            navigate("/categories");
+        }
+
+    };
+
+
+    return (
+
+        <section className="new-category-page">
+
+        <PageTitle title="New Category | Admin" />
+
+            <div className="new-category-header">
+
+                <h1>
+                    Nueva categoría
+                </h1>
+
+            </div>
+
+
+
+            {
+                error && (
+                    <p className="new-category-error">
+                        {error}
+                    </p>
+                )
+            }
+
+
+
+            {
+                loading ? (
+
+                    <p>
+                        Creando categoría...
+                    </p>
+
+                ) : (
+                    
+                <CategoryForm
+                    onSubmit={handleCreate}
+                    onCancel={() => navigate("/categories")}
+                    buttonText="Crear categoría"
+                />
+
+                )
+            }
+
+
+        </section>
+
+    );
+
+}
