@@ -1,0 +1,211 @@
+.category-form {
+
+    background: var(--color-surface);
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-md);
+
+    padding: var(--spacing-lg);
+
+    box-shadow: var(--shadow-sm);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    max-width: 600px;
+
+}
+
+
+
+/* Campos */
+
+.category-form label {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: var(--color-text);
+
+}
+
+
+
+.category-form input {
+
+    height: 42px;
+
+    padding: 0 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--color-border);
+
+    background: white;
+
+    color: var(--color-text);
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+
+}
+
+
+
+.category-form input:focus {
+
+    border-color: var(--color-primary);
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+
+}
+
+
+
+/* Error */
+
+.category-form-error {
+
+    margin: 0;
+
+    padding: 10px 12px;
+
+    border-radius: 8px;
+
+    background: #FEF2F2;
+
+    border: 1px solid #FECACA;
+
+    color: #B91C1C;
+
+    font-size: 14px;
+
+}
+
+
+
+/* Acciones */
+
+.category-form-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 8px;
+
+}
+
+
+
+/* Botones */
+
+.category-form-actions button {
+
+    height: 42px;
+
+    padding: 0 22px;
+
+    border-radius: var(--radius-md);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+}
+
+
+
+/* Volver */
+
+.category-form-cancel {
+
+    background: transparent;
+
+    border: 1px solid var(--color-border);
+
+    color: var(--color-text);
+
+}
+
+
+
+.category-form-cancel:hover {
+
+    background: #F8FAFC;
+
+}
+
+
+
+/* Guardar */
+
+.category-form-submit {
+
+    background: var(--color-primary);
+
+    border: 1px solid var(--color-primary);
+
+    color: white;
+
+}
+
+
+
+.category-form-submit:hover {
+
+    background: #1D4ED8;
+
+}
+
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+
+    .category-form {
+
+        max-width: 100%;
+
+        padding: var(--spacing-md);
+
+    }
+
+
+    .category-form-actions {
+
+        flex-direction: column-reverse;
+
+    }
+
+
+    .category-form-actions button {
+
+        width: 100%;
+
+    }
+
+}

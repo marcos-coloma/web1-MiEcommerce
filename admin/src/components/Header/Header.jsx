@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import menuIcon from "../../assets/icons/menu.svg";
 import "./Header.css";
 

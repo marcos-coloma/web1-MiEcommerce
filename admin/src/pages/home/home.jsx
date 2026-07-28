@@ -5,7 +5,7 @@ import "./Home.css";
 import productsIcon from "../../assets/icons/products.svg";
 import usersIcon from "../../assets/icons/users.svg";
 import analyticsIcon from "../../assets/icons/analytics.svg";
-
+import categoriesIcon from "../../assets/icons/categories.svg";
 
 export default function Home() {
 
@@ -27,6 +27,23 @@ export default function Home() {
                 },
             ],
         },
+
+        {
+            title: "Categorías",
+            icon: categoriesIcon,
+            count: 0,
+            buttons: [
+                {
+                    label: "Ver Listado",
+                    path: "/categories",
+                },
+                {
+                    label: "Agregar Categoría",
+                    path: "/categories/new",
+                },
+            ],
+        },
+
         {
             title: "Usuarios",
             icon: usersIcon,
@@ -42,13 +59,14 @@ export default function Home() {
                 },
             ],
         },
+
         {
             title: "Estadísticas",
             icon: analyticsIcon,
             count: 0,
             buttons: [
                 {
-                    label: "Ver analiticas",
+                    label: "Ver Analíticas",
                     path: "/analytics",
                 },
             ],

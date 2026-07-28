@@ -1,4 +1,5 @@
 const productsService = require("../services/productsService");
+const categoriesService = require("../services/api/categoriesService");
 
 const productsController = {
     list: (req, res) => {
@@ -20,9 +21,12 @@ const productsController = {
             products = productsService.sortByPrice(products, order);
         }
 
+        const categories = categoriesService.getAll();
+
         res.render("pages/products", {
             title: "Products",
             products,
+            categories,
             category,
             order,
             search

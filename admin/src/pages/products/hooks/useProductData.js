@@ -1,5 +1,3 @@
-// src/pages/Products/hooks/useProductData.js
-
 import { useEffect, useState } from "react";
 
 import { buildFormData } from "../utils/productUtils";
@@ -11,9 +9,6 @@ export default function useProductData(id) {
 
     const [formData, setFormData] = useState(null);
 
-    const [categories, setCategories] = useState([]);
-
-
     const [loading, setLoading] = useState(true);
 
     const [error, setError] = useState(null);
@@ -22,18 +17,16 @@ export default function useProductData(id) {
 
     useEffect(() => {
 
-
         const fetchData = async () => {
 
             try {
 
-
-                const productResponse = await fetch(
+                const response = await fetch(
                     `http://localhost:3000/api/products/${id}`
                 );
 
 
-                if (!productResponse.ok) {
+                if (!response.ok) {
                     throw new Error(
                         "Error al obtener el producto"
                     );
@@ -41,24 +34,7 @@ export default function useProductData(id) {
 
 
                 const productData =
-                    await productResponse.json();
-
-
-
-                const categoriesResponse = await fetch(
-                    "http://localhost:3000/api/categories"
-                );
-
-
-                if (!categoriesResponse.ok) {
-                    throw new Error(
-                        "Error al obtener categorias"
-                    );
-                }
-
-
-                const categoriesData =
-                    await categoriesResponse.json();
+                    await response.json();
 
 
 
@@ -67,10 +43,6 @@ export default function useProductData(id) {
                 setFormData(
                     buildFormData(productData)
                 );
-
-
-                setCategories(categoriesData);
-
 
 
             } catch (error) {
@@ -101,8 +73,6 @@ export default function useProductData(id) {
 
         formData,
         setFormData,
-
-        categories,
 
         loading,
         error
