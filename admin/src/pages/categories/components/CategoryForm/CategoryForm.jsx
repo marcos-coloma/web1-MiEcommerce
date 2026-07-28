@@ -17,6 +17,9 @@ export default function CategoryForm({
     });
 
 
+    const [error, setError] = useState("");
+
+
 
     useEffect(() => {
 
@@ -45,6 +48,9 @@ export default function CategoryForm({
             [name]: value
         }));
 
+
+        setError("");
+
     };
 
 
@@ -53,7 +59,32 @@ export default function CategoryForm({
 
         e.preventDefault();
 
-        onSubmit(formData);
+
+
+        if (!formData.name.trim()) {
+
+            setError("El nombre es obligatorio");
+            return;
+
+        }
+
+
+
+        if (!formData.icon.trim()) {
+
+            setError("El icono es obligatorio");
+            return;
+
+        }
+
+
+
+        setError("");
+
+        onSubmit({
+            name: formData.name.trim(),
+            icon: formData.icon.trim()
+        });
 
     };
 
@@ -90,10 +121,22 @@ export default function CategoryForm({
                     name="icon"
                     value={formData.icon}
                     onChange={handleChange}
-                    placeholder="imagen.png o URL"
+                    placeholder="Ej: icono.svg"
                 />
 
             </label>
+
+
+
+            {
+                error && (
+
+                    <p className="category-form-error">
+                        {error}
+                    </p>
+
+                )
+            }
 
 
 
