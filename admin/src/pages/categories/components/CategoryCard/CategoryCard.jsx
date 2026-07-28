@@ -8,7 +8,7 @@ export default function CategoryCard({ category }) {
         <article className="category-card">
 
             <img
-                src={category.icon}
+                src={`http://localhost:3000/img/ui/${category.icon}`}
                 alt={category.name}
                 className="category-card-image"
             />

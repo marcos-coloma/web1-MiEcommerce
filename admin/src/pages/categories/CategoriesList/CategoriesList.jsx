@@ -21,6 +21,7 @@ export default function CategoriesList() {
 
 
     useEffect(() => {
+
         getCategories();
     }, []);
 
@@ -42,7 +43,16 @@ export default function CategoriesList() {
         );
     }
 
-
+    if (!loading && categories.length === 0) {
+        return (
+            <div className="categories-empty">
+                No hay categorías todavía
+            </div>
+        );
+    }
+        console.log("CATEGORIAS EN COMPONENTE:", categories);
+        console.log("LOADING:", loading);
+        console.log("ERROR:", error);
     return (
         <section className="categories-page">
 
