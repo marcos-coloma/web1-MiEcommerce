@@ -1,0 +1,51 @@
+.new-category-page {
+
+    padding: 24px;
+
+}
+
+
+
+.new-category-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 24px;
+
+}
+
+
+
+.new-category-header h1 {
+
+    font-size: 32px;
+
+}
+
+
+
+.new-category-header button {
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+
+
+.new-category-error {
+
+    color: red;
+
+    margin-bottom: 20px;
+
+}

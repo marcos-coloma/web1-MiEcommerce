@@ -1,0 +1,81 @@
+.category-table-container {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+}
+
+
+.category-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+}
+
+
+
+.category-table th,
+.category-table td {
+
+    padding: 15px;
+
+    text-align: center;
+
+    border-bottom: 1px solid #ddd;
+
+}
+
+
+
+.category-table th {
+
+    font-weight: bold;
+
+}
+
+
+
+.category-table-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    object-fit: contain;
+
+}
+
+
+
+.category-table button {
+
+    margin: 0 5px;
+
+    padding: 8px 12px;
+
+    border-radius: 6px;
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+
+
+.category-table .delete {
+
+    background-color: #d9534f;
+
+    color: white;
+
+}

@@ -1,0 +1,59 @@
+.category-card {
+
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.category-card-image {
+
+    width: 80px;
+    height: 80px;
+
+    object-fit: contain;
+
+}
+
+
+.category-card-name {
+
+    margin: 0;
+    text-transform: capitalize;
+
+}
+
+
+.category-card-actions {
+
+    display: flex;
+    gap: 10px;
+
+}
+
+
+.category-card-actions button {
+
+    border: none;
+    padding: 8px 15px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+}
+
+
+.category-card-actions .delete {
+
+    background-color: #d9534f;
+    color: white;
+
+}
