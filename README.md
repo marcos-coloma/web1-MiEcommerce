@@ -13,6 +13,7 @@ Evolución del proyecto:
 - **TP1:** Maquetación y prototipo funcional con HTML, CSS y Node.js + Express.
 - **TP2:** Incorporación de lógica de negocio, arquitectura MVC, rutas, controladores y manejo de sesiones.
 - **TP3:** Migración de persistencia (JSON → SQLite) e integración con base de datos.
+- **TP4:** Implementación de API REST, exposición de datos en formato JSON y transición a backend como proveedor de datos.
 - **TP5:** Desarrollo de dashboard administrativo con React, integración con API REST y gestión de productos.
 
 ---
@@ -42,12 +43,12 @@ Evolución del proyecto:
 
 - Aplicación desarrollada con React.
 - Consumo de API REST creada con Express.
-- Listado de productos.
-- Visualización y edición de productos.
-- Creación de nuevos productos.
+- Listado de productos y categorias.
+- Visualización y edición de productos y categorias.
+- Creación de nuevos productos y categorias.
 - Validación de formularios.
-- Gestión de categorías mediante API.
-- Actualización y eliminación de productos.
+- Visualizacion de estadisticas mediante API.
+- Actualización y eliminación de productos y categorias.
 - Integración entre frontend React y backend existente.
 
 ---
