@@ -1,27 +1,41 @@
 import { useState } from "react";
+import { useEffect } from "react";
 
 import "./CategoryForm.css";
 
 
 export default function CategoryForm({
-    initialData = {},
+    initialData,
     onSubmit,
     buttonText = "Guardar"
 }) {
 
-
     const [formData, setFormData] = useState({
-
-        name: initialData.name || "",
-        icon: initialData.icon || ""
-
+        name: "",
+        icon: ""
     });
+
+
+    useEffect(() => {
+
+        if (!initialData) return;
+
+
+        setFormData({
+            name: initialData.name || "",
+            icon: initialData.icon || ""
+        });
+
+    }, [initialData?.id]);
 
 
 
     const handleChange = (e) => {
 
-        const { name, value } = e.target;
+        const {
+            name,
+            value
+        } = e.target;
 
 
         setFormData(prev => ({
@@ -50,47 +64,39 @@ export default function CategoryForm({
             onSubmit={handleSubmit}
         >
 
-            <div className="form-group">
 
-                <label>
-                    Nombre
-                </label>
+            <label>
+
+                Nombre
 
                 <input
-                    type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Ej: Electrónica"
                 />
 
-            </div>
+            </label>
 
 
 
-            <div className="form-group">
+            <label>
 
-                <label>
-                    Icono
-                </label>
+                Icono
 
                 <input
-                    type="text"
                     name="icon"
                     value={formData.icon}
                     onChange={handleChange}
-                    placeholder="imagen.png o URL"
                 />
 
-            </div>
+            </label>
 
 
 
-            <button
-                type="submit"
-                className="category-form-button"
-            >
+            <button type="submit">
+
                 {buttonText}
+
             </button>
 
 

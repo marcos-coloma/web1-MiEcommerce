@@ -7,9 +7,10 @@
                 <a href="/products?category=<%= category.name %>">
 
                     <img 
-                        src="/img/ui/<%= category.icon %>" 
+                        src="/img/ui/<%= category.icon || 'default-icon.svg' %>" 
                         alt="<%= category.name %>" 
                         class="category-image"
+                        onerror="this.src='/img/ui/default-icon.svg'"
                     >
 
                     <p class="category-text">

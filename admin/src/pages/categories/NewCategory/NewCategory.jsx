@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
 import useCategories from "../hooks/useCategories";
-
 import CategoryForm from "../components/CategoryForm/CategoryForm";
 
 import "./NewCategory.css";
@@ -22,17 +21,14 @@ export default function NewCategory() {
 
     const handleCreate = async (data) => {
 
-        const newCategory = await createCategory(data);
+        const created = await createCategory(data);
 
 
-        if (newCategory) {
-
+        if (created) {
             navigate("/categories");
-
         }
 
     };
-
 
 
     return (
@@ -59,11 +55,9 @@ export default function NewCategory() {
 
             {
                 error && (
-
                     <p className="new-category-error">
                         {error}
                     </p>
-
                 )
             }
 

@@ -3,69 +3,122 @@ import { useParams, useNavigate } from "react-router-dom";
 
 import useCategories from "../hooks/useCategories";
 
+import CategoryForm from "../components/CategoryForm/CategoryForm";
+
 import "./CategoriesView.css";
 
-export default function CategoryView() {
+
+export default function CategoriesView() {
 
     const { id } = useParams();
     const navigate = useNavigate();
+
 
     const {
         category,
         loading,
         error,
-        getCategoryById
+        getCategoryById,
+        updateCategory
     } = useCategories();
 
 
+
     useEffect(() => {
+
         getCategoryById(id);
-    }, [id, getCategoryById]);
+
+    }, [id]);
 
 
-    const handleBack = () => navigate("/categories");
-    const handleEdit = () => navigate(`/categories/${id}/edit`);
+
+    const handleUpdate = async (data) => {
+
+        const updated = await updateCategory(
+            id,
+            data
+        );
 
 
-    if (loading) return <p>Cargando categoría...</p>;
-    if (error) return <p>{error}</p>;
-    if (!category) return <p>Categoría no encontrada</p>;
+        if (updated) {
+
+            navigate("/categories");
+
+        }
+
+    };
 
 
-    const imageSrc = category.icon?.startsWith("http")
-        ? category.icon
-        : `http://localhost:3000/img/ui/${category.icon || "default.png"}`;
+
+    if (loading) {
+
+        return (
+            <p>
+                Cargando categoría...
+            </p>
+        );
+
+    }
+
+
+    if (error) {
+
+        return (
+            <p>
+                {error}
+            </p>
+        );
+
+    }
+
+
+    if (!category) {
+
+        return (
+            <p>
+                Categoría no encontrada
+            </p>
+        );
+
+    }
+
 
 
     return (
+
         <section className="category-view">
+
 
             <div className="category-view__header">
 
-                <button onClick={handleBack}>
+                <h1>
+                    Editar categoría #{category.id}
+                </h1>
+
+
+                <button
+                    onClick={() => navigate("/categories")}
+                >
                     Volver
                 </button>
 
-                <button onClick={handleEdit}>
-                    Editar
-                </button>
-
             </div>
 
-            <div className="category-view__card">
 
-                <img
-                    src={imageSrc}
-                    alt={category.name}
-                    className="category-view__image"
-                />
 
-                <h2>{category.name}</h2>
+            <CategoryForm
 
-                <p>ID: {category.id || category._id}</p>
+                initialData={category}
 
-            </div>
+                onSubmit={handleUpdate}
+
+                buttonText="Guardar cambios"
+
+            />
+
 
         </section>
+
     );
+
 }

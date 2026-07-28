@@ -30,6 +30,9 @@ export default function CategoryCard({ category, onDelete }) {
                 src={`http://localhost:3000/img/ui/${category.icon}`}
                 alt={category.name}
                 className="category-card-image"
+                onError={(e) => {
+                e.currentTarget.src = "/default-icon.svg";
+            }}
             />
 
 

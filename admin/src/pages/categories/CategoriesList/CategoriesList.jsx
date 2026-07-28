@@ -51,9 +51,7 @@ export default function CategoriesList() {
             </div>
         );
     }
-        console.log("CATEGORIAS EN COMPONENTE:", categories);
-        console.log("LOADING:", loading);
-        console.log("ERROR:", error);
+
     return (
         <section className="categories-page">
 
