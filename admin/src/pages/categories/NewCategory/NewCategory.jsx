@@ -42,13 +42,6 @@ export default function NewCategory() {
                     Nueva categoría
                 </h1>
 
-
-                <button
-                    onClick={() => navigate("/categories")}
-                >
-                    Volver
-                </button>
-
             </div>
 
 
@@ -71,11 +64,12 @@ export default function NewCategory() {
                     </p>
 
                 ) : (
-
-                    <CategoryForm
-                        onSubmit={handleCreate}
-                        buttonText="Crear categoría"
-                    />
+                    
+                <CategoryForm
+                    onSubmit={handleCreate}
+                    onCancel={() => navigate("/categories")}
+                    buttonText="Crear categoría"
+                />
 
                 )
             }

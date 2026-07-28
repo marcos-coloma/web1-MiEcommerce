@@ -95,25 +95,15 @@ export default function CategoriesView() {
                     Editar categoría #{category.id}
                 </h1>
 
-
-                <button
-                    onClick={() => navigate("/categories")}
-                >
-                    Volver
-                </button>
-
             </div>
 
 
 
             <CategoryForm
-
                 initialData={category}
-
                 onSubmit={handleUpdate}
-
+                onCancel={() => navigate("/categories")}
                 buttonText="Guardar cambios"
-
             />
 
 

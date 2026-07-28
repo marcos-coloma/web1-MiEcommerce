@@ -1,32 +1,40 @@
 .category-form {
 
-    background: white;
+    background: var(--color-surface);
 
-    padding: 25px;
+    border: 1px solid var(--color-border);
 
-    border-radius: 12px;
+    border-radius: var(--radius-md);
+
+    padding: var(--spacing-lg);
+
+    box-shadow: var(--shadow-sm);
 
     display: flex;
+
     flex-direction: column;
 
     gap: 20px;
 
+    max-width: 600px;
+
 }
 
 
 
-.form-group {
+/* Campos */
+
+.category-form label {
 
     display: flex;
+
     flex-direction: column;
 
     gap: 8px;
 
-}
+    color: var(--color-text);
 
-
-
-.form-group label {
+    font-size: 14px;
 
     font-weight: 600;
 
@@ -34,28 +42,150 @@
 
 
 
-.form-group input {
+.category-form input {
 
-    padding: 10px;
+    height: 42px;
 
-    border-radius: 8px;
+    padding: 0 14px;
 
-    border: 1px solid #ccc;
+    border-radius: 10px;
 
-    font-size: 16px;
+    border: 1px solid var(--color-border);
+
+    background: white;
+
+    color: var(--color-text);
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: border 0.2s ease,
+                box-shadow 0.2s ease;
 
 }
 
 
 
-.category-form-button {
+.category-form input:focus {
 
-    padding: 12px;
+    border-color: var(--color-primary);
 
-    border: none;
+    box-shadow: 0 0 0 3px var(--color-primary-soft);
 
-    border-radius: 8px;
+}
+
+
+
+/* Acciones */
+
+.category-form-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 10px;
+
+}
+
+
+
+/* Botones */
+
+.category-form-actions button {
+
+    height: 42px;
+
+    padding: 0 22px;
+
+    border-radius: var(--radius-md);
+
+    font-size: 14px;
+
+    font-weight: 600;
 
     cursor: pointer;
+
+    transition: all 0.2s ease;
+
+}
+
+
+
+/* Volver */
+
+.category-form-cancel {
+
+    background: var(--color-surface);
+
+    border: 1px solid var(--color-border);
+
+    color: var(--color-text);
+
+}
+
+
+
+.category-form-cancel:hover {
+
+    background: var(--color-bg);
+
+    border-color: #CBD5E1;
+
+}
+
+
+
+/* Guardar */
+
+.category-form-submit {
+
+    background: var(--color-primary);
+
+    border: 1px solid var(--color-primary);
+
+    color: white;
+
+}
+
+
+
+.category-form-submit:hover {
+
+    background: #1D4ED8;
+
+}
+
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+
+    .category-form {
+
+        max-width: 100%;
+
+        padding: var(--spacing-md);
+
+    }
+
+
+    .category-form-actions {
+
+        flex-direction: column-reverse;
+
+    }
+
+
+    .category-form-actions button {
+
+        width: 100%;
+
+    }
 
 }

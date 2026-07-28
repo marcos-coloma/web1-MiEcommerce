@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import "./CategoryForm.css";
 
@@ -7,13 +6,16 @@ import "./CategoryForm.css";
 export default function CategoryForm({
     initialData,
     onSubmit,
+    onCancel,
     buttonText = "Guardar"
 }) {
+
 
     const [formData, setFormData] = useState({
         name: "",
         icon: ""
     });
+
 
 
     useEffect(() => {
@@ -73,6 +75,7 @@ export default function CategoryForm({
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
+                    placeholder="Ej: Electrónica"
                 />
 
             </label>
@@ -87,17 +90,35 @@ export default function CategoryForm({
                     name="icon"
                     value={formData.icon}
                     onChange={handleChange}
+                    placeholder="imagen.png o URL"
                 />
 
             </label>
 
 
 
-            <button type="submit">
+            <div className="category-form-actions">
 
-                {buttonText}
 
-            </button>
+                <button
+                    type="button"
+                    className="category-form-cancel"
+                    onClick={onCancel}
+                >
+                    Volver
+                </button>
+
+
+
+                <button
+                    type="submit"
+                    className="category-form-submit"
+                >
+                    {buttonText}
+                </button>
+
+
+            </div>
 
 
         </form>
