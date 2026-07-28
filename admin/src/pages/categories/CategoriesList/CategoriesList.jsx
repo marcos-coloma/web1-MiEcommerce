@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import PageTitle from "../../../components/PageTitle/PageTitle";
 import useCategories from "../hooks/useCategories";
 
 import CategoryCard from "../components/CategoryCard/CategoryCard";
@@ -54,6 +55,8 @@ export default function CategoriesList() {
 
     return (
         <section className="categories-page">
+
+        <PageTitle title="Categories List | Admin" />
 
             <div className="categories-header">
 

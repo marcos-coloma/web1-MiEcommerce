@@ -1,10 +1,14 @@
 // src/errors/NotFound/NotFound.jsx
+
 import { Link } from "react-router-dom";
 import "./NotFound.css";
+import PageTitle from "../../components/PageTitle/PageTitle";
 
 export default function NotFound() {
     return (
         <section className="not-found">
+
+        <PageTitle title="Not Found | Admin" />
 
             <div className="not-found__card">
 
