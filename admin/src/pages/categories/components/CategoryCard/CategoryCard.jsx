@@ -1,7 +1,26 @@
+import { useNavigate } from "react-router-dom";
+
 import "./CategoryCard.css";
 
 
-export default function CategoryCard({ category }) {
+export default function CategoryCard({ category, onDelete }) {
+
+    const navigate = useNavigate();
+
+
+    const handleDelete = () => {
+
+        const confirmDelete = window.confirm(
+            `¿Eliminar categoría "${category.name}"?`
+        );
+
+
+        if (confirmDelete) {
+            onDelete(category.id);
+        }
+
+    };
+
 
     return (
 
@@ -21,11 +40,17 @@ export default function CategoryCard({ category }) {
 
             <div className="category-card-actions">
 
-                <button>
+                <button
+                    onClick={() => navigate(`/categories/${category.id}`)}
+                >
                     Editar
                 </button>
 
-                <button className="delete">
+
+                <button
+                    className="delete"
+                    onClick={handleDelete}
+                >
                     Eliminar
                 </button>
 
@@ -34,5 +59,4 @@ export default function CategoryCard({ category }) {
         </article>
 
     );
-
 }

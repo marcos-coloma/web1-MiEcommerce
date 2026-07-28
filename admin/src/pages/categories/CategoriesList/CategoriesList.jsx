@@ -16,7 +16,8 @@ export default function CategoriesList() {
         categories,
         loading,
         error,
-        getCategories
+        getCategories,
+        deleteCategory
     } = useCategories();
 
 
@@ -79,6 +80,7 @@ export default function CategoriesList() {
                         <CategoryCard
                             key={category.id}
                             category={category}
+                            onDelete={deleteCategory}
                         />
 
                     ))
