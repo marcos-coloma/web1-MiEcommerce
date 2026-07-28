@@ -2,7 +2,6 @@ const db = require("../../db/database");
 
 const Category = {
 
-    // Obtener todas
     getAll: () => {
         return db.prepare(`
             SELECT
@@ -14,7 +13,7 @@ const Category = {
         `).all();
     },
 
-    // Obtener por ID
+
     getById: (id) => {
         return db.prepare(`
             SELECT
@@ -26,7 +25,7 @@ const Category = {
         `).get(id);
     },
 
-    // Crear
+
     create: ({ name, icon }) => {
         const result = db.prepare(`
             INSERT INTO categories (name, icon)
@@ -40,22 +39,16 @@ const Category = {
         };
     },
 
-    // Actualizar
+
     update: (id, { name, icon }) => {
-        db.prepare(`
+        return db.prepare(`
             UPDATE categories
             SET name = ?, icon = ?
             WHERE id = ?
         `).run(name, icon, id);
-
-        return {
-            id,
-            name,
-            icon
-        };
     },
 
-    // Eliminar
+
     delete: (id) => {
         return db.prepare(`
             DELETE FROM categories
