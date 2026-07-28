@@ -9,7 +9,7 @@ const productsService = {
     getByCategory: (categoryId, excludeId) => 
         Product.getByCategory(categoryId, excludeId),
 
-
+    
     create: (product) => {
         return Product.create(product);
     },

@@ -85,6 +85,13 @@ const Product = {
         `).all(limit);
     },
 
+    count: () => {
+        return db.prepare(`
+            SELECT COUNT(*) AS total
+            FROM products
+        `).get().total;
+    },
+
 
     //------------CREACION------------
 
