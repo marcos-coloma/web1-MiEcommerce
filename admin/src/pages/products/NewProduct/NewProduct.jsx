@@ -3,6 +3,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+import PageTitle from "../../../components/PageTitle/PageTitle";
 import ProductForm from "../components/ProductForm/ProductForm";
 import ProductHeader from "../components/ProductHeader/ProductHeader";
 
@@ -240,6 +241,7 @@ export default function NewProduct() {
 
         <div className="product-view">
 
+        <PageTitle title="New Product | Admin" />
 
             <ProductHeader
                 title="Nuevo producto"

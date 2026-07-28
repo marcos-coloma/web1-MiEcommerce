@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 import useCategories from "../hooks/useCategories";
 import CategoryForm from "../components/CategoryForm/CategoryForm";
+import PageTitle from "../../../components/PageTitle/PageTitle";
 
 import "./NewCategory.css";
 
@@ -35,6 +36,7 @@ export default function NewCategory() {
 
         <section className="new-category-page">
 
+        <PageTitle title="New Category | Admin" />
 
             <div className="new-category-header">
 

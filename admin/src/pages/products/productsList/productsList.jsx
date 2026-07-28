@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+import PageTitle from "../../../components/PageTitle/PageTitle";
 import ProductListItem from "../components/ProductListItem/ProductListItem";
 import ProductsListHeader from "../components/ProductsListHeader/ProductsListHeader";
 
@@ -154,6 +155,7 @@ export default function ProductsList() {
 
         <div className="products">
 
+        <PageTitle title="Products List | Admin" />
 
             <ProductsListHeader
                 onAdd={() => navigate("/products/new")}

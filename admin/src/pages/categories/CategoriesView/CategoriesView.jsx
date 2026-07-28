@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
+import PageTitle from "../../../components/PageTitle/PageTitle";
 import useCategories from "../hooks/useCategories";
 
 import CategoryForm from "../components/CategoryForm/CategoryForm";
@@ -88,6 +89,7 @@ export default function CategoriesView() {
 
         <section className="category-view">
 
+        <PageTitle title="Categories View | Admin" />
 
             <div className="category-view__header">
 

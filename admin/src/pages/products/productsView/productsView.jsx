@@ -2,6 +2,7 @@
 
 import { useNavigate, useParams } from "react-router-dom";
 
+import PageTitle from "../../../components/PageTitle/PageTitle";
 import ProductForm from "../components/ProductForm/ProductForm";
 import ProductHeader from "../components/ProductHeader/ProductHeader";
 import ProductSummary from "../components/ProductSummary/ProductSummary";
@@ -99,6 +100,7 @@ console.log("CATEGORIES:", categories);
     return (
         <div className="product-view">
 
+        <PageTitle title="Products View | Admin" />
 
             <ProductHeader
                 productId={product.id}

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import DashboardCard from "./components/DashboardCard/DashboardCard";
 import "./Home.css";
 
+import PageTitle from "../../components/PageTitle/PageTitle";
 import productsIcon from "../../assets/icons/products.svg";
 import usersIcon from "../../assets/icons/users.svg";
 import analyticsIcon from "../../assets/icons/analytics.svg";
@@ -76,6 +77,8 @@ export default function Home() {
 
     return (
         <div className="home">
+
+        <PageTitle title="Home | Admin" />
 
             <h1>
                 ¡Hola Marcos!

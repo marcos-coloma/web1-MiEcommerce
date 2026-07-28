@@ -25,6 +25,13 @@ const Category = {
         `).get(id);
     },
 
+    count: () => {
+        return db.prepare(`
+            SELECT COUNT(*) AS total
+            FROM categories
+        `).get().total;
+    },
+
 
     create: ({ name, icon }) => {
         const result = db.prepare(`
