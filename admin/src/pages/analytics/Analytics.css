@@ -1,11 +1,52 @@
 .analytics {
-    padding: 20px;
+    padding: 24px;
+    background: #f6f8fb;
+    min-height: 100vh;
 }
 
+/* Título */
 .analytics h1 {
-    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #1f2937;
 }
 
-.analytics p {
-    color: #666;
+/* Contenedor de cards */
+.analytics-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* Card */
+.analytics-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
+    border: 1px solid #eef1f5;
+}
+
+/* Hover sutil tipo SaaS */
+.analytics-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* Título card */
+.analytics-card h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+/* Número grande (KPI) */
+.analytics-card p {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
 }
