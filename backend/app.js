@@ -11,17 +11,18 @@ requiredEnv.forEach((key) => {
     }
 });
 
-
-
-
+//MIDDLEWARES
 const express = require("express");
 const session = require("express-session");
 const expressLayouts = require('express-ejs-layouts');
 const path = require("path");
 const helmet = require("helmet");
 const cors = require("cors");
+
 const defaultLocals = require("./src/middlewares/defaultLocals");
 const initCart = require('./src/middlewares/initCart');
+const notFound = require('./src/middlewares/notFound');
+const errorHandler = require('./src/middlewares/errorHandler');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -101,11 +102,7 @@ app.use("/", productDetailsRoutes);
 app.use("/", cartRoutes);
 app.use("/", productsRoutes);
 
-
-const notFound = require('./src/middlewares/notFound');
-const errorHandler = require('./src/middlewares/errorHandler');
-
-
+//ERRORS
 app.use(notFound);
 app.use(errorHandler);
 
