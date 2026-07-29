@@ -31,7 +31,7 @@ export default function ProductsList() {
             try {
 
                 const response = await fetch(
-                    "http://localhost:3000/api/products"
+                    `${import.meta.env.VITE_API_URL}/api/products`
                 );
 
                 if (!response.ok) {
@@ -61,7 +61,7 @@ export default function ProductsList() {
             try {
 
                 const response = await fetch(
-                    "http://localhost:3000/api/categories"
+                    `${import.meta.env.VITE_API_URL}/api/categories`
                 );
 
                 if (!response.ok) {

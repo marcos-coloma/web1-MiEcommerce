@@ -1,6 +1,6 @@
-require("dotenv").config();
-
-require("dotenv").config();
+require("dotenv").config({
+    path: "./backend/.env"
+});
 
 const requiredEnv = ["PORT", "SESSION_SECRET", "CLIENT_URL"];
 

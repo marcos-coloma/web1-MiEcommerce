@@ -6,7 +6,9 @@ const path = require('path');
 
 // Ruta al archivo .db
 const dbPath = path.resolve(
-    process.env.DB_PATH || path.join(__dirname, 'ecommerce.db')
+    __dirname,
+    "..",
+    process.env.DB_PATH
 );
 
 // Crear o abrir la base de datos

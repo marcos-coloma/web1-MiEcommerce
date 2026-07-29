@@ -112,7 +112,7 @@ export default function useProductForm({
                 );
 
             const response = await fetch(
-                `http://localhost:3000/api/products/${id}`,
+                `${import.meta.env.VITE_API_URL}/api/products/${id}`,
                 {
 
                     method: "PUT",
@@ -172,7 +172,7 @@ export default function useProductForm({
         try {
 
             const response = await fetch(
-                `http://localhost:3000/api/products/${id}`,
+                `${import.meta.env.VITE_API_URL}/api/products/${id}`,
                 {
                     method:"DELETE"
                 }

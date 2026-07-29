@@ -15,7 +15,7 @@ export default function useStats() {
 
         const fetchStats = async () => {
             try {
-                const res = await fetch("http://localhost:3000/api/stats");
+                const res = await fetch(`${import.meta.env.VITE_API_URL}/api/stats`);
 
                 if (!res.ok) throw new Error("Error al obtener estadísticas");
 

@@ -27,7 +27,7 @@ export default function CategoryCard({ category, onDelete }) {
         <article className="category-card">
 
             <img
-                src={`http://localhost:3000/img/ui/${category.icon}`}
+                src={`${import.meta.env.VITE_API_URL}/img/ui/${category.icon}`}
                 alt={category.name}
                 className="category-card-image"
                 onError={(e) => {
