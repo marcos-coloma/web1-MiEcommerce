@@ -10,21 +10,17 @@ export default function CategoryForm({
     buttonText = "Guardar"
 }) {
 
-
     const [formData, setFormData] = useState({
         name: "",
         icon: ""
     });
 
-
     const [error, setError] = useState("");
-
 
 
     useEffect(() => {
 
         if (!initialData) return;
-
 
         setFormData({
             name: initialData.name || "",
@@ -42,42 +38,28 @@ export default function CategoryForm({
             value
         } = e.target;
 
-
         setFormData(prev => ({
             ...prev,
             [name]: value
         }));
 
-
         setError("");
-
     };
-
 
 
     const handleSubmit = (e) => {
 
         e.preventDefault();
 
-
-
         if (!formData.name.trim()) {
-
             setError("El nombre es obligatorio");
             return;
-
         }
-
-
 
         if (!formData.icon.trim()) {
-
             setError("El icono es obligatorio");
             return;
-
         }
-
-
 
         setError("");
 
@@ -85,10 +67,7 @@ export default function CategoryForm({
             name: formData.name.trim(),
             icon: formData.icon.trim()
         });
-
     };
-
-
 
     return (
 
@@ -97,9 +76,7 @@ export default function CategoryForm({
             onSubmit={handleSubmit}
         >
 
-
             <label>
-
                 Nombre
 
                 <input
@@ -108,13 +85,9 @@ export default function CategoryForm({
                     onChange={handleChange}
                     placeholder="Ej: Electrónica"
                 />
-
             </label>
 
-
-
             <label>
-
                 Icono
 
                 <input
@@ -123,25 +96,17 @@ export default function CategoryForm({
                     onChange={handleChange}
                     placeholder="Ej: icono.svg"
                 />
-
             </label>
-
-
 
             {
                 error && (
-
                     <p className="category-form-error">
                         {error}
                     </p>
-
                 )
             }
 
-
-
             <div className="category-form-actions">
-
 
                 <button
                     type="button"
@@ -151,21 +116,13 @@ export default function CategoryForm({
                     Volver
                 </button>
 
-
-
                 <button
                     type="submit"
                     className="category-form-submit"
                 >
                     {buttonText}
                 </button>
-
-
             </div>
-
-
         </form>
-
     );
-
 }

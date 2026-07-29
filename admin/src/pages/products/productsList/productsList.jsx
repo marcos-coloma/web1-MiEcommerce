@@ -1,13 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import {filterProducts} from "../utils/productUtils";
 
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import ProductListItem from "../components/ProductListItem/ProductListItem";
 import ProductsListHeader from "../components/ProductsListHeader/ProductsListHeader";
-
-import {
-    filterProducts
-} from "../utils/productUtils";
 
 import "./ProductsList.css";
 
@@ -16,15 +13,11 @@ export default function ProductsList() {
 
     const navigate = useNavigate();
 
-
     const [products, setProducts] = useState([]);
-
     const [categories, setCategories] = useState([]);
-
 
     const [search, setSearch] = useState("");
     const [category, setCategory] = useState("");
-
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -41,36 +34,24 @@ export default function ProductsList() {
                     "http://localhost:3000/api/products"
                 );
 
-
                 if (!response.ok) {
                     throw new Error(
                         "Error al obtener productos"
                     );
                 }
-
-
                 const data = await response.json();
-
                 setProducts(data);
 
-
             } catch (error) {
-
                 setError(error.message);
-
             } finally {
-
                 setLoading(false);
-
             }
-
         };
-
 
         fetchProducts();
 
     }, []);
-
 
 
     useEffect(() => {
@@ -83,32 +64,21 @@ export default function ProductsList() {
                     "http://localhost:3000/api/categories"
                 );
 
-
                 if (!response.ok) {
                     throw new Error(
                         "Error al obtener categorías"
                     );
                 }
 
-
                 const data = await response.json();
-
                 setCategories(data);
 
-
             } catch (error) {
-
                 console.error(error);
-
             }
-
         };
-
-
         fetchCategories();
-
     }, []);
-
 
 
     const filteredProducts = filterProducts(
@@ -118,41 +88,30 @@ export default function ProductsList() {
     );
 
 
-
     if (loading) {
-
         return (
             <div className="products">
-
                 <p className="products__loading">
                     Cargando...
                 </p>
-
             </div>
         );
-
     }
 
 
 
     if (error) {
-
         return (
             <div className="products">
-
                 <p className="products__error">
                     {error}
                 </p>
-
             </div>
         );
-
     }
 
 
-
     return (
-
         <div className="products">
 
         <PageTitle title="Products List | Admin" />
@@ -169,36 +128,23 @@ export default function ProductsList() {
                 categories={categories}
             />
 
-
-
             <div className="products__list">
 
                 {
                     filteredProducts.length === 0 ? (
-
                         <p className="products__empty">
                             No se encontraron productos
                         </p>
-
                     ) : (
-
                         filteredProducts.map((product) => (
-
                             <ProductListItem
                                 key={product.id}
                                 product={product}
                             />
-
                         ))
-
                     )
                 }
-
             </div>
-
-
         </div>
-
     );
-
 }

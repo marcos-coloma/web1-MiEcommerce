@@ -30,7 +30,6 @@ export default function ProductView() {
     } = useProductData(id);
 
 
-
     const {
 
         formErrors,
@@ -59,7 +58,6 @@ export default function ProductView() {
 
 
     if (loading) {
-
         return (
             <div className="product-view">
                 <p className="product-view__loading">
@@ -67,12 +65,10 @@ export default function ProductView() {
                 </p>
             </div>
         );
-
     }
 
 
     if (error) {
-
         return (
             <div className="product-view">
                 <p className="product-view__error">
@@ -80,12 +76,10 @@ export default function ProductView() {
                 </p>
             </div>
         );
-
     }
 
 
     if (!product || !formData) {
-
         return (
             <div className="product-view">
                 <p className="product-view__error">
@@ -93,7 +87,6 @@ export default function ProductView() {
                 </p>
             </div>
         );
-
     }
 
 console.log("CATEGORIES:", categories);
@@ -110,11 +103,9 @@ console.log("CATEGORIES:", categories);
                 saving={saving}
             />
 
-
             <ProductSummary
                 product={product}
             />
-
 
             <ProductForm
                 formData={formData}

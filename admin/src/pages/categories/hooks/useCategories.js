@@ -97,7 +97,6 @@ export default function useCategories() {
                 body: JSON.stringify(categoryData)
             });
 
-            // 🔑 usamos updated.id (más seguro)
             setCategories(prev =>
                 prev.map(cat => cat.id === updated.id ? updated : cat)
             );

@@ -9,7 +9,6 @@
 }
 
 
-/* imagen */
 
 .product-summary__image-container {
     width: 180px;
@@ -31,7 +30,6 @@
 }
 
 
-/* contenido */
 
 .product-summary__content {
     flex: 1;
@@ -41,7 +39,7 @@
 }
 
 
-/* titulo */
+
 
 .product-summary__label {
     font-size: 12px;
@@ -57,7 +55,6 @@
 }
 
 
-/* detalles */
 
 .product-summary__details {
     display: grid;
@@ -85,17 +82,14 @@
 }
 
 
-/* link tienda */
+
 
 .product-summary__store-link {
     align-self: flex-start;
-
     padding: 10px 16px;
     border-radius: 8px;
-
     background: #1d8cff;
     color: white;
-
     font-weight: 600;
     text-decoration: none;
 }
@@ -105,7 +99,7 @@
 }
 
 
-/* responsive */
+/* responsive - tablet */
 
 @media (max-width: 900px) {
 
@@ -120,6 +114,8 @@
     }
 
 }
+
+/* responsive - mobile */
 
 @media (max-width: 520px) {
 

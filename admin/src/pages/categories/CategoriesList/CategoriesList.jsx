@@ -23,10 +23,8 @@ export default function CategoriesList() {
 
 
     useEffect(() => {
-
         getCategories();
     }, []);
-
 
     if (loading) {
         return (
@@ -35,7 +33,6 @@ export default function CategoriesList() {
             </div>
         );
     }
-
 
     if (error) {
         return (
@@ -69,26 +66,20 @@ export default function CategoriesList() {
                 >
                     Nueva categoría
                 </button>
-
             </div>
-
 
             <div className="categories-grid">
 
                 {
                     categories.map(category => (
-
                         <CategoryCard
                             key={category.id}
                             category={category}
                             onDelete={deleteCategory}
                         />
-
                     ))
                 }
-
             </div>
-
         </section>
     );
 }

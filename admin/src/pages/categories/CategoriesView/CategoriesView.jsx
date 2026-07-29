@@ -14,7 +14,6 @@ export default function CategoriesView() {
     const { id } = useParams();
     const navigate = useNavigate();
 
-
     const {
         category,
         loading,
@@ -23,66 +22,47 @@ export default function CategoriesView() {
         updateCategory
     } = useCategories();
 
-
-
     useEffect(() => {
-
         getCategoryById(id);
-
     }, [id]);
 
-
-
     const handleUpdate = async (data) => {
-
         const updated = await updateCategory(
             id,
             data
         );
 
-
         if (updated) {
-
             navigate("/categories");
-
         }
-
     };
 
 
-
     if (loading) {
-
         return (
             <p>
                 Cargando categoría...
             </p>
         );
-
     }
 
 
     if (error) {
-
         return (
             <p>
                 {error}
             </p>
         );
-
     }
 
 
     if (!category) {
-
         return (
             <p>
                 Categoría no encontrada
             </p>
         );
-
     }
-
 
 
     return (
@@ -92,14 +72,10 @@ export default function CategoriesView() {
         <PageTitle title="Categories View | Admin" />
 
             <div className="category-view__header">
-
                 <h1>
                     Editar categoría #{category.id}
                 </h1>
-
             </div>
-
-
 
             <CategoryForm
                 initialData={category}
@@ -108,9 +84,6 @@ export default function CategoriesView() {
                 buttonText="Guardar cambios"
             />
 
-
         </section>
-
     );
-
 }

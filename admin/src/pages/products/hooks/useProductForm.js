@@ -179,56 +179,32 @@ export default function useProductForm({
             );
 
             if (!response.ok) {
-
                 throw new Error(
                     "Error al eliminar el producto"
                 );
-
             }
 
             navigate("/products");
 
-
-
         } catch(error) {
-
-
             setActionError(
                 error.message
             );
 
-
             setDeleting(false);
-
         }
-
     };
-
-
 
     return {
-
         formErrors,
-
         actionMessage,
-
         actionError,
-
         saving,
-
         deleting,
-
-
         handleInputChange,
-
         handleCancel,
-
         handleStockChange,
-
         handleSubmit,
-
         handleDelete
-
     };
-
 }

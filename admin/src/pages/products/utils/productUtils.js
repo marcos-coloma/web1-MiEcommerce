@@ -14,11 +14,8 @@ export const buildFormData = (product) => ({
         : "0",
 
     img: product.img || "",
-
     store_name: product.store_name || "",
-
     store_profile_url: product.store_profile_url || "",
-
     category_id: product.category_id || ""
 });
 
@@ -28,26 +25,21 @@ export const validateForm = (values) => {
 
     const errors = {};
 
-
     if (!values.name.trim()) {
         errors.name = "El nombre es requerido";
     }
-
 
     if (!Number.isInteger(Number(values.price))) {
         errors.price = "El precio debe ser un numero entero";
     }
 
-
     if (!Number.isInteger(Number(values.stock))) {
         errors.stock = "El stock debe ser un numero entero";
     }
 
-
     if (!values.category_id) {
         errors.category_id = "La categoria es requerida";
     }
-
 
     return errors;
 };
@@ -78,17 +70,12 @@ export const buildProductPayload = (formData, product = {}) => ({
 });
 
 
-
-// Categorías vienen directamente del endpoint /api/categories
 export const buildCategoryOptions = (categories) => {
-
     return categories.map(category => ({
         id: category.id,
         name: category.name
     }));
-
 };
-
 
 
 export const filterProducts = (
@@ -99,7 +86,6 @@ export const filterProducts = (
 
     return products.filter((product) => {
 
-
         const matchesName =
             product.name
                 .toLowerCase()
@@ -107,14 +93,10 @@ export const filterProducts = (
                     search.trim().toLowerCase()
                 );
 
-
         const matchesCategory =
             category === "" ||
             product.category_id === Number(category);
 
-
         return matchesName && matchesCategory;
-
     });
-
 };
