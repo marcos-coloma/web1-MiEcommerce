@@ -20,6 +20,8 @@ const expressLayouts = require('express-ejs-layouts');
 const path = require("path");
 const helmet = require("helmet");
 const cors = require("cors");
+const defaultLocals = require("./src/middlewares/defaultLocals");
+const initCart = require('./src/middlewares/initCart');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -41,8 +43,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //  SESSION
-const initCart = require('./src/middlewares/initCart');
-
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -75,14 +75,8 @@ app.use(expressLayouts);
 app.set('layout', 'layouts/main');
 
 // DEFAULT
-app.use((req, res, next) => {
-    res.locals.title = "MiEcommerce";
-    res.locals.perfilLink = "/login";
-    res.locals.mainClass = '';
 
-    next();
-});
-
+app.use(defaultLocals);
 
 // IMPORTAR RUTAS
 const apiProductsRoutes = require('./src/routes/api/productsRoutes');
