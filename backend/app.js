@@ -1,3 +1,19 @@
+require("dotenv").config({
+    path: "./backend/.env"
+});
+
+const requiredEnv = ["PORT", "SESSION_SECRET", "CLIENT_URL"];
+
+requiredEnv.forEach((key) => {
+    if (!process.env[key]) {
+        console.error(`Missing environment variable: ${key}`);
+        process.exit(1);
+    }
+});
+
+
+
+
 const express = require("express");
 const session = require("express-session");
 const expressLayouts = require('express-ejs-layouts');
@@ -5,10 +21,8 @@ const path = require("path");
 const helmet = require("helmet");
 const cors = require("cors");
 
-
-
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // SECURITY
 app.use(helmet({
@@ -18,20 +32,19 @@ app.use(helmet({
 
 // CORS
 app.use(cors({
-    origin: "http://localhost:5173"
+    origin: process.env.CLIENT_URL,
+    credentials: true
 }));
 
 // PARSERS
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
 //  SESSION
-
 const initCart = require('./src/middlewares/initCart');
 
 app.use(session({
-    secret: "secreto",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true
 }));
@@ -104,7 +117,6 @@ app.use(errorHandler);
 
 
 // INICIAR SERVIDOR
-
 app.listen(PORT, () => {
-    console.log("Servidor corriendo en http://localhost:3000");
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

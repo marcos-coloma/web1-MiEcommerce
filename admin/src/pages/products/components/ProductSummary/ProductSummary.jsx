@@ -5,7 +5,7 @@ export default function ProductSummary({ product }) {
     const imageSrc = product?.img
     ? product.img.startsWith("http")
         ? product.img
-        : `http://localhost:3000${product.img}`
+        : `${import.meta.env.VITE_API_URL}${product.img}`
     : "/img/products/placeholder.webp";
 
     const storeProfileUrl = product.store_profile_url?.trim();

@@ -11,7 +11,7 @@ export default function ProductListItem({ product }) {
 
     const imageUrl = product.img.startsWith("http")
         ? product.img
-        : `http://localhost:3000${product.img}`;
+        : `${import.meta.env.VITE_API_URL}${product.img}`;
 
 
     return (
