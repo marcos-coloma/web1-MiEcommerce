@@ -1,9 +1,13 @@
+require("dotenv").config();
+
 const Database = require('better-sqlite3');
 const fs = require('fs');
 const path = require('path');
 
 // Ruta al archivo .db
-const dbPath = path.join(__dirname, 'ecommerce.db');
+const dbPath = path.resolve(
+    process.env.DB_PATH || path.join(__dirname, 'ecommerce.db')
+);
 
 // Crear o abrir la base de datos
 const db = new Database(dbPath);
