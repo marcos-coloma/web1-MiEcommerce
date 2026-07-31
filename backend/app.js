@@ -21,6 +21,7 @@ const cors = require("cors");
 
 const defaultLocals = require("./src/middlewares/defaultLocals");
 const initCart = require('./src/middlewares/initCart');
+const cartCount = require("./src/middlewares/cartCount");
 const notFound = require('./src/middlewares/notFound');
 const errorHandler = require('./src/middlewares/errorHandler');
 
@@ -50,19 +51,11 @@ app.use(session({
     saveUninitialized: true
 }));
 
+// CART INIT
 app.use(initCart);
 
-
 // CART COUNT
-app.use((req, res, next) => {
-    const cart = req.session.cart || [];
-    const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
-
-    res.locals.cartCount = cartCount;
-
-    next();
-});
-
+app.use(cartCount);
 
 //  STATIC
 app.use(express.static(path.join(__dirname, "public")));
@@ -76,7 +69,6 @@ app.use(expressLayouts);
 app.set('layout', 'layouts/main');
 
 // DEFAULT
-
 app.use(defaultLocals);
 
 // IMPORTAR RUTAS
